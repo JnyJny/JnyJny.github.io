@@ -92,8 +92,8 @@ Done. Your new project is available at /Users/username/blog
 
 &lt;p&gt;The only questions I didn't take the defaults on were:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;website name&lt;/li&gt;
-&lt;li&gt;website author&lt;/li&gt;
+&lt;li&gt;web site title&lt;/li&gt;
+&lt;li&gt;web site author&lt;/li&gt;
 &lt;li&gt;time zone&lt;/li&gt;
 &lt;li&gt;upload to GitHub&lt;/li&gt;
 &lt;/ul&gt;
@@ -160,7 +160,7 @@ bet for learning more about them.&lt;/p&gt;
 &lt;span class="n"&gt;wisdom&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="n"&gt;days&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;yore&lt;/span&gt; &lt;span class="n"&gt;much&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;would&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;deemed&lt;/span&gt; &lt;span class="n"&gt;sorcery&lt;/span&gt;
 &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;would&lt;/span&gt; &lt;span class="n"&gt;probably&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;burned&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;stake&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 
-&lt;span class="n"&gt;Thanks&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;reading&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;span class="err"&gt;😆&lt;/span&gt;
 
 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;my_sweet_photo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;HotPhotoOfMe&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -179,7 +179,7 @@ directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
 
 
 &lt;ul&gt;
-&lt;li&gt;Publish the output directory to the &lt;code&gt;master&lt;/code&gt; branch:&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;ghp-import&lt;/code&gt; to add the contents of the output directory to the &lt;code&gt;master&lt;/code&gt; branch:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ ghp-import -m &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; --no-jekyll -b master output
 &lt;/pre&gt;&lt;/div&gt;

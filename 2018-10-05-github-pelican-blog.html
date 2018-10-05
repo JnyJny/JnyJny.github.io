@@ -220,21 +220,21 @@ directory.  Of the content branch. That's a lot of content.</p>
 <ol>
 <li>Run pelican to generate the static HTML files in <code>output</code></li>
 </ol>
-<div class="highlight"><pre><span></span>$ pelican content -o output -s publishconf.py
+<div class="highlight"><pre><span></span>   $ pelican content -o output -s publishconf.py
 </pre></div>
 
 
 <ol>
 <li>Publish the output directory to the <code>master</code> branch</li>
 </ol>
-<div class="highlight"><pre><span></span>$ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
+<div class="highlight"><pre><span></span>   $ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
 </pre></div>
 
 
 <ol>
 <li>Push the local master branch to the remote repo</li>
 </ol>
-<div class="highlight"><pre><span></span>$ git push origin master
+<div class="highlight"><pre><span></span>   $ git push origin master
 </pre></div>
 
 

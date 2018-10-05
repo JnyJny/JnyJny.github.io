@@ -1,6 +1,6 @@
 PY?=python3
 PELICAN?=pelican
-
+PELICANOPTS=
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
@@ -11,18 +11,7 @@ PUBLISHCONF=$(BASEDIR)/publishconf.py
 GITHUB_PAGES_BRANCH= master
 GITHUB_CNAME= blog.xenolab.com
 
-
-THEMESDIR=  $(BASEDIR)/themes
-ATTILA=     $(THEMESDIR)/attila
-BLUE=       $(THEMESDIR)/blue
-BLUEIDEA=   $(THEMESDIR)/blueidea
-MEDIUS=     $(THEMESDIR)/medius
-SIMPLEGREY= $(THEMESDIR)/simplegrey
-TWENTY=     $(THEMESDIR)/twenty
-
-THEME= $(MEDIUS)
-
-PELICANOPTS= --theme=$(THEME)
+PELICANOPTS += --theme=theme
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -51,6 +40,7 @@ help:
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
 	@echo '                                                                          '
+
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
@@ -90,13 +80,12 @@ stopserver:
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
-
 GHP_IMPORT_OPTS += -m "Generate Pelican site"
 GHP_IMPORT_OPTS += --no-jekyll
 GHP_IMPORT_OPTS += --cname=$(GITHUB_CNAME)
 
 github: publish
 	ghp-import $(GHP_IMPORT_OPTS) -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push origin $(GITHUB_PAGES_BRANCH)
+#	git push origin $(GITHUB_PAGES_BRANCH)
 
 .PHONY: html help clean regenerate serve serve-global devserver stopserver publish github

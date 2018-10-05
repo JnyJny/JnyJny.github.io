@@ -84,28 +84,29 @@ that statment, it would store the results of the addition, the "3",
 somewhere in memory.</p>
 <p>Computers know how to do math with numbers and move data around the
 machine's memory heirarchy. I won't say too much about memory except
-to say it generally comes in two different flavors: fast &amp; small, and
-slow &amp; big. CPU registers are very fast, very small and act as
-scratch pads while main memory is typically very big and not nearly as
+to say it generally comes in two different flavors: fast/small, and
+slow/big. CPU registers are very fast, very small and act as
+scratch pads. Main memory is typically very big and not nearly as
 fast as register memory. CPUs shuffle the data they are working with
 from main memory to registers and back again while a program executes.</p>
 <h2>Assembler</h2>
-<p>Computers were very expensive and people were cheap. Programmers
-spent endless hours translating hand written math into computer
-instructions that the computer could execute. The very first computers
-had terrible user interfaces, some only consisting of toggle switches
-on the front panel where each computer instruction was entered a word
-at a time by flipping the switches between 1 and 0. It was time
-consuming and error prone.</p>
+<p>Computers were very expensive and people were cheap. Programmers spent
+endless hours translating hand written math into computer instructions
+that the computer could execute. The very first computers had terrible
+user interfaces, some only consisting of toggle switches on the front
+panel. The switches represented 1s and 0s in a single "word" of
+memory. The programmer would configure a word, indicate where to store
+it and then commit the word to memory. It was time consuming and error
+prone.</p>
 <p>Eventually, an <a href="https://en.wikipedia.org/wiki/Nathaniel_Rochester_%28computer_scientist%29">electrical engineer</a> decided his time wasn't cheap
-and wrote a program whose input was recipe expressed in terms people
+and wrote a program whose input was a recipe expressed in terms people
 could read and output a computer readable version. This was the first
 "assembler" and it was very controversial. The people that owned the
 expensive machines didn't want to "waste" compute time on a task that
-people were already doing; cheaply, slowly, and with errors. Over
-time, people came to appreciate the speed and accuracy of the
-assembler versus the a hand-written program and the amount of "real
-work" done with the computer increased.</p>
+people were already doing; albiet slowly and with errors. Over time,
+people came to appreciate the speed and accuracy of the assembler
+versus a hand-assembled program and the amount of "real work" done with
+the computer increased.</p>
 <p>While assembler programs were a big step up from toggling bit patterns
 into the front panel of a machine, they were still pretty specialized.
 The addition example from above might have looked something like this:</p>
@@ -126,13 +127,13 @@ where the result should be stored in main memory (address 64).
 Mananaging where data is stored in memory is one of the most time
 consuming and error-prone parts of writing computer programs.</p>
 <h2>Compiler</h2>
-<p>While better than writing computer instructions by hand, early
-programmers yearned to write programs like they were accustomed to
-writing mathematical formulae. This drove the development of higher
-level compiled languages, some of which are historical footnotes and
-others are still in use today. <a href="https://en.wikipedia.org/wiki/ALGO">Algo</a> is one such footnote, while
-real problems continue to be solved with languages like <a href="https://en.wikipedia.org/wiki/Fortran">FORTRAN</a>
-and <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>.</p>
+<p>Assembly was much better than writing computer instructions by hand,
+however early programmers yearned to write programs like they were
+accustomed to writing mathematical formulae. This drove the
+development of higher level compiled languages, some of which are
+historical footnotes and others are still in use today. <a href="https://en.wikipedia.org/wiki/ALGO">Algo</a> is
+one such footnote, while real problems continue to be solved today
+with languages like <a href="https://en.wikipedia.org/wiki/Fortran">FORTRAN</a> and <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>.</p>
 <p>These new "high level" langagues allowed programmers to write their
 programs in simpler terms. In the C language, our addition assembly
 program would be written as:</p>
@@ -158,8 +159,9 @@ the early days of computing there was an explosion of different types
 of computing hardware from companies like IBM, Digital Equipment
 Corporation, Texas Instruments, UNIVAC, Hewlet Packard and others.
 None of these computers shared much in common besides needing to be
-plugged in. Memory and CPU architectures differed wildly and it often
-took man-years to translate programs from one computer to another.</p>
+plugged in to an electrical power supply. Memory and CPU architectures
+differed wildly and it often took man-years to translate programs from
+one computer to another.</p>
 <p>With high level languages, it was only necessary to port the compiler
 tool chain to the new platfrom. Once the compiler was available, high
 level language programs could be re-compiled for the new computer with

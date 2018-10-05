@@ -156,19 +156,19 @@ directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
 &lt;p&gt;All that's left to do is:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Run pelican to generate the static HTML files in &lt;code&gt;output&lt;/code&gt;
-    &lt;code&gt;bash
-    $ pelican content -o output -s publishconf.py&lt;/code&gt;&lt;/li&gt;
+   &lt;code&gt;bash
+   $ pelican content -o output -s publishconf.py&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Publish the output directory to the &lt;code&gt;master&lt;/code&gt; branch
-    &lt;code&gt;bash
-    $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output&lt;/code&gt;&lt;/li&gt;
+   &lt;code&gt;bash
+   $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Push the local master branch to the remote repo
-    &lt;code&gt;bash
-    $ git push origin master&lt;/code&gt;&lt;/li&gt;
+   &lt;code&gt;bash
+   $ git push origin master&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Commit and push the new markdown and images to the 'content' branch.
-    &lt;code&gt;bash
-    $ git add .
-    $ git commit -m 'added a first post, a photo and an about page'
-    $ git push origin content&lt;/code&gt;&lt;/li&gt;
+   &lt;code&gt;bash
+   $ git add .
+   $ git commit -m 'added a first post, a photo and an about page'
+   $ git push origin content&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:&lt;/p&gt;

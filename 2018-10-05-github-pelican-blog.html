@@ -219,19 +219,19 @@ directory.  Of the content branch. That's a lot of content.</p>
 <p>All that's left to do is:</p>
 <ol>
 <li>Run pelican to generate the static HTML files in <code>output</code>
-    <code>bash
-    $ pelican content -o output -s publishconf.py</code></li>
+   <code>bash
+   $ pelican content -o output -s publishconf.py</code></li>
 <li>Publish the output directory to the <code>master</code> branch
-    <code>bash
-    $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output</code></li>
+   <code>bash
+   $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output</code></li>
 <li>Push the local master branch to the remote repo
-    <code>bash
-    $ git push origin master</code></li>
+   <code>bash
+   $ git push origin master</code></li>
 <li>Commit and push the new markdown and images to the 'content' branch.
-    <code>bash
-    $ git add .
-    $ git commit -m 'added a first post, a photo and an about page'
-    $ git push origin content</code></li>
+   <code>bash
+   $ git add .
+   $ git commit -m 'added a first post, a photo and an about page'
+   $ git push origin content</code></li>
 </ol>
 <p>Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:</p>

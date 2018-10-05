@@ -218,21 +218,35 @@ directory.  Of the content branch. That's a lot of content.</p>
 <p>Don't worry, the pay off is coming!</p>
 <p>All that's left to do is:</p>
 <ol>
-<li>Run pelican to generate the static HTML files in <code>output</code>:<br>
-   <code>bash
-   $ pelican content -o output -s publishconf.py</code></li>
-<li>Publish the output directory to the <code>master</code> branch:<br>
-   <code>bash
-   $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output</code></li>
-<li>Push the local master branch to the remote repo:<br>
-   <code>bash
-   $ git push origin master</code></li>
-<li>Commit and push the new content to the 'content' branch:<br>
-   <code>bash
-   $ git add content
-   $ git commit -m 'added a first post, a photo and an about page'
-   $ git push origin content</code></li>
+<li>Run pelican to generate the static HTML files in <code>output</code>:<br></li>
 </ol>
+<div class="highlight"><pre><span></span>   $ pelican content -o output -s publishconf.py
+</pre></div>
+
+
+<ol>
+<li>Publish the output directory to the <code>master</code> branch:<br></li>
+</ol>
+<div class="highlight"><pre><span></span>   $ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
+</pre></div>
+
+
+<ol>
+<li>Push the local master branch to the remote repo:<br></li>
+</ol>
+<div class="highlight"><pre><span></span>   $ git push origin master
+</pre></div>
+
+
+<ol>
+<li>Commit and push the new content to the 'content' branch:<br></li>
+</ol>
+<div class="highlight"><pre><span></span>   $ git add content
+   $ git commit -m <span class="s1">&#39;added a first post, a photo and an about page&#39;</span>
+   $ git push origin content
+</pre></div>
+
+
 <p>Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:</p>
 <div class="highlight"><pre><span></span>https://username.github.io

@@ -209,18 +209,18 @@ directory.  Of the content branch. That's a lot of content.</p>
 <p>Don't worry, the pay off is coming!</p>
 <p>All that's left to do is:</p>
 <ol>
-<li>Run pelican to generate the static HTML files in <code>output</code>
+<li>Run pelican to generate the static HTML files in <code>output</code>:<br>
    <code>bash
    $ pelican content -o output -s publishconf.py</code></li>
-<li>Publish the output directory to the <code>master</code> branch
+<li>Publish the output directory to the <code>master</code> branch:<br>
    <code>bash
    $ ghp-import -m "Generate Pelican site" --no-jekyll -b master output</code></li>
-<li>Push the local master branch to the remote repo
+<li>Push the local master branch to the remote repo:<br>
    <code>bash
    $ git push origin master</code></li>
-<li>Commit and push the new markdown and images to the 'content' branch.
+<li>Commit and push the new content to the 'content' branch:<br>
    <code>bash
-   $ git add .
+   $ git add content
    $ git commit -m 'added a first post, a photo and an about page'
    $ git push origin content</code></li>
 </ol>

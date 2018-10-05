@@ -90,11 +90,13 @@ Done. Your new project is available at /Users/username/blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The only questions I didn't take the defaults on were:
-&lt;em&gt; website name
-&lt;/em&gt; website author
-&lt;em&gt; time zone
-&lt;/em&gt; upload to GitHub&lt;/p&gt;
+&lt;p&gt;The only questions I didn't take the defaults on were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;website name&lt;/li&gt;
+&lt;li&gt;website author&lt;/li&gt;
+&lt;li&gt;time zone&lt;/li&gt;
+&lt;li&gt;upload to GitHub&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;After answering all the questions, pelican leaves the following
 offerings in the current directory:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls

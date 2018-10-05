@@ -203,9 +203,9 @@ bet for learning more about them.</p>
 
 <span class="o">!</span><span class="p">[</span><span class="n">So</span> <span class="n">Schmexy</span><span class="p">][</span><span class="n">my_sweet_photo</span><span class="p">]</span>
 
-<span class="n">Hi</span><span class="p">,</span> <span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="n">and</span> <span class="n">I</span> <span class="n">wrote</span> <span class="n">this</span> <span class="n">epic</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">Interweb</span>
+<span class="n">Hi</span><span class="p">,</span> <span class="n">I</span> <span class="n">am</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="n">and</span> <span class="n">I</span> <span class="n">wrote</span> <span class="n">this</span> <span class="n">epic</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">Interweb</span>
 <span class="n">wisdom</span><span class="p">.</span> <span class="n">In</span> <span class="n">days</span> <span class="n">of</span> <span class="n">yore</span> <span class="n">much</span> <span class="n">of</span> <span class="n">this</span> <span class="n">would</span> <span class="n">have</span> <span class="n">been</span> <span class="n">deemed</span> <span class="n">sorcery</span>
-<span class="n">and</span> <span class="n">I</span><span class="err">&#39;</span><span class="n">d</span> <span class="n">probably</span> <span class="n">have</span> <span class="n">been</span> <span class="n">burned</span> <span class="n">at</span> <span class="n">the</span> <span class="n">stake</span><span class="p">.</span>
+<span class="n">and</span> <span class="n">I</span> <span class="n">would</span> <span class="n">probably</span> <span class="n">have</span> <span class="n">been</span> <span class="n">burned</span> <span class="n">at</span> <span class="n">the</span> <span class="n">stake</span><span class="p">.</span>
 
 <span class="n">Thanks</span> <span class="k">for</span> <span class="n">reading</span><span class="o">!</span>
 
@@ -219,21 +219,36 @@ directory.  Of the content branch. That's a lot of content.</p>
 <p>All that's left to do is:</p>
 <ol>
 <li>Run pelican to generate the static HTML files in <code>output</code></li>
-<li>Publish the output directory to the <code>master</code> branch</li>
-<li>Push the local master branch to the remote repo</li>
-<li>Commit and push the new markdown and images to the 'content' branch.</li>
 </ol>
 <div class="highlight"><pre><span></span>$ pelican content -o output -s publishconf.py
-$ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
-$ git push origin master
-$ git add .
+</pre></div>
+
+
+<ol>
+<li>Publish the output directory to the <code>master</code> branch</li>
+</ol>
+<div class="highlight"><pre><span></span>$ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
+</pre></div>
+
+
+<ol>
+<li>Push the local master branch to the remote repo</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git push origin master
+</pre></div>
+
+
+<ol>
+<li>Commit and push the new markdown and images to the 'content' branch.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git add .
 $ git commit -m <span class="s1">&#39;added a first post, a photo and an about page&#39;</span>
 $ git push origin content
 </pre></div>
 
 
-<p>Now the exciting part is here, when you realize you've published something
-for everyone to see! Type into your browser the URL:</p>
+<p>Now the exciting part is here, when you get to see what you've
+published for everyone to see! Type into your browser the URL:</p>
 <div class="highlight"><pre><span></span>https://username.github.io
 </pre></div>
 

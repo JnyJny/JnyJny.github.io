@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="">	
+<head>
+	<meta charset="utf-8"/>
+	<title>A Short Primer on Assembers, Compilers and Interpreters - Xeno:Lab</title>	
+	<meta name="author" content="ejo">
+	<link rel="apple-touch-icon" sizes="57x57"         href="http://blog.xenolab.com/theme/images/icons/xenolab-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60"         href="http://blog.xenolab.com/theme/images/icons/xenolab-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72"         href="http://blog.xenolab.com/theme/images/icons/xenolab-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76"         href="http://blog.xenolab.com/theme/images/icons/xenolab-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114"       href="http://blog.xenolab.com/theme/images/icons/xenolab-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120"       href="http://blog.xenolab.com/theme/images/icons/xenolab-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144"       href="http://blog.xenolab.com/theme/images/icons/xenolab-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152"       href="http://blog.xenolab.com/theme/images/icons/xenolab-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180"       href="http://blog.xenolab.com/theme/images/icons/xenolab-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="http://blog.xenolab.com/theme/images/icons/xenolab-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32"    href="http://blog.xenolab.com/theme/images/icons/xenolab-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96"    href="http://blog.xenolab.com/theme/images/icons/xenolab-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16"    href="http://blog.xenolab.com/theme/images/icons/xenolab-16x16.png">
+	<link rel="manifest" href="http://blog.xenolab.com/theme/images/icons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/xenolab-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+	
+
+	<meta name="description" content="A gentle introduction to the historical evolution of programming practices.">
+
+
+	<link rel="top" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="http://blog.xenolab.com/theme/css/main.css" type="text/css" />
+		
+
+    <link href="http://blog.xenolab.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Xeno:Lab Atom Feed" />
+</head>
+	
+<body>
+
+    <div class="container">
+	  
+	  <header role="banner">
+	    <div class="feeds">
+	        <a href="http://blog.xenolab.com/feeds/all.atom.xml" rel="alternate"><img src="http://blog.xenolab.com/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	    </div>
+	      <nav class="pages">
+			  <a href="http://blog.xenolab.com/pages/about.html">About</a>
+	      </nav>
+		<a href="http://blog.xenolab.com" class="title">Xeno:Lab</a>
+      </header>
+	
+	  <div class="wrapper">
+
+		  <div role="main" class="content">
+	<article class="full">
+			
+		<h1>A Short Primer on Assembers, Compilers and Interpreters</h1>
+		
+<div class="metadata">
+  <time datetime="2018-10-02T00:00:00-05:00" pubdate>Tue 02 October 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="http://blog.xenolab.com/author/ejo.html">ejo</a>
+    </address>
+  in <a href="http://blog.xenolab.com/category/primers.html">Primers</a>
+<p class="tags">tagged <a href="http://blog.xenolab.com/tag/computer.html">computer</a>, <a href="http://blog.xenolab.com/tag/programming.html">programming</a>, <a href="http://blog.xenolab.com/tag/history.html">history</a></p></div>		
+		<h2>Beginnings</h2>
+<p>In the early days of computing, hardware was expensive and programmers
+were cheap. In fact, programmers were so cheap they weren't even
+called "programmers" and were in fact usually mathematicans or
+electrical engineers. Early computers were used to solve complex
+mathematical problems quickly, so mathematicans were a natural fit for
+the job of "programming".</p>
+<p>First a little background on what a program is.</p>
+<p>Computers can't do anything by themselves, they require programs to
+drive their behavior. Programs can be thought of as very detailed
+recipes that take an input and produce an output. The steps in the
+recipe are composed of instructions that operate on data. While that
+sounds complicated, you probably know how this statement works:</p>
+<p>1 + 2 = 3</p>
+<p>The plus sign is the "instruction" while the numbers 1 and 2 are the
+data. Mathematically, the equal sign indicates that both sides of an
+equation are "equivalent", however most computer languages use some
+variant of equals to mean "assignment". If a computer were executing
+that statment, it would store the results of the addition, the "3",
+somewhere in memory.</p>
+<p>Computers know how to do math with numbers and move data around the
+machine's memory heirarchy. I won't say too much about memory except
+to say it generally comes in two different flavors: fast &amp; small, and
+slow &amp; big. CPU registers are very fast, very small and act as
+scratch pads while main memory is typically very big and not nearly as
+fast as register memory. CPUs shuffle the data they are working with
+from main memory to registers and back again while a program executes.</p>
+<h2>Assembler</h2>
+<p>Computers were very expensive and people were cheap. Programmers
+spent endless hours translating hand written math into computer
+instructions that the computer could execute. The very first computers
+had terrible user interfaces, some only consisting of toggle switches
+on the front panel where each computer instruction was entered a word
+at a time by flipping the switches between 1 and 0. It was time
+consuming and error prone.</p>
+<p>Eventually, an <a href="https://en.wikipedia.org/wiki/Nathaniel_Rochester_%28computer_scientist%29">electrical engineer</a> decided his time wasn't cheap
+and wrote a program whose input was recipe expressed in terms people
+could read and output a computer readable version. This was the first
+"assembler" and it was very controversial. The people that owned the
+expensive machines didn't want to "waste" compute time on a task that
+people were already doing; cheaply, slowly, and with errors. Over
+time, people came to appreciate the speed and accuracy of the
+assembler versus the a hand-written program and the amount of "real
+work" done with the computer increased.</p>
+<p>While assembler programs were a big step up from toggling bit patterns
+into the front panel of a machine, they were still pretty specialized.
+The addition example from above might have looked something like this:</p>
+<div class="highlight"><pre><span></span>   <span class="err">01</span>  <span class="nf">MOV</span> <span class="no">R0</span><span class="p">,</span> <span class="mi">1</span>
+   <span class="err">02</span>  <span class="nf">MOV</span> <span class="no">R1</span><span class="p">,</span> <span class="mi">2</span>
+   <span class="err">03</span>  <span class="nf">ADD</span> <span class="no">R0</span><span class="p">,</span> <span class="no">R1</span><span class="p">,</span> <span class="no">R2</span>
+   <span class="err">04</span>  <span class="nf">MOV</span> <span class="mi">64</span><span class="p">,</span> <span class="no">R0</span>
+   <span class="err">05</span>  <span class="nf">STO</span> <span class="no">R2</span><span class="p">,</span> <span class="no">R0</span>
+</pre></div>
+
+
+<p>Each line is a computer instruction, beginning with a shorthand name
+of the instruction followed by the data the instruction works on. This
+little program will first "move" the value 1 into a register called
+R0, then 2 into R1. Line 03 adds the contents of R0 and R1 and stores
+the result value into register R2. Finally, lines 04 and 05 identify
+where the result should be stored in main memory (address 64).
+Mananaging where data is stored in memory is one of the most time
+consuming and error-prone parts of writing computer programs.</p>
+<h2>Compiler</h2>
+<p>While better than writing computer instructions by hand, early
+programmers yearned to write programs like they were accustomed to
+writing mathematical formulae. This drove the development of higher
+level compiled languages, some of which are historical footnotes and
+others are still in use today. <a href="https://en.wikipedia.org/wiki/ALGO">Algo</a> is one such footnote, while
+real problems continue to be solved with languages like <a href="https://en.wikipedia.org/wiki/Fortran">FORTRAN</a>
+and <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>.</p>
+<p>These new "high level" langagues allowed programmers to write their
+programs in simpler terms. In the C language, our addition assembly
+program would be written as:</p>
+<div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+
+
+<p>The first statement describes a piece of memory that the program
+will use. In this case, the memory should be the size of an integer
+and it's name is "x". The second statement is the addition, although
+written "backwards". A C programmer would read that as "X is assigned
+the result of one plus two". </p>
+<p>A new program, called a "compiler", would turn the program written in
+a high level language into an assembly language version and then finally
+run it thru the assembler to produce a machine-readable version of the
+program. This composition of programs is often called a "tool chain",
+in that one program's output is sent directly to another program's
+input.</p>
+<p>The huge advantage of compiled languages over assembly language
+programs was porting from one computer model or brand to another. In
+the early days of computing there was an explosion of different types
+of computing hardware from companies like IBM, Digital Equipment
+Corporation, Texas Instruments, UNIVAC, Hewlet Packard and others.
+None of these computers shared much in common besides needing to be
+plugged in. Memory and CPU architectures differed wildly and it often
+took man-years to translate programs from one computer to another.</p>
+<p>With high level languages, it was only necessary to port the compiler
+tool chain to the new platfrom. Once the compiler was available, high
+level language programs could be re-compiled for the new computer with
+little or no modification. Compliation of high level languages was
+truly revolutionary.</p>
+<p>Life was very good now for programmers. It was much easier to express
+the problems they wanted to solve using high level languages. The cost
+of computer hardware was falling dramatically due to advances in
+semiconductors and the invention of integrated chips. Computers were
+getting faster and more capable in addition to become much less
+expensive. At some point, in the late 80s possibly, there was an
+inversion and programmers became more expensive than the hardware they
+used.</p>
+<h2>Interpreter</h2>
+<p>Over time a new programming model arose where a special program
+called an "interpreter" would read a program and turn it into computer
+instructions to be executed immediately. The interpreter takes the
+program as input and interprets it into an intermediate form, much
+like a compiler. Unlike a compiler, the interpreter then executes the
+intermediate form of the program. This happens every time an interpreted
+program runs, whereas a compiled program is only compiled one time and
+the computer only has to execute the machine instructions "as written".</p>
+<p>As a sidenote, when people say that "interpreted programs are slow",
+that is the main source of the perceived lack of performance. Modern
+computers are so amazingly capable that most people aren't usually
+able to tell the difference between compiled and interpreted programs.</p>
+<p>Interpreted programs, sometimes called "scripts", are even easier to
+port to different hardware platforms. Because the script doesn't
+contain any machine specific instructions, a single version of a
+program can run on many different computers without change. The
+catch of course is the interpreter must be ported to the new machine
+to make that possible.</p>
+<p>One example of a very popular interpreted language is <a href="https://python.org">Python</a>. A
+complete python expression of our addition problem would be:</p>
+<div class="highlight"><pre><span></span>   <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+
+
+<p>While it looks and acts much like the C version, it lacks the variable
+initialization statement. There are other differences which are beyond
+the scope of this article, but you can see that we are able to write a
+computer program that is very close to how a mathematician would write
+it by hand with pencil and paper.</p>	
+
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="en" data-size="large" data-related="">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		  </div>	
+		  
+		  <div class="sidebar">
+
+	        <nav>
+	          <h2>Categories</h2>
+	          <ul>
+	              <li class="active"><a href="http://blog.xenolab.com/category/primers.html">Primers</a></li>
+	          </ul>
+	        </nav>
+
+
+
+		  </div>
+
+	  </div>
+
+	  <footer>
+
+
+	  </footer>	
+
+	</div>
+	
+
+</body>
+</html>

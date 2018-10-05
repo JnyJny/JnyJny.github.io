@@ -2,7 +2,7 @@
 <html lang="">	
 <head>
 	<meta charset="utf-8"/>
-	<title>Using Pelican to Publish Your Blog on Github - Xeno:Lab</title>	
+	<title>Using Pelican to Publish Your Blog on GitHub - Xeno:Lab</title>	
 	<meta name="author" content="ejo">
 	<link rel="apple-touch-icon" sizes="57x57"         href="https://blog.xenolab.com/theme/images/icons/xenolab-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60"         href="https://blog.xenolab.com/theme/images/icons/xenolab-60x60.png">
@@ -24,7 +24,7 @@
 	
 	
 
-	<meta name="description" content="How to use pelican to publish a blog on Github.">
+	<meta name="description" content="How to use pelican to publish a blog on GitHub.">
 
 
 	<link rel="top" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
@@ -53,7 +53,7 @@
 		  <div role="main" class="content">
 	<article class="full">
 			
-		<h1>Using Pelican to Publish Your Blog on Github</h1>
+		<h1>Using Pelican to Publish Your Blog on GitHub</h1>
 		
 <div class="metadata">
   <time datetime="2018-10-05T00:00:00-05:00" pubdate>Fri 05 October 2018</time>
@@ -61,36 +61,39 @@
       by <a class="url fn" href="https://blog.xenolab.com/author/ejo.html">ejo</a>
     </address>
   in <a href="https://blog.xenolab.com/category/howto.html">HowTo</a>
-<p class="tags">tagged <a href="https://blog.xenolab.com/tag/python.html">python</a>, <a href="https://blog.xenolab.com/tag/blog.html">blog</a>, <a href="https://blog.xenolab.com/tag/pelican.html">pelican</a>, <a href="https://blog.xenolab.com/tag/github.html">github</a></p></div>		
-		<h2>If You've Got a Github Account, You Can Have a Blog!</h2>
-<p><a href="https://github.com/">Github.com</a> is a hugely popular source code control web service
+<p class="tags">tagged <a href="https://blog.xenolab.com/tag/python.html">python</a>, <a href="https://blog.xenolab.com/tag/blog.html">blog</a>, <a href="https://blog.xenolab.com/tag/pelican.html">pelican</a>, <a href="https://blog.xenolab.com/tag/github.html">GitHub</a></p></div>		
+		<h2>If You've Got a GitHub Account, You Can Have a Blog!</h2>
+<p><a href="https://github.com/">GitHub.com</a> is a hugely popular source code control web service
 that uses <a href="https://git-scm.com">git</a> to synchronize local files with copies kept on
-Github's servers. This lets you easily share and back up your work.
-For the purposes of this article, I'll assume that you have a Github
-account and are comfortable with basic git commands.</p>
-<p>In addition to it's repository user interface, Github also allows
-users to <a href="https://help.github.com/categories/github-pages-basics/">publish web pages</a> of their own directly from a
-repository. The web site generation software that Github recommends is
+GitHub's servers. This lets you easily share and back up your work.
+For the purposes of this article I'll assume that you have a GitHub
+account, are comfortable with basic git commands and want a blog to
+call your own using Pelican.</p>
+<p>In addition to it's repository user interface, GitHub also enables
+users to <a href="https://help.github.com/categories/GitHub-pages-basics/">publish web pages</a> of their own directly from a
+repository. The web site generation package that GitHub recommends is
 <a href="https://jekyllrb.com">Jekyll</a>, written in Ruby. Since I'm a bigger fan of <a href="https://python.org">Python</a>, I
 went with <a href="https://blog.getpelican.com">Pelican</a> instead.</p>
-<p>I'll describe how to install Pelican, set up your Github repository
+<p>I'll describe how to install Pelican, set up your GitHub repository
 and publish your first article. </p>
-<h2>The Basics</h2>
+<h3>The Basics</h3>
 <p>Pelican and Jekyll both transform content written in <a href="https://guides.github.com/features/mastering-markdown">Markdown</a> or
 <a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">ReStructured Text</a> into HTML and generate a static web site. Both
 generators support themes which allow for infinite amounts of
-customization. <a href="https://www.pelicanthemes.com">Pelican Themes</a> is a collection of themes for pelican
-with lots of examples and links.</p>
-<h2>Beginning</h2>
+customization. We'll install pelican, run a quick start helper, write
+some Markdown files and then publish our website to GitHub.</p>
+<p>Easy peasy.</p>
+<h3>Installing Pelican &amp; Creating the Repo</h3>
 <p>First things first, you need pelican (and ghp-import) installed on
-your local machine.  This is super easy with pip, (you have pip right?):</p>
+your local machine.  This is super easy with the pip, the python package
+installation tool (you have pip right?):</p>
 <div class="highlight"><pre><span></span>$ pip install pelican ghp-import
 </pre></div>
 
 
-<p>Next, open up a browser and create a new repository on Github for your
-new sweet blog. Name it as follows:</p>
-<div class="highlight"><pre><span></span>https://github.com/username/username.github.io
+<p>Next, open up a browser and create a new repository on GitHub for your
+new sweet blog. Name it as follows (use your GitHub user name):</p>
+<div class="highlight"><pre><span></span>https://GitHub.com/username/username.GitHub.io
 </pre></div>
 
 
@@ -98,26 +101,29 @@ new sweet blog. Name it as follows:</p>
 a second.</p>
 <p>Using a command-line (you command-line right?), clone your empty git
 repository to your local machine:</p>
-<div class="highlight"><pre><span></span>$ git clone https://github.com/username/username.github.io blog
+<div class="highlight"><pre><span></span>$ git clone https://GitHub.com/username/username.GitHub.io blog
 $ <span class="nb">cd</span> blog
 </pre></div>
 
 
-<p>Now here's the trick with publishing web content on Github which isn't
-super obvious. For user pages, hosted in repos named username.github.io,
-the content is served from the master branch. But we don't want to publish
-all the pelican configuration files and whatnot, just the web content. So
-we keep the pelican configuration and the raw content in a seperate branch
-that I like to call 'content'. You can call it whatever you want, but I'll
+<h3>That One Weird Trick...</h3>
+<p>Now here's the trick with publishing web content on GitHub which isn't
+super obvious. For user pages, pages hosted in repos named
+<em>username.GitHub.io</em>, the content is served from the <code>master</code>
+branch. But we don't want to publish all the pelican configuration
+files and whatnot to <code>master</code>, just the web content. So we keep the
+pelican configuration and the raw content in a seperate branch that I
+like to call 'content'. You can call it whatever you want, but I'll
 just assume you called it content too.</p>
 <div class="highlight"><pre><span></span>$ git checkout -b content
 Switched to a new branch <span class="s1">&#39;content&#39;</span>
 </pre></div>
 
 
-<p>Now, here comes the content. Pelican provides a great initialization tool
-called 'pelican-quickstart' that will ask you a series of questions
-about your blog.</p>
+<h3>Configuring Pelican</h3>
+<p>Now, here comes the content configuration. Pelican provides a great
+initialization tool called 'pelican-quickstart' that will ask you a
+series of questions about your blog.</p>
 <div class="highlight"><pre><span></span>$ pelican-quickstart
 Welcome to pelican-quickstart v3.7.1.
 
@@ -142,11 +148,16 @@ needed by Pelican.
 &gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> n
 &gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> n
 &gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
-&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
+&gt; Is this your personal page <span class="o">(</span>username.GitHub.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
 Done. Your new project is available at /Users/username/blog
 </pre></div>
 
 
+<p>The only questions I didn't take the defaults on were:
+<em> website name
+</em> website author
+<em> time zone
+</em> upload to GitHub</p>
 <p>After answering all the questions, pelican leaves the following
 offerings in the current directory:</p>
 <div class="highlight"><pre><span></span>$ ls
@@ -157,33 +168,36 @@ publishconf.py
 
 
 <p>You can go checkout the <a href="https://docs.getpelican.com">Pelican docs</a> to find out how to use
-all of those files, but we're all about getting things down <em>right now</em>.</p>
+all of those files, but we're all about getting things down <em>right now</em>.
+No, I haven't read the docs yet either.</p>
+<h3>Forging On</h3>
 <div class="highlight"><pre><span></span>$ git add .
 $ git commit -m <span class="s1">&#39;initial pelican commit to content&#39;</span>
 $ git push origin content
 </pre></div>
 
 
-<p>So here we've added all the pelican generated files to the content
+<p>So here we've added all the pelican generated files to the <code>content</code>
 branch of the local git repo, commited the changes and then pushed the
-local changes to the remote repo hosted on Github. Not super exciting,
+local changes to the remote repo hosted on GitHub. Not super exciting,
 but it will be handy if we need to revert edits to one of these files.</p>
+<h3>Finally Getting Somewhere</h3>
 <p>Ok, now we get bloggy! All of your blog posts, photos, images, pdfs,
-etc will live in the 'content' directory which is initially
+etc will live in the <code>content</code> directory which is initially
 empty. I'll talk you thru creating a first post and an 'About' page
 with a photo.</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> content
 $ mkdir pages images
 $ cp /Users/username/SecretStash/HotPhotoOfMe.jpg images
-$ touch <span class="m">2018</span>-10-05-first-post.md
+$ touch first-post.md
 $ touch pages/about.md
 </pre></div>
 
 
-<p>Next open the empty file <code>2018-10-05-first-post.md</code> in your favorite editor
+<p>Next open the empty file <code>first-post.md</code> in your favorite editor
 and add the following text:</p>
 <div class="highlight"><pre><span></span><span class="n">title</span><span class="o">:</span> <span class="n">First</span> <span class="n">Post</span> <span class="n">on</span> <span class="n">My</span> <span class="n">Sweet</span> <span class="n">New</span> <span class="n">Blog</span>
-<span class="n">date</span><span class="o">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">05</span>
+<span class="n">date</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">today</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">date</span><span class="o">&gt;</span>
 <span class="n">author</span><span class="o">:</span> <span class="n">Your</span> <span class="n">Name</span> <span class="n">Here</span>
 
 <span class="err">#</span><span class="n">I</span> <span class="n">am</span> <span class="n">On</span> <span class="n">My</span> <span class="n">Way</span> <span class="n">To</span> <span class="n">Internet</span> <span class="n">Fame</span> <span class="n">and</span> <span class="n">Fortune</span><span class="o">!</span>
@@ -199,7 +213,7 @@ are lots of different metadata you can put there, again the docs are your best
 bet for learning more about them.</p>
 <p>Now we'll open up the empty file <code>pages/about.md</code> and add this text:</p>
 <div class="highlight"><pre><span></span><span class="nl">title</span><span class="p">:</span> <span class="n">About</span>
-<span class="nl">date</span><span class="p">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mo">05</span>
+<span class="nl">date</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">today</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">date</span><span class="o">&gt;</span>
 
 <span class="o">!</span><span class="p">[</span><span class="n">So</span> <span class="n">Schmexy</span><span class="p">][</span><span class="n">my_sweet_photo</span><span class="p">]</span>
 
@@ -215,45 +229,47 @@ bet for learning more about them.</p>
 
 <p>So now we have three new pieces of web content in our content
 directory.  Of the content branch. That's a lot of content.</p>
+<h3>Publishing</h3>
 <p>Don't worry, the pay off is coming!</p>
 <p>All that's left to do is:</p>
-<ol>
-<li>Run pelican to generate the static HTML files in <code>output</code>:<br></li>
-</ol>
+<ul>
+<li>Run pelican to generate the static HTML files in <code>output</code>:</li>
+</ul>
 <div class="highlight"><pre><span></span>   $ pelican content -o output -s publishconf.py
 </pre></div>
 
 
-<ol>
-<li>Publish the output directory to the <code>master</code> branch:<br></li>
-</ol>
+<ul>
+<li>Publish the output directory to the <code>master</code> branch:</li>
+</ul>
 <div class="highlight"><pre><span></span>   $ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
 </pre></div>
 
 
-<ol>
-<li>Push the local master branch to the remote repo:<br></li>
-</ol>
+<ul>
+<li>Push the local master branch to the remote repo:</li>
+</ul>
 <div class="highlight"><pre><span></span>   $ git push origin master
 </pre></div>
 
 
-<ol>
-<li>Commit and push the new content to the 'content' branch:<br></li>
-</ol>
+<ul>
+<li>Commit and push the new content to the 'content' branch:</li>
+</ul>
 <div class="highlight"><pre><span></span>   $ git add content
    $ git commit -m <span class="s1">&#39;added a first post, a photo and an about page&#39;</span>
    $ git push origin content
 </pre></div>
 
 
+<h3>OMG I Did It!</h3>
 <p>Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:</p>
-<div class="highlight"><pre><span></span>https://username.github.io
+<div class="highlight"><pre><span></span>https://username.GitHub.io
 </pre></div>
 
 
-<p>Congratulations on your new blog, self-published on Github!</p>	
+<p>Congratulations on your new blog, self-published on GitHub!</p>	
 
 	</article>
 

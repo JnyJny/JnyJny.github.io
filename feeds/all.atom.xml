@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-05T00:00:00-05:00</updated><entry><title>Using Pelican to Publish Your Blog on Github</title><link href="https://blog.xenolab.com/2018-10-05-github-pelican-blog.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/2018-10-05-github-pelican-blog.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on Github.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;If You've Got a Github Account, You Can Have a Blog!&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/"&gt;Github.com&lt;/a&gt; is a hugely popular source code control web service
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-05T00:00:00-05:00</updated><entry><title>Using Pelican to Publish Your Blog on GitHub</title><link href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/2018-10-05-GitHub-pelican-blog.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on GitHub.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;If You've Got a GitHub Account, You Can Have a Blog!&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/"&gt;GitHub.com&lt;/a&gt; is a hugely popular source code control web service
 that uses &lt;a href="https://git-scm.com"&gt;git&lt;/a&gt; to synchronize local files with copies kept on
-Github's servers. This lets you easily share and back up your work.
-For the purposes of this article, I'll assume that you have a Github
-account and are comfortable with basic git commands.&lt;/p&gt;
-&lt;p&gt;In addition to it's repository user interface, Github also allows
-users to &lt;a href="https://help.github.com/categories/github-pages-basics/"&gt;publish web pages&lt;/a&gt; of their own directly from a
-repository. The web site generation software that Github recommends is
+GitHub's servers. This lets you easily share and back up your work.
+For the purposes of this article I'll assume that you have a GitHub
+account, are comfortable with basic git commands and want a blog to
+call your own using Pelican.&lt;/p&gt;
+&lt;p&gt;In addition to it's repository user interface, GitHub also enables
+users to &lt;a href="https://help.github.com/categories/GitHub-pages-basics/"&gt;publish web pages&lt;/a&gt; of their own directly from a
+repository. The web site generation package that GitHub recommends is
 &lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;, written in Ruby. Since I'm a bigger fan of &lt;a href="https://python.org"&gt;Python&lt;/a&gt;, I
 went with &lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt; instead.&lt;/p&gt;
-&lt;p&gt;I'll describe how to install Pelican, set up your Github repository
+&lt;p&gt;I'll describe how to install Pelican, set up your GitHub repository
 and publish your first article. &lt;/p&gt;
-&lt;h2&gt;The Basics&lt;/h2&gt;
+&lt;h3&gt;The Basics&lt;/h3&gt;
 &lt;p&gt;Pelican and Jekyll both transform content written in &lt;a href="https://guides.github.com/features/mastering-markdown"&gt;Markdown&lt;/a&gt; or
 &lt;a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;ReStructured Text&lt;/a&gt; into HTML and generate a static web site. Both
 generators support themes which allow for infinite amounts of
-customization. &lt;a href="https://www.pelicanthemes.com"&gt;Pelican Themes&lt;/a&gt; is a collection of themes for pelican
-with lots of examples and links.&lt;/p&gt;
-&lt;h2&gt;Beginning&lt;/h2&gt;
+customization. We'll install pelican, run a quick start helper, write
+some Markdown files and then publish our website to GitHub.&lt;/p&gt;
+&lt;p&gt;Easy peasy.&lt;/p&gt;
+&lt;h3&gt;Installing Pelican &amp;amp; Creating the Repo&lt;/h3&gt;
 &lt;p&gt;First things first, you need pelican (and ghp-import) installed on
-your local machine.  This is super easy with pip, (you have pip right?):&lt;/p&gt;
+your local machine.  This is super easy with the pip, the python package
+installation tool (you have pip right?):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Next, open up a browser and create a new repository on Github for your
-new sweet blog. Name it as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://github.com/username/username.github.io
+&lt;p&gt;Next, open up a browser and create a new repository on GitHub for your
+new sweet blog. Name it as follows (use your GitHub user name):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://GitHub.com/username/username.GitHub.io
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -35,26 +38,29 @@ new sweet blog. Name it as follows:&lt;/p&gt;
 a second.&lt;/p&gt;
 &lt;p&gt;Using a command-line (you command-line right?), clone your empty git
 repository to your local machine:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/username/username.github.io blog
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://GitHub.com/username/username.GitHub.io blog
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now here's the trick with publishing web content on Github which isn't
-super obvious. For user pages, hosted in repos named username.github.io,
-the content is served from the master branch. But we don't want to publish
-all the pelican configuration files and whatnot, just the web content. So
-we keep the pelican configuration and the raw content in a seperate branch
-that I like to call 'content'. You can call it whatever you want, but I'll
+&lt;h3&gt;That One Weird Trick...&lt;/h3&gt;
+&lt;p&gt;Now here's the trick with publishing web content on GitHub which isn't
+super obvious. For user pages, pages hosted in repos named
+&lt;em&gt;username.GitHub.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt;
+branch. But we don't want to publish all the pelican configuration
+files and whatnot to &lt;code&gt;master&lt;/code&gt;, just the web content. So we keep the
+pelican configuration and the raw content in a seperate branch that I
+like to call 'content'. You can call it whatever you want, but I'll
 just assume you called it content too.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git checkout -b content
 Switched to a new branch &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now, here comes the content. Pelican provides a great initialization tool
-called 'pelican-quickstart' that will ask you a series of questions
-about your blog.&lt;/p&gt;
+&lt;h3&gt;Configuring Pelican&lt;/h3&gt;
+&lt;p&gt;Now, here comes the content configuration. Pelican provides a great
+initialization tool called 'pelican-quickstart' that will ask you a
+series of questions about your blog.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-quickstart
 Welcome to pelican-quickstart v3.7.1.
 
@@ -79,11 +85,16 @@ needed by Pelican.
 &amp;gt; Do you want to upload your website using S3? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
 &amp;gt; Do you want to upload your website using Rackspace Cloud Files? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
 &amp;gt; Do you want to upload your website using GitHub Pages? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
-&amp;gt; Is this your personal page &lt;span class="o"&gt;(&lt;/span&gt;username.github.io&lt;span class="o"&gt;)&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; Is this your personal page &lt;span class="o"&gt;(&lt;/span&gt;username.GitHub.io&lt;span class="o"&gt;)&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
 Done. Your new project is available at /Users/username/blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;The only questions I didn't take the defaults on were:
+&lt;em&gt; website name
+&lt;/em&gt; website author
+&lt;em&gt; time zone
+&lt;/em&gt; upload to GitHub&lt;/p&gt;
 &lt;p&gt;After answering all the questions, pelican leaves the following
 offerings in the current directory:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls
@@ -94,33 +105,36 @@ publishconf.py
 
 
 &lt;p&gt;You can go checkout the &lt;a href="https://docs.getpelican.com"&gt;Pelican docs&lt;/a&gt; to find out how to use
-all of those files, but we're all about getting things down &lt;em&gt;right now&lt;/em&gt;.&lt;/p&gt;
+all of those files, but we're all about getting things down &lt;em&gt;right now&lt;/em&gt;.
+No, I haven't read the docs yet either.&lt;/p&gt;
+&lt;h3&gt;Forging On&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add .
 $ git commit -m &lt;span class="s1"&gt;&amp;#39;initial pelican commit to content&amp;#39;&lt;/span&gt;
 $ git push origin content
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;So here we've added all the pelican generated files to the content
+&lt;p&gt;So here we've added all the pelican generated files to the &lt;code&gt;content&lt;/code&gt;
 branch of the local git repo, commited the changes and then pushed the
-local changes to the remote repo hosted on Github. Not super exciting,
+local changes to the remote repo hosted on GitHub. Not super exciting,
 but it will be handy if we need to revert edits to one of these files.&lt;/p&gt;
+&lt;h3&gt;Finally Getting Somewhere&lt;/h3&gt;
 &lt;p&gt;Ok, now we get bloggy! All of your blog posts, photos, images, pdfs,
-etc will live in the 'content' directory which is initially
+etc will live in the &lt;code&gt;content&lt;/code&gt; directory which is initially
 empty. I'll talk you thru creating a first post and an 'About' page
 with a photo.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; content
 $ mkdir pages images
 $ cp /Users/username/SecretStash/HotPhotoOfMe.jpg images
-$ touch &lt;span class="m"&gt;2018&lt;/span&gt;-10-05-first-post.md
+$ touch first-post.md
 $ touch pages/about.md
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Next open the empty file &lt;code&gt;2018-10-05-first-post.md&lt;/code&gt; in your favorite editor
+&lt;p&gt;Next open the empty file &lt;code&gt;first-post.md&lt;/code&gt; in your favorite editor
 and add the following text:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Sweet&lt;/span&gt; &lt;span class="n"&gt;New&lt;/span&gt; &lt;span class="n"&gt;Blog&lt;/span&gt;
-&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;05&lt;/span&gt;
+&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="n"&gt;Here&lt;/span&gt;
 
 &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;am&lt;/span&gt; &lt;span class="n"&gt;On&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Way&lt;/span&gt; &lt;span class="n"&gt;To&lt;/span&gt; &lt;span class="n"&gt;Internet&lt;/span&gt; &lt;span class="n"&gt;Fame&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Fortune&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
@@ -136,7 +150,7 @@ are lots of different metadata you can put there, again the docs are your best
 bet for learning more about them.&lt;/p&gt;
 &lt;p&gt;Now we'll open up the empty file &lt;code&gt;pages/about.md&lt;/code&gt; and add this text:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;About&lt;/span&gt;
-&lt;span class="nl"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt;
+&lt;span class="nl"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;So&lt;/span&gt; &lt;span class="n"&gt;Schmexy&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;my_sweet_photo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
@@ -152,45 +166,47 @@ bet for learning more about them.&lt;/p&gt;
 
 &lt;p&gt;So now we have three new pieces of web content in our content
 directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
+&lt;h3&gt;Publishing&lt;/h3&gt;
 &lt;p&gt;Don't worry, the pay off is coming!&lt;/p&gt;
 &lt;p&gt;All that's left to do is:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Run pelican to generate the static HTML files in &lt;code&gt;output&lt;/code&gt;:&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Run pelican to generate the static HTML files in &lt;code&gt;output&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ pelican content -o output -s publishconf.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;ol&gt;
-&lt;li&gt;Publish the output directory to the &lt;code&gt;master&lt;/code&gt; branch:&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish the output directory to the &lt;code&gt;master&lt;/code&gt; branch:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ ghp-import -m &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; --no-jekyll -b master output
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;ol&gt;
-&lt;li&gt;Push the local master branch to the remote repo:&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Push the local master branch to the remote repo:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ git push origin master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;ol&gt;
-&lt;li&gt;Commit and push the new content to the 'content' branch:&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Commit and push the new content to the 'content' branch:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ git add content
    $ git commit -m &lt;span class="s1"&gt;&amp;#39;added a first post, a photo and an about page&amp;#39;&lt;/span&gt;
    $ git push origin content
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;OMG I Did It!&lt;/h3&gt;
 &lt;p&gt;Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://username.github.io
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://username.GitHub.io
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Congratulations on your new blog, self-published on Github!&lt;/p&gt;</content><category term="python"></category><category term="blog"></category><category term="pelican"></category><category term="github"></category></entry><entry><title>A Short Primer on Assembers, Compilers and Interpreters</title><link href="https://blog.xenolab.com/2018-10-02-primer.html" rel="alternate"></link><published>2018-10-02T00:00:00-05:00</published><updated>2018-10-02T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-02:/2018-10-02-primer.html</id><summary type="html">&lt;p&gt;A gentle introduction to the historical evolution of programming practices.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Beginnings&lt;/h2&gt;
+&lt;p&gt;Congratulations on your new blog, self-published on GitHub!&lt;/p&gt;</content><category term="python"></category><category term="blog"></category><category term="pelican"></category><category term="GitHub"></category></entry><entry><title>A Short Primer on Assembers, Compilers and Interpreters</title><link href="https://blog.xenolab.com/2018-10-02-primer.html" rel="alternate"></link><published>2018-10-02T00:00:00-05:00</published><updated>2018-10-02T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-02:/2018-10-02-primer.html</id><summary type="html">&lt;p&gt;A gentle introduction to the historical evolution of programming practices.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Beginnings&lt;/h2&gt;
 &lt;p&gt;In the early days of computing, hardware was expensive and programmers
 were cheap. In fact, programmers were so cheap they weren't even
 called "programmers" and were in fact usually mathematicans or

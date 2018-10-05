@@ -112,11 +112,12 @@ The addition example from above might have looked something like this:</p>
 <p>Each line is a computer instruction, beginning with a shorthand name
 of the instruction followed by the data the instruction works on. This
 little program will first "move" the value 1 into a register called
-R0, then 2 into R1. Line 03 adds the contents of R0 and R1 and stores
-the result value into register R2. Finally, lines 04 and 05 identify
-where the result should be stored in main memory (address 64).
-Mananaging where data is stored in memory is one of the most time
-consuming and error-prone parts of writing computer programs.</p>
+R0, then 2 into register R1. Line 03 adds the contents of registers R0
+and R1 and stores the resulting value into register R2. Finally, lines
+04 and 05 identify where the result should be stored in main memory
+(address 64).  Mananaging where data is stored in memory is one of the
+most time consuming and error-prone parts of writing computer
+programs.</p>
 <h2>Compiler</h2>
 <p>Assembly was much better than writing computer instructions by hand,
 however early programmers yearned to write programs like they were
@@ -135,15 +136,16 @@ program would be written as:</p>
 
 <p>The first statement describes a piece of memory that the program
 will use. In this case, the memory should be the size of an integer
-and it's name is "x". The second statement is the addition, although
+and it's name is 'x'. The second statement is the addition, although
 written "backwards". A C programmer would read that as "X is assigned
-the result of one plus two". </p>
-<p>A new program, called a "compiler", would turn the program written in
-a high level language into an assembly language version and then finally
-run it thru the assembler to produce a machine-readable version of the
-program. This composition of programs is often called a "tool chain",
-in that one program's output is sent directly to another program's
-input.</p>
+the result of one plus two". Notice the programmer doesn't need to
+say where to put 'x' in memory, the compiler takes care of that.</p>
+<p>A new type of program, called a "compiler", would turn the program
+written in a high level language into an assembly language version and
+then finally run it thru the assembler to produce a machine-readable
+version of the program. This composition of programs is often called a
+"tool chain", in that one program's output is sent directly to another
+program's input.</p>
 <p>The huge advantage of compiled languages over assembly language
 programs was porting from one computer model or brand to another. In
 the early days of computing there was an explosion of different types

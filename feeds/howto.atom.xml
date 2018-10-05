@@ -30,7 +30,7 @@ installation tool (you have pip right?):&lt;/p&gt;
 
 &lt;p&gt;Next, open up a browser and create a new repository on GitHub for your
 new sweet blog. Name it as follows (use your GitHub user name):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://GitHub.com/username/username.GitHub.io
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://GitHub.com/username/username.github.io
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -38,7 +38,7 @@ new sweet blog. Name it as follows (use your GitHub user name):&lt;/p&gt;
 a second.&lt;/p&gt;
 &lt;p&gt;Using a command-line (you command-line right?), clone your empty git
 repository to your local machine:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://GitHub.com/username/username.GitHub.io blog
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://GitHub.com/username/username.github.io blog
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -46,7 +46,7 @@ $ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
 &lt;h3&gt;That One Weird Trick...&lt;/h3&gt;
 &lt;p&gt;Now here's the trick with publishing web content on GitHub which isn't
 super obvious. For user pages, pages hosted in repos named
-&lt;em&gt;username.GitHub.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt;
+&lt;em&gt;username.github.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt;
 branch. But we don't want to publish all the pelican configuration
 files and whatnot to &lt;code&gt;master&lt;/code&gt;, just the web content. So we keep the
 pelican configuration and the raw content in a seperate branch that I
@@ -85,7 +85,7 @@ needed by Pelican.
 &amp;gt; Do you want to upload your website using S3? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
 &amp;gt; Do you want to upload your website using Rackspace Cloud Files? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
 &amp;gt; Do you want to upload your website using GitHub Pages? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
-&amp;gt; Is this your personal page &lt;span class="o"&gt;(&lt;/span&gt;username.GitHub.io&lt;span class="o"&gt;)&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; Is this your personal page &lt;span class="o"&gt;(&lt;/span&gt;username.github.io&lt;span class="o"&gt;)&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
 Done. Your new project is available at /Users/username/blog
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -202,7 +202,7 @@ directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
 &lt;h3&gt;OMG I Did It!&lt;/h3&gt;
 &lt;p&gt;Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://username.GitHub.io
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://username.github.io
 &lt;/pre&gt;&lt;/div&gt;
 
 

@@ -1,0 +1,21 @@
+[submodule "themes/attila"]
+	path = themes/attila
+	url = https://github.com/arulrajnet/attila.git
+[submodule "themes/blueida"]
+	path = themes/blueida
+	url = https://github.com/nasskach/pelican-blueidea.git
+[submodule "themes/medius"]
+	path = themes/medius
+	url = https://github.com/onur/medius.git
+[submodule "themes/blue"]
+	path = themes/blue
+	url = https://github.com/Parbhat/pelican-blue.git
+[submodule "themes/simplegrey"]
+	path = themes/simplegrey
+	url = https://github.com/fle/pelican-simplegrey.git
+[submodule "themes/twenty"]
+	path = themes/twenty
+	url = https://github.com/frankV/twenty-pelican-html5up.git
+[submodule "themes/blueidea"]
+	path = themes/blueidea
+	url = https://github.com/nasskach/pelican-blueidea.git

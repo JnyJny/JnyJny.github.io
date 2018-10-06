@@ -1,5 +1,5 @@
 title: How To Write a C Program Like Me
-date: 2018-10-05
+date: 2018-10-06
 author: ejo
 slug: 2018-10-05-howto-c-like-me
 summary: Learn how to write a good C main function.
@@ -403,13 +403,14 @@ int do_the_needful(options_t *options) {
 ```
 
 And now, finally, we write functions that aren't boilerplate. In this
-example, function `do_the_needful` accepts a pointer to an `options_t`
-structure. We validate that the `options` pointer is not NULL and
-then go on to validate the `input` and `output` structure members.
-We return EXIT_FAILURE if either test fails, and signal to the caller
-a general reason by setting the external global variable `errno` to a
-conventional error code. The convenience function `perror()` can be used
-to emit human-readable-ish error messages based on the value of `errno`.
+example, function `do_the_needful()` accepts a pointer to an
+`options_t` structure. We validate that the `options` pointer is not
+NULL and then go on to validate the `input` and `output` structure
+members.  We return EXIT_FAILURE if either test fails, and signal to
+the caller a general reason by setting the external global variable
+`errno` to a conventional error code. The convenience function
+`perror()` can be used by the caller to emit human-readable-ish error
+messages based on the value of `errno`.
 
 Functions should almost always validate their input in some way. If
 full validation is expensive, try to do it once and treat the
@@ -418,6 +419,13 @@ the `progname` argument using a conditional assignment in the
 `fprintf()` call. The `usage()` function is going to exit anyway, so I
 don't bother setting `errno` or making a big stink about using a
 correct program name.
+
+The big class of errors we are trying to avoid here is dereferencing a
+NULL pointer. This will cause the operating system to send a special
+signal to our process called `SYSSEGV` which results in unavoidable
+death. The last thing your users want to see is a crash due to
+SYSSEGV. It's much better to catch a NULL pointer so you can emit
+better error messages and shutdown the program gracefully.
 
 Some people complain about having multiple `return` statements in a
 function body. They make arguments about continuity of control-flow

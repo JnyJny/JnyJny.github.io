@@ -52,217 +52,501 @@
 
 
       <article>
-        <h1><a href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html">Using Pelican to Publish Your Blog on GitHub</a></h1>
-        <h2>If You've Got a GitHub Account, You Can Have a Blog!</h2>
-<p><a href="https://github.com/">GitHub.com</a> is a hugely popular source code control web service
-that uses <a href="https://git-scm.com">git</a> to synchronize local files with copies kept on
-GitHub's servers. This lets you easily share and back up your work.
-For the purposes of this article I'll assume that you have a GitHub
-account, are comfortable with basic git commands and want a blog to
-call your own using Pelican.</p>
-<p>In addition to it's repository user interface, GitHub also enables
-users to <a href="https://help.github.com/categories/GitHub-pages-basics/">publish web pages</a> of their own directly from a
-repository. The web site generation package that GitHub recommends is
-<a href="https://jekyllrb.com">Jekyll</a>, written in Ruby. Since I'm a bigger fan of <a href="https://python.org">Python</a>, I
-went with <a href="https://blog.getpelican.com">Pelican</a> instead.</p>
-<p>I'll describe how to install Pelican, set up your GitHub repository
-and publish your first article. </p>
-<h3>The Basics</h3>
-<p>Pelican and Jekyll both transform content written in <a href="https://guides.github.com/features/mastering-markdown">Markdown</a> or
-<a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">ReStructured Text</a> into HTML and generate a static web site. Both
-generators support themes which allow for infinite amounts of
-customization. We'll install pelican, run a quick start helper, write
-some Markdown files and then publish our website to GitHub.</p>
-<p>Easy peasy.</p>
-<h3>Installing Pelican &amp; Creating the Repo</h3>
-<p>First things first, you need pelican (and ghp-import) installed on
-your local machine.  This is super easy with the pip, the python package
-installation tool (you have pip right?):</p>
-<div class="highlight"><pre><span></span>$ pip install pelican ghp-import
+        <h1><a href="https://blog.xenolab.com/2018-10-05-howto-c-like-me.html">How To Write a C Program Like Me</a></h1>
+        <h3>C is Dumb</h3>
+<p>I know, Python and Javascript are what the kids are writing all their
+crazy 'apps' with these days. But don't be so quick to dismiss C, also
+known by many as 'the portable assembler'. If you need speed, writing
+in C could be your answer. If you are looking for job security and the
+opportunity to learn how to hunt down null pointer dereferences, C could
+also be your answer! In this article, I'll explain how to structure a
+C file and write a C main function that handles command-line arguments
+like a champ.</p>
+<p><strong>Me</strong>: a crusty UNIX system programmer.<br>
+<strong>You</strong>: someone with an editor, a C compiler and some time to kill.</p>
+<p><em>Let's do this.</em></p>
+<h3>A Boring But Correct C Program</h3>
+<p>A C program starts with a <code>main()</code> function, usually kept in a file named <code>main.c</code>.</p>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
-<p>Next, open up a browser and create a new repository on GitHub for your
-new sweet blog. Name it as follows (use your GitHub user name):</p>
-<div class="highlight"><pre><span></span>https://GitHub.com/username/username.github.io
+<p>This program <strong>compiles</strong> but doesn't <strong>do</strong> anything:</p>
+<div class="highlight"><pre><span></span>$ gcc main.c
+$ ./a.out -o foo -vv 
+$
 </pre></div>
 
 
-<p>and leave it empty, we will fill it up with compelling blog content in
-a second.</p>
-<p>Using a command-line (you command-line right?), clone your empty git
-repository to your local machine:</p>
-<div class="highlight"><pre><span></span>$ git clone https://GitHub.com/username/username.github.io blog
-$ <span class="nb">cd</span> blog
+<p>Correct and boring.</p>
+<h3>Main Functions Are Unique</h3>
+<p>The <code>main()</code> function is the first user written function called when a
+program begins executing. The <em>first</em> function is <code>_start()</code> which is
+typically provided by the C runtime library, linked in automatically
+when your program is compiled. The details are highly dependent on
+the operating system and compiler toolchain, so I'm going to pretend
+like I didn't mention it.</p>
+<p>The <code>main()</code> function has two arguments that traditionally are called
+<code>argc</code> and <code>argv</code> and returns a signed integer. Most UNIX environments
+expect programs to return zero on success and negative one on failure.</p>
+<p>Argument | Name | Description
+=|=|=
+<code>argc</code>   | argument count  | length of the argument vector
+<code>argv</code>   | argument vector | array of character pointers</p>
+<p>The argument vector, <code>argv</code>, is a tokenized representation of the
+commmand line that invoked your program. In the example above, <code>argv</code>
+would be a list of the following strings:</p>
+<div class="highlight"><pre><span></span>    <span class="n">argv</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&quot;/path/to/a.out&quot;</span><span class="p">,</span> <span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;-vv&quot;</span> <span class="p">];</span>
 </pre></div>
 
 
-<h3>That One Weird Trick...</h3>
-<p>Now here's the trick with publishing web content on GitHub which isn't
-super obvious. For user pages, pages hosted in repos named
-<em>username.github.io</em>, the content is served from the <code>master</code>
-branch. But we don't want to publish all the pelican configuration
-files and whatnot to <code>master</code>, just the web content. So we keep the
-pelican configuration and the raw content in a seperate branch that I
-like to call 'content'. You can call it whatever you want, but I'll
-just assume you called it content too.</p>
-<div class="highlight"><pre><span></span>$ git checkout -b content
-Switched to a new branch <span class="s1">&#39;content&#39;</span>
+<p>The argument vector is guaranteed to always have at least one string in the
+first index, <code>argv[0]</code> which is the full path to the program executed. </p>
+<h3>Anatomy of a <code>main.c</code> File</h3>
+<p>When I write a <code>main.c</code> from scratch, it's usually structured like this:</p>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span><span class="w"></span>
+<span class="cm">/* 0 copyright/licensing */</span><span class="w"></span>
+<span class="cm">/* 1 includes */</span><span class="w"></span>
+<span class="cm">/* 2 defines */</span><span class="w"></span>
+<span class="cm">/* 3 external declarations */</span><span class="w"></span>
+<span class="cm">/* 4 typedefs */</span><span class="w"></span>
+<span class="cm">/* 5 global variable declarations */</span><span class="w"></span>
+<span class="cm">/* 6 function prototypes */</span><span class="w"></span>
+
+int<span class="w"> </span>main<span class="o">(</span>int<span class="w"> </span>argc<span class="o">,</span><span class="w"> </span>char<span class="w"> </span><span class="o">*</span>argv<span class="err">[]</span><span class="o">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="cm">/* 7 command-line parsing */</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+
+<span class="cm">/* 8 function declarations */</span><span class="w"></span>
 </pre></div>
 
 
-<h3>Configuring Pelican</h3>
-<p>Now, here comes the content configuration. Pelican provides a great
-initialization tool called 'pelican-quickstart' that will ask you a
-series of questions about your blog.</p>
-<div class="highlight"><pre><span></span>$ pelican-quickstart
-Welcome to pelican-quickstart v3.7.1.
+<p>I'll talk about each of these numbered sections, except for zero. If you
+have to put copyright or licensing text in your source, put it there.</p>
+<p>Another thing I won't talk about adding to your program is comments.</p>
+<blockquote>
+<p>"Comments lie."
+- A cynical but smart and good looking programmer.</p>
+</blockquote>
+<p>Instead of comments, use meaningful function and variable names.</p>
+<p>Appealing to the innate laziness of programmers, once you add comments
+you've doubled your maintenance load. If you change or refactor the
+code, you need to update or expand the comments. Over time the code
+mutates away from anything resembling what the comments describe.</p>
+<p>If you have to write comments, do not write about <em>what</em> the code is
+doing.  Instead, write about <em>why</em> the code is doing what it's doing.
+Write comments that you would want to read five years from now when
+you've forgotten everything about this code. And the fate of the
+world is depending on you. <em>No pressure</em>.</p>
+<h3>1 Includes</h3>
+<p>The first things I add to a <code>main.c</code> file are includes to make a
+multitude of standard C library functions and variables available to
+my program. The standard C library does lots of things, explore header
+files in <code>/usr/include</code> to find out what it can do for you.</p>
+<p>The <code>#include</code> string is a <a href="https://en.wikipedia.org/wiki/C_preprocessor">C preprocessor</a> directive that causes
+the inclusion of the referenced file in it's entirety into the current
+file. Header files in C are usually named with a <code>.h</code> extension and
+should not contain any executable code; only macros, defines, typedefs
+and external variable and function prototypes. The string <code>&lt;header.h&gt;</code>
+tells <em>cpp</em> to look for a file called <code>header.h</code> in the system defined
+header path, usually <code>/usr/include</code>.</p>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 
-This script will <span class="nb">help</span> you create a new Pelican-based website.
-
-Please answer the following questions so this script can generate the files
-needed by Pelican.
-
-&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span>  
-&gt; What will be the title of this web site? Super blog
-&gt; Who will be the author of this web site? username
-&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span> 
-&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> n
-&gt; Do you want to <span class="nb">enable</span> article pagination? <span class="o">(</span>Y/n<span class="o">)</span> 
-&gt; How many articles per page <span class="k">do</span> you want? <span class="o">[</span><span class="m">10</span><span class="o">]</span> 
-&gt; What is your <span class="nb">time</span> zone? <span class="o">[</span>Europe/Paris<span class="o">]</span> US/Central
-&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> y
-&gt; Do you want an auto-reload <span class="p">&amp;</span> simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> y
-&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> n
-&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> n
-&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> n
-&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> n
-&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> n
-&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
-&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
-Done. Your new project is available at /Users/username/blog
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;libgen.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;getopt.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
 </pre></div>
 
 
-<p>The only questions I didn't take the defaults on were:</p>
+<p>This is the minimum set of global includes that I'll include by default for the following stuff.</p>
+<p>#include File | Stuff It Provides
+=|=
+stdio | Supplies <code>FILE</code>, stdin, stdout, stderr and the <code>fprint()</code> family of functions
+stdlib | Supplies <code>malloc()</code>, <code>calloc()</code> and <code>realloc()</code>
+unistd | Supplies EXIT_FAILURE, EXIT_SUCCESS
+libgen | Supplies the <code>basename()</code> function.
+errno  | Defines the external <code>errno</code> variable and all the values it can take on.
+string | Supplies <code>memcpy()</code>, <code>memset()</code> and the <code>strlen()</code> family of functions.
+getopt | Supplies external <code>optarg</code>, <code>opterr</code>, <code>optind</code> and <code>getopt()</code> function.
+sys/types | Typedef shortcuts like <code>uint32_t</code> and <code>uint64_t</code></p>
+<h3>2 Defines</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="cp">#define OPTSTR &quot;vi:o:f:h&quot;</span>
+<span class="cp">#define USAGE_FMT  &quot;%s [-v] [-f hexflag] [-i inputfile] [-o outputfile] [-h]&quot;</span>
+<span class="cp">#define ERR_FOPEN_INPUT  &quot;fopen(input, r)&quot;</span>
+<span class="cp">#define ERR_FOPEN_OUTPUT &quot;fopen(output, w)&quot;</span>
+<span class="cp">#define ERR_DO_THE_NEEDFUL &quot;do_the_needful blew up&quot;</span>
+<span class="cp">#define DEFAULT_PROGNAME &quot;george&quot;</span>
+</pre></div>
+
+
+<p>This doesn't make a lot of sense right now, but the <code>OPTSTR</code> define is
+where we will define what command-line switches the program will
+recommend. Consult the <a href="https://linux.die.net/man/3/getopt"><code>getopt(3)</code></a> manual page to learn how OPTSTR
+will affect <code>getopt()</code>'s behavior.</p>
+<p>The <code>USAGE_FMT</code> define is a <code>printf()</code>-style format string that is
+referenced in the <code>usage()</code> function.</p>
+<p>I also like to gather string constants as <code>#define</code>'s in this part of
+the file. Collecting them makes it easier to fix spelling, reuse
+messages and internationalize messages if required.</p>
+<p>Finally, give <code>#define</code>s names with all capital letters to distinguish them
+from variable and function names. You can use camel-case if you want or
+separate words with an underscore, just make sure it's all upper case.</p>
+<h3>3 External Declarations</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">errno</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span><span class="n">optarg</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">opterr</span><span class="p">,</span> <span class="n">optind</span><span class="p">;</span>
+</pre></div>
+
+
+<p>An <code>extern</code> declaration brings that name into the namespace of the
+current compilation unit ( a.k.a "file" ) and allows the program to
+access that variable.  Here we've brought in the definitions for three
+integer variables and a character pointer.  The <code>opt</code> prefaced
+variables are used by the <code>getopt()</code> function and <code>errno</code> is used as
+an out-of-band communication channel by the standard C library to
+communicate why a function might have failed.</p>
+<h3>4 Typedefs</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">int</span>           <span class="n">verbose</span><span class="p">;</span>
+  <span class="kt">uint32_t</span>      <span class="n">flags</span><span class="p">;</span>
+  <span class="kt">FILE</span>         <span class="o">*</span><span class="n">input</span><span class="p">;</span>
+  <span class="kt">FILE</span>         <span class="o">*</span><span class="n">output</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">options_t</span><span class="p">;</span>
+</pre></div>
+
+
+<p>After external declarations, I like to declare <code>typedefs</code> for
+structures, unions and enumerations. Naming <code>typedefs</code> is a religion
+all to itself; I strongly prefer a '_t' suffix to indicate that the
+name is a type. In this example, I've declared <code>options_t</code> as a
+<code>struct</code> with four members. <code>C</code> is a white-space neutral programming
+language, so I use white space to line up field names in the same
+column.  I just like the way it looks. For the pointer declarations, I
+prepend the asterisk to the name to make it clear that it's a pointer.</p>
+<h3>5 Global Variable Declarations</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="kt">int</span> <span class="n">dumb_global_variable</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span><span class="p">;</span> 
+</pre></div>
+
+
+<p>Global variables are a bad idea and you should never use them. But if
+you have to use a global variable, declare them here and be sure to
+give them a default value. Seriously, <em>don't use global variables</em>.</p>
+<h3>6 Function Prototypes</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="kt">void</span> <span class="n">usage</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">progname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">opt</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">do_the_needful</span><span class="p">(</span><span class="n">options_t</span> <span class="o">*</span><span class="n">options</span><span class="p">);</span>
+</pre></div>
+
+
+<p>As you write functions, added after the <code>main()</code> function and not
+before, include the function prototypes here. Early C compilers used a
+single-pass strategy which mean that every symbol (variable or
+function name) you used in your program had to be declared before you
+used it. Modern compilers are nearly all multi-pass compilers that
+build a complete symbol table before generating code, so the use of
+function prototypes is not strictly required. However you sometimes
+don't get to choose what compiler is used on your code, so write the
+function prototypes and drive on.</p>
+<p>As a matter of course, I always include a <code>usage()</code> function that
+<code>main()</code> calls when it doesn't understand something you passed in from
+the command-line.</p>
+<h3>7 Command-Line Parsing</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">opt</span><span class="p">;</span>
+    <span class="n">options_t</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mh">0x0</span><span class="p">,</span> <span class="n">stdin</span><span class="p">,</span> <span class="n">stdout</span> <span class="p">};</span>
+
+    <span class="n">opterr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">((</span><span class="n">opt</span> <span class="o">=</span> <span class="n">getopt</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">OPTSTR</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> 
+       <span class="k">switch</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+           <span class="k">case</span> <span class="sc">&#39;i&#39;</span><span class="o">:</span>
+              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span> <span class="p">){</span>
+             <span class="n">perror</span><span class="p">(</span><span class="n">ERR_FOPEN_INPUT</span><span class="p">);</span>
+                 <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+                 <span class="cm">/* NOTREACHED */</span>
+              <span class="p">}</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;o&#39;</span><span class="o">:</span>
+              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">))</span> <span class="p">){</span>
+             <span class="n">perror</span><span class="p">(</span><span class="n">ERR_FOPEN_OUTPUT</span><span class="p">);</span>
+                 <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+                 <span class="cm">/* NOTREACHED */</span>
+              <span class="p">}</span>    
+          <span class="k">break</span><span class="p">;</span>
+
+       <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
+          <span class="n">options</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="p">)</span><span class="n">strtoul</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
+          <span class="n">options</span><span class="p">.</span><span class="n">verbose</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
+       <span class="k">default</span><span class="o">:</span>
+          <span class="n">usage</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">opt</span><span class="p">);</span>
+              <span class="cm">/* NOTREACHED */</span>
+          <span class="k">break</span><span class="p">;</span>
+       <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">do_the_needful</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">)</span> <span class="o">!=</span> <span class="n">EXIT_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">perror</span><span class="p">(</span><span class="n">ERR_DO_THE_NEEDFUL</span><span class="p">);</span>
+       <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+       <span class="cm">/* NOTREACHED */</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Ok, that's a lot. The purpose of the <code>main()</code> function is to collect the
+arguments that the user provides, perform minimal input validation and
+then pass the collected arguments to functions that will use them.  In
+this example, we declare an <code>options</code> variable initialized with
+default values and parse the command-line, updating <code>options</code> as
+necessary.</p>
+<p>The guts of this <code>main()</code> function is a while loop that uses <code>getopt()</code> to
+step thru <code>argv</code> looking for command-line options and their arguments
+(if any). The OPTSTR <code>#define</code> earlier in the file is the template
+that drives <code>getopt()</code>s behavior.  The <code>opt</code> variable takes on the
+character value of any command-line options found by <code>getopt()</code> and the
+program's response to the detection of the command-line option happens
+in the <code>switch</code> statement.</p>
+<p>Those of you paying attention will now be questioning why <code>opt</code> is
+declared as an 32-bit <code>int</code> but is expected to take on an 8-bit
+<code>char</code>?  It turns out <code>getopt()</code> returns an <code>int</code> value that takes on a
+negative one when it gets the end of <code>argv</code>, which I check against
+<code>EOF</code> or "End of File" marker. A <code>char</code> is a signed quantity, but I
+like matching variables to their function return values.</p>
+<p>When a known command-line option is detected, option specific behavior
+happens.  Some options have an argument, specified in OPTSTR with a
+trailing colon. When an option has a argument, the next string in argv
+is available to the program via the externally defined variable
+<code>optarg</code>. We use <code>optarg</code> to open files for reading and writing or
+converting a command-line argument from a string to an integer value.</p>
+<p>There are a couple of points for style here:</p>
 <ul>
-<li>web site title</li>
-<li>web site author</li>
-<li>time zone</li>
-<li>upload to GitHub</li>
+<li>Initialize <code>opterr</code> to zero which disables <code>getopt</code> from emiting a '?'.</li>
+<li><code>exit(EXIT_FAILURE);</code> or <code>exit(EXIT_SUCCESS);</code> in the middle of <code>main()</code>.</li>
+<li><code>/* NOTREACHED */</code> is a lint directive that I like.</li>
+<li><code>return EXIT_SUCCESS;</code> at the end of functions that return <code>int</code>.</li>
+<li>Explicitly cast implicit type conversions.</li>
 </ul>
-<p>After answering all the questions, pelican leaves the following
-offerings in the current directory:</p>
-<div class="highlight"><pre><span></span>$ ls
-Makefile        content/    develop_server.sh*
-fabfile.py      output/     pelicanconf.py
-publishconf.py
+<p>The command-line signature for this program if it were compiled would
+look something like:</p>
+<div class="highlight"><pre><span></span>$ ./a.out -h
+a.out <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-f hexflag<span class="o">]</span> <span class="o">[</span>-i inputfile<span class="o">]</span> <span class="o">[</span>-o outputfile<span class="o">]</span> <span class="o">[</span>-h<span class="o">]</span>
 </pre></div>
 
 
-<p>You can go checkout the <a href="https://docs.getpelican.com">Pelican docs</a> to find out how to use
-all of those files, but we're all about getting things down <em>right now</em>.
-No, I haven't read the docs yet either.</p>
-<h3>Forging On</h3>
-<div class="highlight"><pre><span></span>$ git add .
-$ git commit -m <span class="s1">&#39;initial pelican commit to content&#39;</span>
-$ git push origin content
+<p>In fact, that's what <code>usage()</code> will emit to <code>stderr</code> once compiled.</p>
+<h3>8 Function Declarations</h3>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
+
+<span class="kt">void</span> <span class="n">usage</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">progname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="n">USAGE_FMT</span><span class="p">,</span> <span class="n">progname</span><span class="o">?</span><span class="nl">progname</span><span class="p">:</span><span class="n">DEFAULT_PROGNAME</span><span class="p">);</span>
+   <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+   <span class="cm">/* NOTREACHED */</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">do_the_needful</span><span class="p">(</span><span class="n">options_t</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">errno</span> <span class="o">=</span> <span class="n">EINVAL</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">options</span><span class="o">-&gt;</span><span class="n">input</span> <span class="o">||</span> <span class="o">!</span><span class="n">options</span><span class="o">-&gt;</span><span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">errno</span> <span class="o">=</span> <span class="n">ENOENT</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="cm">/* XXX do needful stuff */</span>
+
+   <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>So here we've added all the pelican generated files to the <code>content</code>
-branch of the local git repo, commited the changes and then pushed the
-local changes to the remote repo hosted on GitHub. Not super exciting,
-but it will be handy if we need to revert edits to one of these files.</p>
-<h3>Finally Getting Somewhere</h3>
-<p>Ok, now we get bloggy! All of your blog posts, photos, images, pdfs,
-etc will live in the <code>content</code> directory which is initially
-empty. I'll talk you thru creating a first post and an 'About' page
-with a photo.</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> content
-$ mkdir pages images
-$ cp /Users/username/SecretStash/HotPhotoOfMe.jpg images
-$ touch first-post.md
-$ touch pages/about.md
+<p>And now, finally, we write functions that aren't boilerplate. In this
+example, function <code>do_the_needful</code> accepts a pointer to an <code>options_t</code>
+structure. We validate that the <code>options</code> pointer is not NULL and
+then go on to validate the <code>input</code> and <code>output</code> structure members.
+We return EXIT_FAILURE if either test fails, and signal to the caller
+a general reason by setting the external global variable <code>errno</code> to a
+conventional error code. The convenience function <code>perror()</code> can be used
+to emit human-readable-ish error messages based on the value of <code>errno</code>.</p>
+<p>Functions should almost always validate their input in some way. If
+full validation is expensive, try to do it once and treat the
+validated data as immutable. In the <code>usage()</code> function, we validate
+the <code>progname</code> argument using a conditional assignment in the
+<code>fprintf()</code> call. The <code>usage()</code> function is going to exit anyway, so I
+don't bother setting <code>errno</code> or making a big stink about using a
+correct program name.</p>
+<p>Some people complain about having multiple <code>return</code> statements in a
+function body. They make arguments about continuity of control-flow
+and other stuff. Honestly, if the something goes wrong in the middle
+of a function, it's a good time to return an error condition. Writing
+a ton of nested <code>if</code> statements just have one return is never a "good
+idea"™.</p>
+<p>Finally, if you write a function that takes four or more arguments
+consider bundling those arguments in a structure and passing a pointer
+to the structure. This makes the function signatures simpler, making
+them easier to remember and not screw up when you call them later. It
+also makes calling the function slightly faster since fewer things
+need to be copied into the function's stack frame. In practice, this
+will only become a consideration if the function is called millions or
+billions of times. Don't worry about it if that doesn't make sense.</p>
+<h3>Wait, You Said No Comments!?!!</h3>
+<p>In the <code>do_the_needful()</code> function I wrote a specific type of comment
+that is designed to be a placeholder rather than document the code.</p>
+<div class="highlight"><pre><span></span>   /* XXX do needful stuff */
 </pre></div>
 
 
-<p>Next open the empty file <code>first-post.md</code> in your favorite editor
-and add the following text:</p>
-<div class="highlight"><pre><span></span><span class="n">title</span><span class="o">:</span> <span class="n">First</span> <span class="n">Post</span> <span class="n">on</span> <span class="n">My</span> <span class="n">Sweet</span> <span class="n">New</span> <span class="n">Blog</span>
-<span class="n">date</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">today</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">date</span><span class="o">&gt;</span>
-<span class="n">author</span><span class="o">:</span> <span class="n">Your</span> <span class="n">Name</span> <span class="n">Here</span>
+<p>I use a 'XXX' prefix and then a short remark describing functionality
+to be added at a later date, an error condition that isn't checked, or
+any other code deficency to revisit. I'll often put in a <code>/* XXX
+... */</code> comment when I'm writing code in a top-down fashion that will
+slow me down writing when I want to capture the intended flow of the
+new program. I'll come back and implement the missing functionality
+when I have more time and then delete the comment.</p>
+<h3>Putting It All Together</h3>
+<p>Ok, this progam <em>still</em> does almost nothing when you compile and run
+it. But now you have a solid skeleton to build your own command-line
+parsing <code>C</code> programs.</p>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c - the complete listing */</span>
 
-<span class="err">#</span><span class="n">I</span> <span class="n">am</span> <span class="n">On</span> <span class="n">My</span> <span class="n">Way</span> <span class="n">To</span> <span class="n">Internet</span> <span class="n">Fame</span> <span class="n">and</span> <span class="n">Fortune</span><span class="o">!</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;libgen.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;getopt.h&gt;</span><span class="cp"></span>
 
-<span class="n">This</span> <span class="k">is</span> <span class="n">my</span> <span class="n">first</span> <span class="n">post</span> <span class="n">on</span> <span class="n">my</span> <span class="k">new</span> <span class="n">blog</span><span class="o">.</span> <span class="n">While</span> <span class="n">not</span> <span class="kd">super</span> <span class="n">informative</span> <span class="n">it</span>
-<span class="n">should</span> <span class="n">convey</span> <span class="n">my</span> <span class="n">sense</span> <span class="n">of</span> <span class="n">excitement</span> <span class="n">and</span> <span class="n">eagerness</span> <span class="n">to</span> <span class="n">engage</span> <span class="k">with</span> <span class="n">you</span><span class="o">,</span>
-<span class="n">the</span> <span class="n">reader</span><span class="o">!</span>
+<span class="cp">#define OPTSTR &quot;vi:o:f:h&quot;</span>
+<span class="cp">#define USAGE_FMT  &quot;%s [-v] [-f hexflag] [-i inputfile] [-o outputfile] [-h]&quot;</span>
+<span class="cp">#define ERR_FOPEN_INPUT  &quot;fopen(input, r)&quot;</span>
+<span class="cp">#define ERR_FOPEN_OUTPUT &quot;fopen(output, w)&quot;</span>
+<span class="cp">#define ERR_DO_THE_NEEDFUL &quot;do_the_needful blew up&quot;</span>
+<span class="cp">#define DEFAULT_PROGNAME &quot;george&quot;</span>
+
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">errno</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span><span class="n">optarg</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">opterr</span><span class="p">,</span> <span class="n">optind</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">int</span>           <span class="n">verbose</span><span class="p">;</span>
+  <span class="kt">uint32_t</span>      <span class="n">flags</span><span class="p">;</span>
+  <span class="kt">FILE</span>         <span class="o">*</span><span class="n">input</span><span class="p">;</span>
+  <span class="kt">FILE</span>         <span class="o">*</span><span class="n">output</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">options_t</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">dumb_global_variable</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">usage</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">progname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">opt</span><span class="p">);</span>
+<span class="kt">int</span>  <span class="nf">do_the_needful</span><span class="p">(</span><span class="n">options_t</span> <span class="o">*</span><span class="n">options</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">opt</span><span class="p">;</span>
+    <span class="n">options_t</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mh">0x0</span><span class="p">,</span> <span class="n">stdin</span><span class="p">,</span> <span class="n">stdout</span> <span class="p">};</span>
+
+    <span class="n">opterr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">((</span><span class="n">opt</span> <span class="o">=</span> <span class="n">getopt</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">OPTSTR</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> 
+       <span class="k">switch</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+           <span class="k">case</span> <span class="sc">&#39;i&#39;</span><span class="o">:</span>
+              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span> <span class="p">){</span>
+             <span class="n">perror</span><span class="p">(</span><span class="n">ERR_FOPEN_INPUT</span><span class="p">);</span>
+                 <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+                 <span class="cm">/* NOTREACHED */</span>
+              <span class="p">}</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;o&#39;</span><span class="o">:</span>
+              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">))</span> <span class="p">){</span>
+             <span class="n">perror</span><span class="p">(</span><span class="n">ERR_FOPEN_OUTPUT</span><span class="p">);</span>
+                 <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+                 <span class="cm">/* NOTREACHED */</span>
+              <span class="p">}</span>    
+          <span class="k">break</span><span class="p">;</span>
+
+       <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
+          <span class="n">options</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="p">)</span><span class="n">strtoul</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
+          <span class="n">options</span><span class="p">.</span><span class="n">verbose</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="k">break</span><span class="p">;</span>
+
+           <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
+       <span class="k">default</span><span class="o">:</span>
+          <span class="n">usage</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">opt</span><span class="p">);</span>
+              <span class="cm">/* NOTREACHED */</span>
+          <span class="k">break</span><span class="p">;</span>
+       <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">do_the_needful</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">)</span> <span class="o">!=</span> <span class="n">EXIT_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">perror</span><span class="p">(</span><span class="n">ERR_DO_THE_NEEDFUL</span><span class="p">);</span>
+       <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+       <span class="cm">/* NOTREACHED */</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">usage</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">progname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="n">USAGE_FMT</span><span class="p">,</span> <span class="n">progname</span><span class="o">?</span><span class="nl">progname</span><span class="p">:</span><span class="n">DEFAULT_PROGNAME</span><span class="p">);</span>
+   <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+   <span class="cm">/* NOTREACHED */</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">do_the_needful</span><span class="p">(</span><span class="n">options_t</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">errno</span> <span class="o">=</span> <span class="n">EINVAL</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">options</span><span class="o">-&gt;</span><span class="n">input</span> <span class="o">||</span> <span class="o">!</span><span class="n">options</span><span class="o">-&gt;</span><span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">errno</span> <span class="o">=</span> <span class="n">ENOENT</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="cm">/* XXX do needful stuff */</span>
+
+   <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
-
-
-<p>The first three lines are metadata that pelican uses to organize things. There
-are lots of different metadata you can put there, again the docs are your best
-bet for learning more about them.</p>
-<p>Now we'll open up the empty file <code>pages/about.md</code> and add this text:</p>
-<div class="highlight"><pre><span></span><span class="nl">title</span><span class="p">:</span> <span class="n">About</span>
-<span class="nl">date</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">today</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">date</span><span class="o">&gt;</span>
-
-<span class="o">!</span><span class="p">[</span><span class="n">So</span> <span class="n">Schmexy</span><span class="p">][</span><span class="n">my_sweet_photo</span><span class="p">]</span>
-
-<span class="n">Hi</span><span class="p">,</span> <span class="n">I</span> <span class="n">am</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="n">and</span> <span class="n">I</span> <span class="n">wrote</span> <span class="n">this</span> <span class="n">epic</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">Interweb</span>
-<span class="n">wisdom</span><span class="p">.</span> <span class="n">In</span> <span class="n">days</span> <span class="n">of</span> <span class="n">yore</span> <span class="n">much</span> <span class="n">of</span> <span class="n">this</span> <span class="n">would</span> <span class="n">have</span> <span class="n">been</span> <span class="n">deemed</span> <span class="n">sorcery</span>
-<span class="n">and</span> <span class="n">I</span> <span class="n">would</span> <span class="n">probably</span> <span class="n">have</span> <span class="n">been</span> <span class="n">burned</span> <span class="n">at</span> <span class="n">the</span> <span class="n">stake</span><span class="p">.</span>
-
-<span class="err">😆</span>
-
-<span class="p">[</span><span class="n">my_sweet_photo</span><span class="p">]</span><span class="o">:</span> <span class="p">{</span><span class="n">filename</span><span class="p">}</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">HotPhotoOfMe</span><span class="p">.</span><span class="n">jpg</span>
-</pre></div>
-
-
-<p>So now we have three new pieces of web content in our content
-directory.  Of the content branch. That's a lot of content.</p>
-<h3>Publishing</h3>
-<p>Don't worry, the pay off is coming!</p>
-<p>All that's left to do is:</p>
-<ul>
-<li>Run pelican to generate the static HTML files in <code>output</code>:</li>
-</ul>
-<div class="highlight"><pre><span></span>   $ pelican content -o output -s publishconf.py
-</pre></div>
-
-
-<ul>
-<li>Use <code>ghp-import</code> to add the contents of the output directory to the <code>master</code> branch:</li>
-</ul>
-<div class="highlight"><pre><span></span>   $ ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
-</pre></div>
-
-
-<ul>
-<li>Push the local master branch to the remote repo:</li>
-</ul>
-<div class="highlight"><pre><span></span>   $ git push origin master
-</pre></div>
-
-
-<ul>
-<li>Commit and push the new content to the 'content' branch:</li>
-</ul>
-<div class="highlight"><pre><span></span>   $ git add content
-   $ git commit -m <span class="s1">&#39;added a first post, a photo and an about page&#39;</span>
-   $ git push origin content
-</pre></div>
-
-
-<h3>OMG I Did It!</h3>
-<p>Now the exciting part is here, when you get to see what you've
-published for everyone to see! Type into your browser the URL:</p>
-<div class="highlight"><pre><span></span>https://username.github.io
-</pre></div>
-
-
-<p>Congratulations on your new blog, self-published on GitHub!</p>
       </article>
 
       <hr />
@@ -274,9 +558,9 @@ published for everyone to see! Type into your browser the URL:</p>
 
 
       <li>
-<a href="https://blog.xenolab.com/2018-10-05-howto-c-like-me.html" rel="bookmark" title="Permalink to How To Write a C Program Like Me">How To Write a C Program Like Me</a>
+<a href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html" rel="bookmark" title="Permalink to Using Pelican to Publish Your Blog on GitHub">Using Pelican to Publish Your Blog on GitHub</a>
   <time datetime="2018-10-05T00:00:00-05:00" pubdate>Fri 05 October 2018</time>
-<p class="tags">tags: <a href="https://blog.xenolab.com/tag/c.html">C</a><a href="https://blog.xenolab.com/tag/programming.html">programming</a></p></a>      </li>
+<p class="tags">tags: <a href="https://blog.xenolab.com/tag/python.html">python</a><a href="https://blog.xenolab.com/tag/blog.html">blog</a><a href="https://blog.xenolab.com/tag/pelican.html">pelican</a><a href="https://blog.xenolab.com/tag/github.html">GitHub</a></p></a>      </li>
 
 
       <li>
@@ -295,7 +579,7 @@ published for everyone to see! Type into your browser the URL:</p>
 	        <nav>
 	          <h2>Categories</h2>
 	          <ul>
-	              <li ><a href="https://blog.xenolab.com/category/howto.html">HowTo</a></li>
+	              <li ><a href="https://blog.xenolab.com/category/howto.html">howto</a></li>
 	              <li ><a href="https://blog.xenolab.com/category/primers.html">Primers</a></li>
 	          </ul>
 	        </nav>

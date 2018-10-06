@@ -615,16 +615,19 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 
 
 &lt;p&gt;This is the minimum set of global includes that I'll include by default for the following stuff.&lt;/p&gt;
-&lt;p&gt;#include File | Stuff It Provides
-=|=
-stdio | Supplies &lt;code&gt;FILE&lt;/code&gt;, stdin, stdout, stderr and the &lt;code&gt;fprint()&lt;/code&gt; family of functions
-stdlib | Supplies &lt;code&gt;malloc()&lt;/code&gt;, &lt;code&gt;calloc()&lt;/code&gt; and &lt;code&gt;realloc()&lt;/code&gt;
-unistd | Supplies EXIT_FAILURE, EXIT_SUCCESS
-libgen | Supplies the &lt;code&gt;basename()&lt;/code&gt; function.
-errno  | Defines the external &lt;code&gt;errno&lt;/code&gt; variable and all the values it can take on.
-string | Supplies &lt;code&gt;memcpy()&lt;/code&gt;, &lt;code&gt;memset()&lt;/code&gt; and the &lt;code&gt;strlen()&lt;/code&gt; family of functions.
-getopt | Supplies external &lt;code&gt;optarg&lt;/code&gt;, &lt;code&gt;opterr&lt;/code&gt;, &lt;code&gt;optind&lt;/code&gt; and &lt;code&gt;getopt()&lt;/code&gt; function.
-sys/types | Typedef shortcuts like &lt;code&gt;uint32_t&lt;/code&gt; and &lt;code&gt;uint64_t&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;#include File&lt;/th&gt;&lt;th&gt;Stuff It Provides&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;stdio  &lt;/td&gt;&lt;td&gt; Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions
+&lt;tr&gt;&lt;td&gt;stdlib &lt;/td&gt;&lt;td&gt; Supplies `malloc()`, `calloc()` and `realloc()` &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;unistd &lt;/td&gt;&lt;td&gt; Supplies EXIT_FAILURE, EXIT_SUCCESS &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;libgen &lt;/td&gt;&lt;td&gt; Supplies the `basename()` function. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;errno  &lt;/td&gt;&lt;td&gt; Defines the external `errno` variable and all the values it can take on. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;string &lt;/td&gt;&lt;td&gt; Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;getopt &lt;/td&gt;&lt;td&gt; Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;sys/types | Typedef shortcuts like `uint32_t` and `uint64_t` &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
 &lt;h3&gt;2 Defines&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;

@@ -178,16 +178,19 @@ header path, usually <code>/usr/include</code>.</p>
 
 
 <p>This is the minimum set of global includes that I'll include by default for the following stuff.</p>
-<p>#include File | Stuff It Provides
-=|=
-stdio | Supplies <code>FILE</code>, stdin, stdout, stderr and the <code>fprint()</code> family of functions
-stdlib | Supplies <code>malloc()</code>, <code>calloc()</code> and <code>realloc()</code>
-unistd | Supplies EXIT_FAILURE, EXIT_SUCCESS
-libgen | Supplies the <code>basename()</code> function.
-errno  | Defines the external <code>errno</code> variable and all the values it can take on.
-string | Supplies <code>memcpy()</code>, <code>memset()</code> and the <code>strlen()</code> family of functions.
-getopt | Supplies external <code>optarg</code>, <code>opterr</code>, <code>optind</code> and <code>getopt()</code> function.
-sys/types | Typedef shortcuts like <code>uint32_t</code> and <code>uint64_t</code></p>
+<table>
+<tr><th>#include File</th><th>Stuff It Provides</th></tr>
+
+<tr><td>stdio  </td><td> Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions
+<tr><td>stdlib </td><td> Supplies `malloc()`, `calloc()` and `realloc()` </td></tr>
+<tr><td>unistd </td><td> Supplies EXIT_FAILURE, EXIT_SUCCESS </td></tr>
+<tr><td>libgen </td><td> Supplies the `basename()` function. </td></tr>
+<tr><td>errno  </td><td> Defines the external `errno` variable and all the values it can take on. </td></tr>
+<tr><td>string </td><td> Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. </td></tr>
+<tr><td>getopt </td><td> Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. </td></tr>
+<tr><td>sys/types | Typedef shortcuts like `uint32_t` and `uint64_t` </td></tr>
+</table>
+
 <h3>2 Defines</h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>

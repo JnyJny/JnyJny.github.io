@@ -117,8 +117,7 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;This is the minimum set of global includes that I'll include by default for the following stuff.&lt;/p&gt;
 &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;#include File&lt;/th&gt;&lt;th&gt;Stuff It Provides&lt;/th&gt;&lt;/tr&gt;
-
-&lt;tr&gt;&lt;td&gt;stdio  &lt;/td&gt;&lt;td&gt; Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions
+&lt;tr&gt;&lt;td&gt;stdio  &lt;/td&gt;&lt;td&gt; Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;stdlib &lt;/td&gt;&lt;td&gt; Supplies `malloc()`, `calloc()` and `realloc()` &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;unistd &lt;/td&gt;&lt;td&gt; Supplies EXIT_FAILURE, EXIT_SUCCESS &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;libgen &lt;/td&gt;&lt;td&gt; Supplies the `basename()` function. &lt;/td&gt;&lt;/tr&gt;

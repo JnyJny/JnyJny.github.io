@@ -62,7 +62,7 @@
     </address>
   in <a href="https://blog.xenolab.com/category/howto.html">HowTo</a>
 <p class="tags">tagged <a href="https://blog.xenolab.com/tag/c.html">C</a>, <a href="https://blog.xenolab.com/tag/programming.html">programming</a>, <a href="https://blog.xenolab.com/tag/style.html">style</a></p></div>		
-		<h3>C is Dumb</h3>
+		<h3><strong>C is Dumb</strong></h3>
 <p>I know, Python and Javascript are what the kids are writing all their
 crazy 'apps' with these days. But don't be so quick to dismiss C, also
 known by many as 'the portable assembler'. If you need speed, writing
@@ -74,7 +74,7 @@ like a champ.</p>
 <p><strong>Me</strong>: a crusty UNIX system programmer.<br>
 <strong>You</strong>: someone with an editor, a C compiler and some time to kill.</p>
 <p><em>Let's do this.</em></p>
-<h3>A Boring But Correct C Program</h3>
+<h3><strong>A Boring But Correct C Program</strong></h3>
 <p>A C program starts with a <code>main()</code> function, usually kept in a file named <code>main.c</code>.</p>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
@@ -91,7 +91,7 @@ $
 
 
 <p>Correct and boring.</p>
-<h3>Main Functions Are Unique</h3>
+<h3><strong>Main Functions Are Unique</strong></h3>
 <p>The <code>main()</code> function is the first user written function called when a
 program begins executing. The <em>first</em> function is <code>_start()</code> which is
 typically provided by the C runtime library, linked in automatically
@@ -103,8 +103,8 @@ like I didn't mention it.</p>
 expect programs to return zero on success and negative one on failure.</p>
 <table>
  <tr><th>Argument</th><th>Name</th><th>Description</th></tr>
- <tr><td>`argc`</td><td>argument count </td><td>length of the argument vector</td></tr>
- <tr><td>`argv`</td><td>argument vector</td><td>array of character pointers</td></tr>
+ <tr><td>argc</td><td>Argument Count </td><td>Length of the argument vector.</td></tr>
+ <tr><td>argv</td><td>Argument Vector</td><td>Array of character pointers.</td></tr>
 </table>
 
 <p>The argument vector, <code>argv</code>, is a tokenized representation of the
@@ -116,22 +116,22 @@ would be a list of the following strings:</p>
 
 <p>The argument vector is guaranteed to always have at least one string in the
 first index, <code>argv[0]</code> which is the full path to the program executed. </p>
-<h3>Anatomy of a <code>main.c</code> File</h3>
+<h3><strong>Anatomy of a <code>main.c</code> File</strong></h3>
 <p>When I write a <code>main.c</code> from scratch, it's usually structured like this:</p>
-<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span><span class="w"></span>
-<span class="cm">/* 0 copyright/licensing */</span><span class="w"></span>
-<span class="cm">/* 1 includes */</span><span class="w"></span>
-<span class="cm">/* 2 defines */</span><span class="w"></span>
-<span class="cm">/* 3 external declarations */</span><span class="w"></span>
-<span class="cm">/* 4 typedefs */</span><span class="w"></span>
-<span class="cm">/* 5 global variable declarations */</span><span class="w"></span>
-<span class="cm">/* 6 function prototypes */</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="cm">/* 0 copyright/licensing */</span>
+<span class="cm">/* 1 includes */</span>
+<span class="cm">/* 2 defines */</span>
+<span class="cm">/* 3 external declarations */</span>
+<span class="cm">/* 4 typedefs */</span>
+<span class="cm">/* 5 global variable declarations */</span>
+<span class="cm">/* 6 function prototypes */</span>
 
-int<span class="w"> </span>main<span class="o">(</span>int<span class="w"> </span>argc<span class="o">,</span><span class="w"> </span>char<span class="w"> </span><span class="o">*</span>argv<span class="err">[]</span><span class="o">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="cm">/* 7 command-line parsing */</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="cm">/* 7 command-line parsing */</span>
+<span class="p">}</span>
 
-<span class="cm">/* 8 function declarations */</span><span class="w"></span>
+<span class="cm">/* 8 function declarations */</span>
 </pre></div>
 
 
@@ -152,7 +152,7 @@ doing.  Instead, write about <em>why</em> the code is doing what it's doing.
 Write comments that you would want to read five years from now when
 you've forgotten everything about this code. And the fate of the
 world is depending on you. <em>No pressure</em>.</p>
-<h3>1 Includes</h3>
+<h3><strong>1 Includes</strong></h3>
 <p>The first things I add to a <code>main.c</code> file are includes to make a
 multitude of standard C library functions and variables available to
 my program. The standard C library does lots of things, explore header
@@ -180,18 +180,18 @@ header path, usually <code>/usr/include</code>.</p>
 <p>This is the minimum set of global includes that I'll include by default for the following stuff.</p>
 <table>
 <tr><th>#include File</th><th>Stuff It Provides</th></tr>
-<tr><td>stdio  </td><td> Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions</td></tr>
-<tr><td>stdlib </td><td> Supplies `malloc()`, `calloc()` and `realloc()` </td></tr>
+<tr><td>stdio  </td><td> Supplies FILE, stdin, stdout, stderr and the fprint() family of functions</td></tr>
+<tr><td>stdlib </td><td> Supplies malloc(), calloc() and realloc() </td></tr>
 <tr><td>unistd </td><td> Supplies EXIT_FAILURE, EXIT_SUCCESS </td></tr>
-<tr><td>libgen </td><td> Supplies the `basename()` function. </td></tr>
-<tr><td>errno  </td><td> Defines the external `errno` variable and all the values it can take on. </td></tr>
-<tr><td>string </td><td> Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. </td></tr>
-<tr><td>getopt </td><td> Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. </td></tr>
+<tr><td>libgen </td><td> Supplies the basename() function. </td></tr>
+<tr><td>errno  </td><td> Defines the external errno variable and all the values it can take on. </td></tr>
+<tr><td>string </td><td> Supplies memcpy(), memset() and the strlen() family of functions. </td></tr>
+<tr><td>getopt </td><td> Supplies external optarg, opterr, optind and getopt() function. </td></tr>
 <tr><td>sys/types</td><td>
-Typedef shortcuts like `uint32_t` and `uint64_t` </td></tr>
+Typedef shortcuts like uint32_t and uint64_t </td></tr>
 </table>
 
-<h3>2 Defines</h3>
+<h3><strong>2 Defines</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -216,7 +216,7 @@ messages and internationalize messages if required.</p>
 <p>Finally, give <code>#define</code>s names with all capital letters to distinguish them
 from variable and function names. You can run the words together if you want or
 separate words with an underscore, just make sure it's all upper case.</p>
-<h3>3 External Declarations</h3>
+<h3><strong>3 External Declarations</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -233,7 +233,7 @@ integer variables and a character pointer.  The <code>opt</code> prefaced
 variables are used by the <code>getopt()</code> function and <code>errno</code> is used as
 an out-of-band communication channel by the standard C library to
 communicate why a function might have failed.</p>
-<h3>4 Typedefs</h3>
+<h3><strong>4 Typedefs</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -254,7 +254,7 @@ name is a type. In this example, I've declared <code>options_t</code> as a
 language, so I use white space to line up field names in the same
 column.  I just like the way it looks. For the pointer declarations, I
 prepend the asterisk to the name to make it clear that it's a pointer.</p>
-<h3>5 Global Variable Declarations</h3>
+<h3><strong>5 Global Variable Declarations</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -265,7 +265,7 @@ prepend the asterisk to the name to make it clear that it's a pointer.</p>
 <p>Global variables are a bad idea and you should never use them. But if
 you have to use a global variable, declare them here and be sure to
 give them a default value. Seriously, <em>don't use global variables</em>.</p>
-<h3>6 Function Prototypes</h3>
+<h3><strong>6 Function Prototypes</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -286,7 +286,7 @@ function prototypes and drive on.</p>
 <p>As a matter of course, I always include a <code>usage()</code> function that
 <code>main()</code> calls when it doesn't understand something you passed in from
 the command-line.</p>
-<h3>7 Command-Line Parsing</h3>
+<h3><strong>7 Command-Line Parsing</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -381,7 +381,7 @@ a.out <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span
 
 
 <p>In fact, that's what <code>usage()</code> will emit to <code>stderr</code> once compiled.</p>
-<h3>8 Function Declarations</h3>
+<h3><strong>8 Function Declarations</strong></h3>
 <div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
 <span class="o">&lt;</span><span class="p">...</span><span class="o">&gt;</span>
 
@@ -446,7 +446,7 @@ also makes calling the function slightly faster since fewer things
 need to be copied into the function's stack frame. In practice, this
 will only become a consideration if the function is called millions or
 billions of times. Don't worry about it if that doesn't make sense.</p>
-<h3>Wait, You Said No Comments!?!!</h3>
+<h3><strong>Wait, You Said No Comments!?!!</strong></h3>
 <p>In the <code>do_the_needful()</code> function I wrote a specific type of comment
 that is designed to be a placeholder rather than document the code.</p>
 <div class="highlight"><pre><span></span>   /* XXX do needful stuff */
@@ -460,7 +460,7 @@ any other code deficency to revisit. I'll often put in a <code>/* XXX
 slow me down writing when I want to capture the intended flow of the
 new program. I'll come back and implement the missing functionality
 when I have more time and then delete the comment.</p>
-<h3>Putting It All Together</h3>
+<h3><strong>Putting It All Together</strong></h3>
 <p>Ok, this progam <em>still</em> does almost nothing when you compile and run
 it. But now you have a solid skeleton to build your own command-line
 parsing <code>C</code> programs.</p>

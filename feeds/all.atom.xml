@@ -213,7 +213,7 @@ give them a default value. Seriously, &lt;em&gt;don't use global variables&lt;/e
 
 &lt;p&gt;As you write functions, added after the &lt;code&gt;main()&lt;/code&gt; function and not
 before, include the function prototypes here. Early C compilers used a
-single-pass strategy which mean that every symbol (variable or
+single-pass strategy which meant that every symbol (variable or
 function name) you used in your program had to be declared before you
 used it. Modern compilers are nearly all multi-pass compilers that
 build a complete symbol table before generating code, so the use of
@@ -255,11 +255,12 @@ the command-line.&lt;/p&gt;
           &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flags&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;strtoul&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;optarg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
           &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-           &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;v&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+
+       &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;v&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
           &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
           &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-           &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
        &lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
           &lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;basename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
               &lt;span class="cm"&gt;/* NOTREACHED */&lt;/span&gt;

@@ -267,7 +267,7 @@ give them a default value. Seriously, <em>don't use global variables</em>.</p>
 
 <p>As you write functions, added after the <code>main()</code> function and not
 before, include the function prototypes here. Early C compilers used a
-single-pass strategy which mean that every symbol (variable or
+single-pass strategy which meant that every symbol (variable or
 function name) you used in your program had to be declared before you
 used it. Modern compilers are nearly all multi-pass compilers that
 build a complete symbol table before generating code, so the use of
@@ -309,11 +309,12 @@ the command-line.</p>
           <span class="n">options</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="p">)</span><span class="n">strtoul</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
           <span class="k">break</span><span class="p">;</span>
 
-           <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
+
+       <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
           <span class="n">options</span><span class="p">.</span><span class="n">verbose</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
           <span class="k">break</span><span class="p">;</span>
 
-           <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
+       <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
        <span class="k">default</span><span class="o">:</span>
           <span class="n">usage</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">opt</span><span class="p">);</span>
               <span class="cm">/* NOTREACHED */</span>

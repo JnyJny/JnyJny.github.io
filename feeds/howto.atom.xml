@@ -124,7 +124,7 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 &lt;tr&gt;&lt;td&gt;errno  &lt;/td&gt;&lt;td&gt; Defines the external `errno` variable and all the values it can take on. &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;string &lt;/td&gt;&lt;td&gt; Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;getopt &lt;/td&gt;&lt;td&gt; Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;sys/types | Typedef shortcuts like `uint32_t` and `uint64_t` &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;sys/types&lt;/td&gt;&lt;td&gt; Typedef shortcuts like `uint32_t` and `uint64_t` &lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 
 &lt;h3&gt;2 Defines&lt;/h3&gt;

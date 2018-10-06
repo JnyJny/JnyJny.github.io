@@ -295,7 +295,7 @@ the command-line.</p>
                  <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
                  <span class="cm">/* NOTREACHED */</span>
               <span class="p">}</span>
-          <span class="k">break</span><span class="p">;</span>
+              <span class="k">break</span><span class="p">;</span>
 
            <span class="k">case</span> <span class="sc">&#39;o&#39;</span><span class="o">:</span>
               <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">))</span> <span class="p">){</span>
@@ -305,20 +305,19 @@ the command-line.</p>
               <span class="p">}</span>    
           <span class="k">break</span><span class="p">;</span>
 
-       <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
+           <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
           <span class="n">options</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="p">)</span><span class="n">strtoul</span><span class="p">(</span><span class="n">optarg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
           <span class="k">break</span><span class="p">;</span>
 
-
-       <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
+           <span class="k">case</span> <span class="sc">&#39;v&#39;</span><span class="o">:</span>
           <span class="n">options</span><span class="p">.</span><span class="n">verbose</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
           <span class="k">break</span><span class="p">;</span>
 
-       <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
-       <span class="k">default</span><span class="o">:</span>
-          <span class="n">usage</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">opt</span><span class="p">);</span>
+           <span class="k">case</span> <span class="sc">&#39;h&#39;</span><span class="o">:</span>
+           <span class="k">default</span><span class="o">:</span>
+              <span class="n">usage</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">opt</span><span class="p">);</span>
               <span class="cm">/* NOTREACHED */</span>
-          <span class="k">break</span><span class="p">;</span>
+              <span class="k">break</span><span class="p">;</span>
        <span class="p">}</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">do_the_needful</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">)</span> <span class="o">!=</span> <span class="n">EXIT_SUCCESS</span><span class="p">)</span> <span class="p">{</span>

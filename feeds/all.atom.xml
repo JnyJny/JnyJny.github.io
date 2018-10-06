@@ -151,7 +151,7 @@ referenced in the &lt;code&gt;usage()&lt;/code&gt; function.&lt;/p&gt;
 the file. Collecting them makes it easier to fix spelling, reuse
 messages and internationalize messages if required.&lt;/p&gt;
 &lt;p&gt;Finally, give &lt;code&gt;#define&lt;/code&gt;s names with all capital letters to distinguish them
-from variable and function names. You can use camel-case if you want or
+from variable and function names. You can run the words together if you want or
 separate words with an underscore, just make sure it's all upper case.&lt;/p&gt;
 &lt;h3&gt;3 External Declarations&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;

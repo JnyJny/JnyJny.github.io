@@ -124,7 +124,8 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 &lt;tr&gt;&lt;td&gt;errno  &lt;/td&gt;&lt;td&gt; Defines the external `errno` variable and all the values it can take on. &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;string &lt;/td&gt;&lt;td&gt; Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;getopt &lt;/td&gt;&lt;td&gt; Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;sys/types&lt;/td&gt;&lt;td&gt; Typedef shortcuts like `uint32_t` and `uint64_t` &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;sys/types&lt;/td&gt;&lt;td&gt;
+Typedef shortcuts like `uint32_t` and `uint64_t` &lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 
 &lt;h3&gt;2 Defines&lt;/h3&gt;
@@ -503,7 +504,7 @@ parsing &lt;code&gt;C&lt;/code&gt; programs.&lt;/p&gt;
 
    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;EXIT_SUCCESS&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="C"></category><category term="programming"></category></entry><entry><title>Using Pelican to Publish Your Blog on GitHub</title><link href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/2018-10-05-GitHub-pelican-blog.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on GitHub.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;If You've Got a GitHub Account, You Can Have a Blog!&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="C"></category><category term="programming"></category><category term="style"></category></entry><entry><title>Using Pelican to Publish Your Blog on GitHub</title><link href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/2018-10-05-GitHub-pelican-blog.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on GitHub.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;If You've Got a GitHub Account, You Can Have a Blog!&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/"&gt;GitHub.com&lt;/a&gt; is a hugely popular source code control web service
 that uses &lt;a href="https://git-scm.com"&gt;git&lt;/a&gt; to synchronize local files with copies kept on
 GitHub's servers. This lets you easily share and back up your work.

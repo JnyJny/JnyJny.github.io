@@ -1,7 +1,7 @@
 title: How To Write a C Program Like Me
 date: 2018-10-06
 author: ejo
-slug: 2018-10-05-howto-c-like-me
+slug: 2018-10-06-howto-c-like-me
 summary: Learn how to write a good C main function.
 category: howto
 tags: C, programming
@@ -57,10 +57,11 @@ The `main()` function has two arguments that traditionally are called
 expect programs to return zero on success and negative one on failure.
 
 
-Argument | Name | Description
-=|=|=
-`argc`   | argument count  | length of the argument vector
-`argv`   | argument vector | array of character pointers
+<table>
+ <tr><th>Argument</th><th>Name</th><th>Description</th></tr>
+ <tr><td>`argc`</td><td>argument count </td><td>length of the argument vector</td></tr>
+ <tr><td>`argv`</td><td>argument vector</td><td>array of character pointers</td></tr>
+</table>
 
 The argument vector, `argv`, is a tokenized representation of the
 commmand line that invoked your program. In the example above, `argv`
@@ -145,17 +146,18 @@ header path, usually `/usr/include`.
 
 This is the minimum set of global includes that I'll include by default for the following stuff.
 
-\#include File | Stuff It Provides
-=|=
-stdio | Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions
-stdlib | Supplies `malloc()`, `calloc()` and `realloc()`
-unistd | Supplies EXIT_FAILURE, EXIT_SUCCESS
-libgen | Supplies the `basename()` function.
-errno  | Defines the external `errno` variable and all the values it can take on.
-string | Supplies `memcpy()`, `memset()` and the `strlen()` family of functions.
-getopt | Supplies external `optarg`, `opterr`, `optind` and `getopt()` function.
-sys/types | Typedef shortcuts like `uint32_t` and `uint64_t`
+<table>
+<tr><th>#include File</th><th>Stuff It Provides</th></tr>
 
+<tr><td>stdio  </td><td> Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions
+<tr><td>stdlib </td><td> Supplies `malloc()`, `calloc()` and `realloc()` </td></tr>
+<tr><td>unistd </td><td> Supplies EXIT_FAILURE, EXIT_SUCCESS </td></tr>
+<tr><td>libgen </td><td> Supplies the `basename()` function. </td></tr>
+<tr><td>errno  </td><td> Defines the external `errno` variable and all the values it can take on. </td></tr>
+<tr><td>string </td><td> Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. </td></tr>
+<tr><td>getopt </td><td> Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. </td></tr>
+<tr><td>sys/types | Typedef shortcuts like `uint32_t` and `uint64_t` </td></tr>
+</table>
 
 ### 2 Defines
 

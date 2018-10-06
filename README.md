@@ -1,5 +1,10 @@
 ## Xeno:Lab Blog
 
+0. Install `pelican` and `ghp-import:
+```
+   $ pip install pelican ghp-import
+```
+
 1. Add new content to the `content` branch, **never** `master`.
 
 ```

@@ -182,6 +182,31 @@ hr {
   border-radius: 5px;
 }
 
+table {
+    width: 100%;
+    border: 1px dotted  #4D4D4D;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #EFEFEF;
+    border: 1px dotted  #4D4D4D;
+    border-collapse: collapse;
+    padding: 0 1em;
+}
+
+td:nth-child(even) {
+    border: 1px dotted  #4D4D4D;
+    border-collapse: collapse;
+    padding: 0 1em;    
+}
+
+td:nth-child(odd) {
+    background-color = #F0F0F0;
+    border: 1px dotted  #4D4D4D;
+    border-collapse: collapse;
+    padding: 0 1em;    
+}
 
 /* Article */
 

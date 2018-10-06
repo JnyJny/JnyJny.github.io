@@ -6,7 +6,7 @@ summary: Learn how to write a good C main function.
 category: HowTo
 tags: C, programming, style
 
-### C is Dumb
+### **C is Dumb**
 
 I know, Python and Javascript are what the kids are writing all their
 crazy 'apps' with these days. But don't be so quick to dismiss C, also
@@ -22,7 +22,7 @@ like a champ.
 
 _Let's do this._
 
-### A Boring But Correct C Program
+### **A Boring But Correct C Program**
 
 A C program starts with a `main()` function, usually kept in a file named `main.c`.
 
@@ -43,7 +43,7 @@ $
 
 Correct and boring.
 
-### Main Functions Are Unique
+### **Main Functions Are Unique**
 
 The `main()` function is the first user written function called when a
 program begins executing. The *first* function is `_start()` which is
@@ -56,11 +56,10 @@ The `main()` function has two arguments that traditionally are called
 `argc` and `argv` and returns a signed integer. Most UNIX environments
 expect programs to return zero on success and negative one on failure.
 
-
 <table>
  <tr><th>Argument</th><th>Name</th><th>Description</th></tr>
- <tr><td>`argc`</td><td>argument count </td><td>length of the argument vector</td></tr>
- <tr><td>`argv`</td><td>argument vector</td><td>array of character pointers</td></tr>
+ <tr><td>argc</td><td>Argument Count </td><td>Length of the argument vector.</td></tr>
+ <tr><td>argv</td><td>Argument Vector</td><td>Array of character pointers.</td></tr>
 </table>
 
 The argument vector, `argv`, is a tokenized representation of the
@@ -68,17 +67,17 @@ commmand line that invoked your program. In the example above, `argv`
 would be a list of the following strings:
 
 ```C
-	argv = [ "/path/to/a.out", "-o", "foo", "-vv" ];
+        argv = [ "/path/to/a.out", "-o", "foo", "-vv" ];
 ```
 The argument vector is guaranteed to always have at least one string in the
 first index, `argv[0]` which is the full path to the program executed. 
 
 
-### Anatomy of a `main.c` File
+### **Anatomy of a `main.c` File**
 
 When I write a `main.c` from scratch, it's usually structured like this:
 
-```
+```C
 /* main.c */
 /* 0 copyright/licensing */
 /* 1 includes */
@@ -116,7 +115,7 @@ Write comments that you would want to read five years from now when
 you've forgotten everything about this code. And the fate of the
 world is depending on you. _No pressure_.
 
-### 1 Includes
+### **1 Includes**
 
 The first things I add to a `main.c` file are includes to make a
 multitude of standard C library functions and variables available to
@@ -148,18 +147,18 @@ This is the minimum set of global includes that I'll include by default for the 
 
 <table>
 <tr><th>#include File</th><th>Stuff It Provides</th></tr>
-<tr><td>stdio  </td><td> Supplies `FILE`, stdin, stdout, stderr and the `fprint()` family of functions</td></tr>
-<tr><td>stdlib </td><td> Supplies `malloc()`, `calloc()` and `realloc()` </td></tr>
+<tr><td>stdio  </td><td> Supplies FILE, stdin, stdout, stderr and the fprint() family of functions</td></tr>
+<tr><td>stdlib </td><td> Supplies malloc(), calloc() and realloc() </td></tr>
 <tr><td>unistd </td><td> Supplies EXIT_FAILURE, EXIT_SUCCESS </td></tr>
-<tr><td>libgen </td><td> Supplies the `basename()` function. </td></tr>
-<tr><td>errno  </td><td> Defines the external `errno` variable and all the values it can take on. </td></tr>
-<tr><td>string </td><td> Supplies `memcpy()`, `memset()` and the `strlen()` family of functions. </td></tr>
-<tr><td>getopt </td><td> Supplies external `optarg`, `opterr`, `optind` and `getopt()` function. </td></tr>
+<tr><td>libgen </td><td> Supplies the basename() function. </td></tr>
+<tr><td>errno  </td><td> Defines the external errno variable and all the values it can take on. </td></tr>
+<tr><td>string </td><td> Supplies memcpy(), memset() and the strlen() family of functions. </td></tr>
+<tr><td>getopt </td><td> Supplies external optarg, opterr, optind and getopt() function. </td></tr>
 <tr><td>sys/types</td><td>
-Typedef shortcuts like `uint32_t` and `uint64_t` </td></tr>
+Typedef shortcuts like uint32_t and uint64_t </td></tr>
 </table>
 
-### 2 Defines
+### **2 Defines**
 
 ```C
 /* main.c */
@@ -188,11 +187,10 @@ the file. Collecting them makes it easier to fix spelling, reuse
 messages and internationalize messages if required.
 
 Finally, give `#define`s names with all capital letters to distinguish them
-from variable and function names. You can use camel-case if you want or
+from variable and function names. You can run the words together if you want or
 separate words with an underscore, just make sure it's all upper case.
 
-
-### 3 External Declarations
+### **3 External Declarations**
 
 ```C
 /* main.c */
@@ -211,7 +209,7 @@ variables are used by the `getopt()` function and `errno` is used as
 an out-of-band communication channel by the standard C library to
 communicate why a function might have failed.
 
-### 4 Typedefs
+### **4 Typedefs**
 
 ```C
 /* main.c */
@@ -234,7 +232,7 @@ language, so I use white space to line up field names in the same
 column.  I just like the way it looks. For the pointer declarations, I
 prepend the asterisk to the name to make it clear that it's a pointer.
 
-### 5 Global Variable Declarations
+### **5 Global Variable Declarations**
 
 ```C
 /* main.c */
@@ -247,7 +245,7 @@ Global variables are a bad idea and you should never use them. But if
 you have to use a global variable, declare them here and be sure to
 give them a default value. Seriously, _don't use global variables_.
 
-### 6 Function Prototypes
+### **6 Function Prototypes**
 
 ```C
 /* main.c */
@@ -259,7 +257,7 @@ int  do_the_needful(options_t *options);
 
 As you write functions, added after the `main()` function and not
 before, include the function prototypes here. Early C compilers used a
-single-pass strategy which mean that every symbol (variable or
+single-pass strategy which meant that every symbol (variable or
 function name) you used in your program had to be declared before you
 used it. Modern compilers are nearly all multi-pass compilers that
 build a complete symbol table before generating code, so the use of
@@ -271,7 +269,7 @@ As a matter of course, I always include a `usage()` function that
 `main()` calls when it doesn't understand something you passed in from
 the command-line.
 
-### 7 Command-Line Parsing
+### **7 Command-Line Parsing**
 
 ```C
 /* main.c */
@@ -287,33 +285,33 @@ int main(int argc, char *argv[]) {
        switch(opt) {
            case 'i':
               if (!(options.input = fopen(optarg, "r")) ){
-	         perror(ERR_FOPEN_INPUT);
+                 perror(ERR_FOPEN_INPUT);
                  exit(EXIT_FAILURE);
                  /* NOTREACHED */
               }
-	      break;
+              break;
 
            case 'o':
               if (!(options.output = fopen(optarg, "w")) ){
-	         perror(ERR_FOPEN_OUTPUT);
+                 perror(ERR_FOPEN_OUTPUT);
                  exit(EXIT_FAILURE);
                  /* NOTREACHED */
-              }	   
-	      break;
-	      
-	   case 'f':
-	      options.flags = (uint32_t )strtoul(optarg, NULL, 16);
-	      break;
+              }    
+              break;
+              
+           case 'f':
+              options.flags = (uint32_t )strtoul(optarg, NULL, 16);
+              break;
 
            case 'v':
-	      options.verbose += 1;
-	      break;
+              options.verbose += 1;
+              break;
 
            case 'h':
-	   default:
-	      usage(basename(argv[0]), opt);
+           default:
+              usage(basename(argv[0]), opt);
               /* NOTREACHED */
-	      break;
+              break;
        }
 
     if (do_the_needful(&options) != EXIT_SUCCESS) {
@@ -373,7 +371,7 @@ a.out [-v] [-f hexflag] [-i inputfile] [-o outputfile] [-h]
 
 In fact, that's what `usage()` will emit to `stderr` once compiled.
 
-### 8 Function Declarations
+### **8 Function Declarations**
 
 ```C
 /* main.c */
@@ -445,7 +443,7 @@ need to be copied into the function's stack frame. In practice, this
 will only become a consideration if the function is called millions or
 billions of times. Don't worry about it if that doesn't make sense.
 
-### Wait, You Said No Comments!?!!
+### **Wait, You Said No Comments!?!!**
 
 In the `do_the_needful()` function I wrote a specific type of comment
 that is designed to be a placeholder rather than document the code.
@@ -462,7 +460,7 @@ slow me down writing when I want to capture the intended flow of the
 new program. I'll come back and implement the missing functionality
 when I have more time and then delete the comment.
 
-### Putting It All Together
+### **Putting It All Together**
 
 Ok, this progam *still* does almost nothing when you compile and run
 it. But now you have a solid skeleton to build your own command-line
@@ -512,33 +510,33 @@ int main(int argc, char *argv[]) {
        switch(opt) {
            case 'i':
               if (!(options.input = fopen(optarg, "r")) ){
-	         perror(ERR_FOPEN_INPUT);
+                 perror(ERR_FOPEN_INPUT);
                  exit(EXIT_FAILURE);
                  /* NOTREACHED */
               }
-	      break;
+              break;
 
            case 'o':
               if (!(options.output = fopen(optarg, "w")) ){
-	         perror(ERR_FOPEN_OUTPUT);
+                 perror(ERR_FOPEN_OUTPUT);
                  exit(EXIT_FAILURE);
                  /* NOTREACHED */
-              }	   
-	      break;
-	      
-	   case 'f':
-	      options.flags = (uint32_t )strtoul(optarg, NULL, 16);
-	      break;
+              }    
+              break;
+              
+           case 'f':
+              options.flags = (uint32_t )strtoul(optarg, NULL, 16);
+              break;
 
            case 'v':
-	      options.verbose += 1;
-	      break;
+              options.verbose += 1;
+              break;
 
            case 'h':
-	   default:
-	      usage(basename(argv[0]), opt);
+           default:
+              usage(basename(argv[0]), opt);
               /* NOTREACHED */
-	      break;
+              break;
        }
 
     if (do_the_needful(&options) != EXIT_SUCCESS) {
@@ -576,38 +574,3 @@ int do_the_needful(options_t *options) {
 
 [1]: https://en.wikipedia.org/wiki/C_preprocessor
 [2]: https://linux.die.net/man/3/getopt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -343,13 +343,14 @@ a.out &lt;span class="o"&gt;[&lt;/span&gt;-v&lt;span class="o"&gt;]&lt;/span&gt;
 
 
 &lt;p&gt;And now, finally, we write functions that aren't boilerplate. In this
-example, function &lt;code&gt;do_the_needful&lt;/code&gt; accepts a pointer to an &lt;code&gt;options_t&lt;/code&gt;
-structure. We validate that the &lt;code&gt;options&lt;/code&gt; pointer is not NULL and
-then go on to validate the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; structure members.
-We return EXIT_FAILURE if either test fails, and signal to the caller
-a general reason by setting the external global variable &lt;code&gt;errno&lt;/code&gt; to a
-conventional error code. The convenience function &lt;code&gt;perror()&lt;/code&gt; can be used
-to emit human-readable-ish error messages based on the value of &lt;code&gt;errno&lt;/code&gt;.&lt;/p&gt;
+example, function &lt;code&gt;do_the_needful()&lt;/code&gt; accepts a pointer to an
+&lt;code&gt;options_t&lt;/code&gt; structure. We validate that the &lt;code&gt;options&lt;/code&gt; pointer is not
+NULL and then go on to validate the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; structure
+members.  We return EXIT_FAILURE if either test fails, and signal to
+the caller a general reason by setting the external global variable
+&lt;code&gt;errno&lt;/code&gt; to a conventional error code. The convenience function
+&lt;code&gt;perror()&lt;/code&gt; can be used by the caller to emit human-readable-ish error
+messages based on the value of &lt;code&gt;errno&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Functions should almost always validate their input in some way. If
 full validation is expensive, try to do it once and treat the
 validated data as immutable. In the &lt;code&gt;usage()&lt;/code&gt; function, we validate
@@ -357,6 +358,12 @@ the &lt;code&gt;progname&lt;/code&gt; argument using a conditional assignment in
 &lt;code&gt;fprintf()&lt;/code&gt; call. The &lt;code&gt;usage()&lt;/code&gt; function is going to exit anyway, so I
 don't bother setting &lt;code&gt;errno&lt;/code&gt; or making a big stink about using a
 correct program name.&lt;/p&gt;
+&lt;p&gt;The big class of errors we are trying to avoid here is dereferencing a
+NULL pointer. This will cause the operating system to send a special
+signal to our process called &lt;code&gt;SYSSEGV&lt;/code&gt; which results in unavoidable
+death. The last thing your users want to see is a crash due to
+SYSSEGV. It's much better to catch a NULL pointer so you can emit
+better error messages and shutdown the program gracefully.&lt;/p&gt;
 &lt;p&gt;Some people complain about having multiple &lt;code&gt;return&lt;/code&gt; statements in a
 function body. They make arguments about continuity of control-flow
 and other stuff. Honestly, if the something goes wrong in the middle

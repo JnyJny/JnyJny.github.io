@@ -406,13 +406,14 @@ a.out <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span
 
 
 <p>And now, finally, we write functions that aren't boilerplate. In this
-example, function <code>do_the_needful</code> accepts a pointer to an <code>options_t</code>
-structure. We validate that the <code>options</code> pointer is not NULL and
-then go on to validate the <code>input</code> and <code>output</code> structure members.
-We return EXIT_FAILURE if either test fails, and signal to the caller
-a general reason by setting the external global variable <code>errno</code> to a
-conventional error code. The convenience function <code>perror()</code> can be used
-to emit human-readable-ish error messages based on the value of <code>errno</code>.</p>
+example, function <code>do_the_needful()</code> accepts a pointer to an
+<code>options_t</code> structure. We validate that the <code>options</code> pointer is not
+NULL and then go on to validate the <code>input</code> and <code>output</code> structure
+members.  We return EXIT_FAILURE if either test fails, and signal to
+the caller a general reason by setting the external global variable
+<code>errno</code> to a conventional error code. The convenience function
+<code>perror()</code> can be used by the caller to emit human-readable-ish error
+messages based on the value of <code>errno</code>.</p>
 <p>Functions should almost always validate their input in some way. If
 full validation is expensive, try to do it once and treat the
 validated data as immutable. In the <code>usage()</code> function, we validate
@@ -420,6 +421,12 @@ the <code>progname</code> argument using a conditional assignment in the
 <code>fprintf()</code> call. The <code>usage()</code> function is going to exit anyway, so I
 don't bother setting <code>errno</code> or making a big stink about using a
 correct program name.</p>
+<p>The big class of errors we are trying to avoid here is dereferencing a
+NULL pointer. This will cause the operating system to send a special
+signal to our process called <code>SYSSEGV</code> which results in unavoidable
+death. The last thing your users want to see is a crash due to
+SYSSEGV. It's much better to catch a NULL pointer so you can emit
+better error messages and shutdown the program gracefully.</p>
 <p>Some people complain about having multiple <code>return</code> statements in a
 function body. They make arguments about continuity of control-flow
 and other stuff. Honestly, if the something goes wrong in the middle

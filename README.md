@@ -1,6 +1,6 @@
 ## Xeno:Lab Blog
 
-0. Install `pelican` and `ghp-import:
+0. Install `pelican` and `ghp-import`:
 ```
    $ pip install pelican ghp-import
 ```

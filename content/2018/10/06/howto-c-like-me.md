@@ -1,21 +1,20 @@
 title: How To Write a C Program Like Me
-date: 2018-10-06
 author: ejo
-slug: 2018-10-06-howto-c-like-me
 summary: Learn how to write a good C main function.
 category: HowTo
 tags: C, programming, style
+date: 2018-10-06
 
 ### **C is Dumb**
 
 I know, Python and Javascript are what the kids are writing all their
-crazy 'apps' with these days. But don't be so quick to dismiss C, also
-known by many as 'the portable assembler'. If you need speed, writing
-in C could be your answer. If you are looking for job security and the
-opportunity to learn how to hunt down null pointer dereferences, C could
-also be your answer! In this article, I'll explain how to structure a
-C file and write a C main function that handles command-line arguments
-like a champ.
+crazy 'apps' with these days. But don't be so quick to dismiss C, it's
+a capable and concise language that has a lot to offer. If you need
+speed, writing in C could be your answer. If you are looking for job
+security and the opportunity to learn how to hunt down null pointer
+dereferences, C could also be your answer! In this article, I'll
+explain how to structure a C file and write a C main function that
+handles command-line arguments like a champ.
 
 **Me**: a crusty UNIX system programmer.<br>
 **You**: someone with an editor, a C compiler and some time to kill.
@@ -26,31 +25,32 @@ _Let's do this._
 
 A C program starts with a `main()` function, usually kept in a file named `main.c`.
 
-```C
-/* main.c */
-int main(int argc, char *argv[]) {
+    :::C
+	/* main.c */
+	int main(int argc, char *argv[]) {
+	
+	}
 
-}
-```
 
 This program **compiles** but doesn't **do** anything:
 
-```bash
-$ gcc main.c
-$ ./a.out -o foo -vv 
-$
-```
+	:::bash
+	$ gcc main.c
+	$ ./a.out -o foo -vv 
+	$
+
 
 Correct and boring.
 
 ### **Main Functions Are Unique**
 
-The `main()` function is the first user written function called when a
-program begins executing. The *first* function is `_start()` which is
-typically provided by the C runtime library, linked in automatically
-when your program is compiled. The details are highly dependent on
-the operating system and compiler toolchain, so I'm going to pretend
-like I didn't mention it.
+The `main()` function is the first function in your program executed
+when it begins executing, but it's not the first function
+executed. The *first* function is `_start()` which is typically
+provided by the C runtime library, linked in automatically when your
+program is compiled. The details are highly dependent on the operating
+system and compiler toolchain, so I'm going to pretend like I didn't
+mention it.
 
 The `main()` function has two arguments that traditionally are called
 `argc` and `argv` and returns a signed integer. Most UNIX environments
@@ -66,9 +66,9 @@ The argument vector, `argv`, is a tokenized representation of the
 commmand line that invoked your program. In the example above, `argv`
 would be a list of the following strings:
 
-```C
-        argv = [ "/path/to/a.out", "-o", "foo", "-vv" ];
-```
+    :::C
+    argv = [ "/path/to/a.out", "-o", "foo", "-vv" ];
+
 The argument vector is guaranteed to always have at least one string in the
 first index, `argv[0]` which is the full path to the program executed. 
 
@@ -77,30 +77,33 @@ first index, `argv[0]` which is the full path to the program executed.
 
 When I write a `main.c` from scratch, it's usually structured like this:
 
-```C
-/* main.c */
-/* 0 copyright/licensing */
-/* 1 includes */
-/* 2 defines */
-/* 3 external declarations */
-/* 4 typedefs */
-/* 5 global variable declarations */
-/* 6 function prototypes */
+    :::C
+    /* main.c */
+    /* 0 copyright/licensing */
+    /* 1 includes */
+    /* 2 defines */
+    /* 3 external declarations */
+    /* 4 typedefs */
+    /* 5 global variable declarations */
+    /* 6 function prototypes */
+    
+    int main(int argc, char *argv[]) {
+    /* 7 command-line parsing */
+    }
+    
+    /* 8 function declarations */
 
-int main(int argc, char *argv[]) {
-/* 7 command-line parsing */
-}
-
-/* 8 function declarations */
-```
 
 I'll talk about each of these numbered sections, except for zero. If you
 have to put copyright or licensing text in your source, put it there.
 
 Another thing I won't talk about adding to your program is comments.
 
->"Comments lie."
->- A cynical but smart and good looking programmer.
+
+    :::
+	 "Comments lie."
+	 - A cynical but smart and good looking programmer.
+
 
 Instead of comments, use meaningful function and variable names.
 
@@ -130,9 +133,8 @@ and external variable and function prototypes. The string `<header.h>`
 tells *cpp* to look for a file called `header.h` in the system defined
 header path, usually `/usr/include`.
 
-```C
+```c
 /* main.c */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -141,7 +143,8 @@ header path, usually `/usr/include`.
 #include <string.h>
 #include <getopt.h>
 #include <sys/types.h>
-```
+```	
+
 
 This is the minimum set of global includes that I'll include by default for the following stuff.
 
@@ -160,7 +163,7 @@ Typedef shortcuts like uint32_t and uint64_t </td></tr>
 
 ### **2 Defines**
 
-```C
+```c
 /* main.c */
 <...>
 
@@ -170,8 +173,6 @@ Typedef shortcuts like uint32_t and uint64_t </td></tr>
 #define ERR_FOPEN_OUTPUT "fopen(output, w)"
 #define ERR_DO_THE_NEEDFUL "do_the_needful blew up"
 #define DEFAULT_PROGNAME "george"
-
-
 ```
 
 This doesn't make a lot of sense right now, but the `OPTSTR` define is
@@ -192,7 +193,7 @@ separate words with an underscore, just make sure it's all upper case.
 
 ### **3 External Declarations**
 
-```C
+```c
 /* main.c */
 <...>
 
@@ -211,7 +212,7 @@ communicate why a function might have failed.
 
 ### **4 Typedefs**
 
-```C
+```c
 /* main.c */
 <...>
 
@@ -234,11 +235,11 @@ prepend the asterisk to the name to make it clear that it's a pointer.
 
 ### **5 Global Variable Declarations**
 
-```C
+ ```c
 /* main.c */
 <...>
 
-int dumb_global_variable = -11; 
+int dumb_global_variable = -11;
 ```
 
 Global variables are a bad idea and you should never use them. But if
@@ -247,13 +248,14 @@ give them a default value. Seriously, _don't use global variables_.
 
 ### **6 Function Prototypes**
 
-```C
+```c
 /* main.c */
 <...>
 
 void usage(char *progname, int opt);
 int  do_the_needful(options_t *options);
 ```
+
 
 As you write functions, added after the `main()` function and not
 before, include the function prototypes here. Early C compilers used a
@@ -271,7 +273,7 @@ the command-line.
 
 ### **7 Command-Line Parsing**
 
-```C
+```c
 /* main.c */
 <...>
 
@@ -373,7 +375,7 @@ In fact, that's what `usage()` will emit to `stderr` once compiled.
 
 ### **8 Function Declarations**
 
-```C
+```c
 /* main.c */
 <...>
 
@@ -399,7 +401,6 @@ int do_the_needful(options_t *options) {
 
    return EXIT_SUCCESS;
 }
-
 ```
 
 And now, finally, we write functions that aren't boilerplate. In this
@@ -448,17 +449,17 @@ billions of times. Don't worry about it if that doesn't make sense.
 In the `do_the_needful()` function I wrote a specific type of comment
 that is designed to be a placeholder rather than document the code.
 
-```
-   /* XXX do needful stuff */
-```
+    :::C
+	/* XXX do needful stuff */
 
-I use a 'XXX' prefix and then a short remark describing functionality
-to be added at a later date, an error condition that isn't checked, or
-any other code deficency to revisit. I'll often put in a `/* XXX
-... */` comment when I'm writing code in a top-down fashion that will
-slow me down writing when I want to capture the intended flow of the
-new program. I'll come back and implement the missing functionality
-when I have more time and then delete the comment.
+When you are in the zone, sometimes you don't want to stop and write
+some particularly gnarly bit of code. You'll come back and do it
+later, just not now. That's where I'll leave myself a little
+breadcrumb.  I insert a commment with a 'XXX' prefix and a short
+remark describing what needs doing. Later on when I have more time,
+I'll grep thru source looking for XXX. It doesn't matter what you
+use, just make sure it's not likely to show up in your code base
+in another context; function name or variable for instance.
 
 ### **Putting It All Together**
 
@@ -466,7 +467,7 @@ Ok, this progam *still* does almost nothing when you compile and run
 it. But now you have a solid skeleton to build your own command-line
 parsing `C` programs.
 
-```C
+```c
 /* main.c - the complete listing */
 
 #include <stdio.h>

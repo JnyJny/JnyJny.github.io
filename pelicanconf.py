@@ -21,6 +21,17 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+# Publish Settings
+
+DEFAULT_DATE_FORMAT= '%A, %d %b %Y' # weekday name, date month-abbrev year
+
+DEFAULT_DATE = 'fs'              # use filesystem mtime
+
+TYPOGRIFY = True
+
+SUMMARY_MAX_LENGTH = 50
+
+
 # Blogroll
 #LINKS = (('Pelican', 'http://getpelican.com/'),
 #         ('Python.org', 'http://python.org/'),

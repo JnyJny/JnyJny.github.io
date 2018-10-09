@@ -1,12 +1,10 @@
 title: Using Pelican to Publish Your Blog on GitHub
-slug: 2018-10-05-GitHub-pelican-blog
 category: HowTo
 tags: python, blog, pelican, GitHub
-date: 2018-10-05
 summary: How to use pelican to publish a blog on GitHub.
-author: ejo
+date: 2018-10-05
 
-## If You've Got a GitHub Account, You Can Have a Blog!
+### **If You've Got a GitHub Account, You Can Have a Blog!**
 
 [GitHub.com][1] is a hugely popular source code control web service
 that uses [git][2] to synchronize local files with copies kept on
@@ -24,7 +22,7 @@ went with [Pelican][6] instead.
 I'll describe how to install Pelican, set up your GitHub repository
 and publish your first article. 
 
-### The Basics
+### **The Basics**
 
 Pelican and Jekyll both transform content written in [Markdown][9] or
 [ReStructured Text][8] into HTML and generate a static web site. Both
@@ -34,7 +32,7 @@ some Markdown files and then publish our website to GitHub.
 
 Easy peasy.
 
-### Installing Pelican & Creating the Repo
+### **Installing Pelican & Creating the Repo**
 
 First things first, you need pelican (and ghp-import) installed on
 your local machine.  This is super easy with the pip, the python package
@@ -62,7 +60,7 @@ $ git clone https://GitHub.com/username/username.github.io blog
 $ cd blog
 ```
 
-### That One Weird Trick...
+### **That One Weird Trick...**
 
 Now here's the trick with publishing web content on GitHub which isn't
 super obvious. For user pages, pages hosted in repos named
@@ -77,7 +75,7 @@ just assume you called it content too.
 $ git checkout -b content
 Switched to a new branch 'content'
 ```
-### Configuring Pelican
+### **Configuring Pelican**
 
 Now, here comes the content configuration. Pelican provides a great
 initialization tool called 'pelican-quickstart' that will ask you a
@@ -133,7 +131,7 @@ You can go checkout the [Pelican docs][10] to find out how to use
 all of those files, but we're all about getting things down *right now*.
 No, I haven't read the docs yet either.
 
-### Forging On
+### **Forging On**
 
 ```bash
 $ git add .
@@ -146,7 +144,7 @@ branch of the local git repo, commited the changes and then pushed the
 local changes to the remote repo hosted on GitHub. Not super exciting,
 but it will be handy if we need to revert edits to one of these files.
 
-### Finally Getting Somewhere
+### **Finally Getting Somewhere**
 
 Ok, now we get bloggy! All of your blog posts, photos, images, pdfs,
 etc will live in the `content` directory which is initially
@@ -201,7 +199,7 @@ and I would probably have been burned at the stake.
 So now we have three new pieces of web content in our content
 directory.  Of the content branch. That's a lot of content.
 
-### Publishing 
+### **Publishing**
 
 Don't worry, the pay off is coming!
 
@@ -233,7 +231,7 @@ All that's left to do is:
    $ git push origin content
 ```
 
-### OMG I Did It!
+### **OMG I Did It!**
 
 Now the exciting part is here, when you get to see what you've
 published for everyone to see! Type into your browser the URL:

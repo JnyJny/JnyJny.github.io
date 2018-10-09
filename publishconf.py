@@ -18,6 +18,14 @@ CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
+DEFAULT_DATE_FORMAT= '%A, %d %b %Y' # weekday name, date month-abbrev year
+
+DEFAULT_DATE = 'fs'              # use filesystem mtime
+
+TYPOGRIFY = True
+
+SUMMARY_MAX_LENGTH = 200
+
 # Following items are often useful when publishing
 
 #DISQUS_SITENAME = ""

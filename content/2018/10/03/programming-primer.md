@@ -1,12 +1,11 @@
 title: A Short Primer on Assembers, Compilers and Interpreters
-slug: 2018-10-02-primer
 category: Primers
 tags: computer, programming, history
-date: 2018-10-02
 summary: A gentle introduction to the historical evolution of programming practices.
 author: ejo
+date: 2018-10-03
 
-## Beginnings
+## **Beginnings**
 
 In the early days of computing, hardware was expensive and programmers
 were cheap. In fact, programmers were so cheap they weren't even
@@ -40,7 +39,7 @@ scratch pads. Main memory is typically very big and not nearly as
 fast as register memory. CPUs shuffle the data they are working with
 from main memory to registers and back again while a program executes.
 
-## Assembler
+## **Assembler**
 
 Computers were very expensive and people were cheap. Programmers spent
 endless hours translating hand written math into computer instructions
@@ -83,7 +82,7 @@ and R1 and stores the resulting value into register R2. Finally, lines
 most time consuming and error-prone parts of writing computer
 programs.
 
-## Compiler
+## **Compiler**
 
 Assembly was much better than writing computer instructions by hand,
 however early programmers yearned to write programs like they were
@@ -142,7 +141,7 @@ expensive. At some point, in the late 80s possibly, there was an
 inversion and programmers became more expensive than the hardware they
 used.
 
-## Interpreter
+## **Interpreter**
 
 Over time a new programming model arose where a special program
 called an "interpreter" would read a program and turn it into computer

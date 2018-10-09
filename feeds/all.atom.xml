@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-06T00:00:00-05:00</updated><entry><title>How To Write a C Program Like Me</title><link href="https://blog.xenolab.com/2018-10-06-howto-c-like-me.html" rel="alternate"></link><published>2018-10-06T00:00:00-05:00</published><updated>2018-10-06T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-06:/2018-10-06-howto-c-like-me.html</id><summary type="html">&lt;p&gt;Learn how to write a good C main function.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;C is Dumb&lt;/strong&gt;&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-09T12:51:52-05:00</updated><entry><title>this is a test</title><link href="https://blog.xenolab.com/this-is-a-test.html" rel="alternate"></link><published>2018-10-09T12:51:52-05:00</published><updated>2018-10-09T12:51:52-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-09:/this-is-a-test.html</id><summary type="html">&lt;p&gt;testing the&amp;nbsp;date&lt;/p&gt;</summary><content type="html">&lt;p&gt;some test&amp;nbsp;stuff&lt;/p&gt;</content></entry><entry><title>How To Write a C Program Like Me</title><link href="https://blog.xenolab.com/how-to-write-a-c-program-like-me.html" rel="alternate"></link><published>2018-10-06T00:00:00-05:00</published><updated>2018-10-06T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-06:/how-to-write-a-c-program-like-me.html</id><summary type="html">&lt;p&gt;Learn how to write a good C main&amp;nbsp;function.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;C is&amp;nbsp;Dumb&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;I know, Python and Javascript are what the kids are writing all their
-crazy 'apps' with these days. But don't be so quick to dismiss C, also
-known by many as 'the portable assembler'. If you need speed, writing
-in C could be your answer. If you are looking for job security and the
-opportunity to learn how to hunt down null pointer dereferences, C could
-also be your answer! In this article, I'll explain how to structure a
-C file and write a C main function that handles command-line arguments
-like a champ.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Me&lt;/strong&gt;: a crusty UNIX system programmer.&lt;br&gt;
-&lt;strong&gt;You&lt;/strong&gt;: someone with an editor, a C compiler and some time to kill.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Let's do this.&lt;/em&gt;&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;A Boring But Correct C Program&lt;/strong&gt;&lt;/h3&gt;
+crazy &amp;#8216;apps&amp;#8217; with these days. But don&amp;#8217;t be so quick to dismiss C, it&amp;#8217;s
+a capable and concise language that has a lot to offer. If you need
+speed, writing in C could be your answer. If you are looking for job
+security and the opportunity to learn how to hunt down null pointer
+dereferences, C could also be your answer! In this article, I&amp;#8217;ll
+explain how to structure a C file and write a C main function that
+handles command-line arguments like a&amp;nbsp;champ.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Me&lt;/strong&gt;: a crusty &lt;span class="caps"&gt;UNIX&lt;/span&gt; system programmer.&lt;br&gt;
+&lt;strong&gt;You&lt;/strong&gt;: someone with an editor, a C compiler and some time to&amp;nbsp;kill.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Let&amp;#8217;s do&amp;nbsp;this.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;A Boring But Correct C&amp;nbsp;Program&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;A C program starts with a &lt;code&gt;main()&lt;/code&gt; function, usually kept in a file named &lt;code&gt;main.c&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;argc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -20,24 +20,25 @@ like a champ.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This program &lt;strong&gt;compiles&lt;/strong&gt; but doesn't &lt;strong&gt;do&lt;/strong&gt; anything:&lt;/p&gt;
+&lt;p&gt;This program &lt;strong&gt;compiles&lt;/strong&gt; but doesn&amp;#8217;t &lt;strong&gt;do&lt;/strong&gt;&amp;nbsp;anything:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gcc main.c
 $ ./a.out -o foo -vv 
 $
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Correct and boring.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Main Functions Are Unique&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;main()&lt;/code&gt; function is the first user written function called when a
-program begins executing. The &lt;em&gt;first&lt;/em&gt; function is &lt;code&gt;_start()&lt;/code&gt; which is
-typically provided by the C runtime library, linked in automatically
-when your program is compiled. The details are highly dependent on
-the operating system and compiler toolchain, so I'm going to pretend
-like I didn't mention it.&lt;/p&gt;
+&lt;p&gt;Correct and&amp;nbsp;boring.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Main Functions Are&amp;nbsp;Unique&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;main()&lt;/code&gt; function is the first function in your program executed
+when it begins executing, but it&amp;#8217;s not the first function
+executed. The &lt;em&gt;first&lt;/em&gt; function is &lt;code&gt;_start()&lt;/code&gt; which is typically
+provided by the C runtime library, linked in automatically when your
+program is compiled. The details are highly dependent on the operating
+system and compiler toolchain, so I&amp;#8217;m going to pretend like I didn&amp;#8217;t
+mention&amp;nbsp;it.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;main()&lt;/code&gt; function has two arguments that traditionally are called
-&lt;code&gt;argc&lt;/code&gt; and &lt;code&gt;argv&lt;/code&gt; and returns a signed integer. Most UNIX environments
-expect programs to return zero on success and negative one on failure.&lt;/p&gt;
+&lt;code&gt;argc&lt;/code&gt; and &lt;code&gt;argv&lt;/code&gt; and returns a signed integer. Most &lt;span class="caps"&gt;UNIX&lt;/span&gt; environments
+expect programs to return zero on success and negative one on&amp;nbsp;failure.&lt;/p&gt;
 &lt;table&gt;
  &lt;tr&gt;&lt;th&gt;Argument&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;
  &lt;tr&gt;&lt;td&gt;argc&lt;/td&gt;&lt;td&gt;Argument Count &lt;/td&gt;&lt;td&gt;Length of the argument vector.&lt;/td&gt;&lt;/tr&gt;
@@ -46,15 +47,15 @@ expect programs to return zero on success and negative one on failure.&lt;/p&gt;
 
 &lt;p&gt;The argument vector, &lt;code&gt;argv&lt;/code&gt;, is a tokenized representation of the
 commmand line that invoked your program. In the example above, &lt;code&gt;argv&lt;/code&gt;
-would be a list of the following strings:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/path/to/a.out&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-vv&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt;
+would be a list of the following&amp;nbsp;strings:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/path/to/a.out&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-vv&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The argument vector is guaranteed to always have at least one string in the
-first index, &lt;code&gt;argv[0]&lt;/code&gt; which is the full path to the program executed. &lt;/p&gt;
+first index, &lt;code&gt;argv[0]&lt;/code&gt; which is the full path to the program&amp;nbsp;executed. &lt;/p&gt;
 &lt;h3&gt;&lt;strong&gt;Anatomy of a &lt;code&gt;main.c&lt;/code&gt; File&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;When I write a &lt;code&gt;main.c&lt;/code&gt; from scratch, it's usually structured like this:&lt;/p&gt;
+&lt;p&gt;When I write a &lt;code&gt;main.c&lt;/code&gt; from scratch, it&amp;#8217;s usually structured like&amp;nbsp;this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="cm"&gt;/* 0 copyright/licensing */&lt;/span&gt;
 &lt;span class="cm"&gt;/* 1 includes */&lt;/span&gt;
@@ -72,37 +73,37 @@ first index, &lt;code&gt;argv[0]&lt;/code&gt; which is the full path to the prog
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;I'll talk about each of these numbered sections, except for zero. If you
-have to put copyright or licensing text in your source, put it there.&lt;/p&gt;
-&lt;p&gt;Another thing I won't talk about adding to your program is comments.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;"Comments lie."
-- A cynical but smart and good looking programmer.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Instead of comments, use meaningful function and variable names.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ll talk about each of these numbered sections, except for zero. If you
+have to put copyright or licensing text in your source, put it&amp;nbsp;there.&lt;/p&gt;
+&lt;p&gt;Another thing I won&amp;#8217;t talk about adding to your program is&amp;nbsp;comments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &amp;quot;Comments lie.&amp;quot;
+ - A cynical but smart and good looking programmer.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instead of comments, use meaningful function and variable&amp;nbsp;names.&lt;/p&gt;
 &lt;p&gt;Appealing to the innate laziness of programmers, once you add comments
-you've doubled your maintenance load. If you change or refactor the
+you&amp;#8217;ve doubled your maintenance load. If you change or refactor the
 code, you need to update or expand the comments. Over time the code
-mutates away from anything resembling what the comments describe.&lt;/p&gt;
+mutates away from anything resembling what the comments&amp;nbsp;describe.&lt;/p&gt;
 &lt;p&gt;If you have to write comments, do not write about &lt;em&gt;what&lt;/em&gt; the code is
-doing.  Instead, write about &lt;em&gt;why&lt;/em&gt; the code is doing what it's doing.
+doing.  Instead, write about &lt;em&gt;why&lt;/em&gt; the code is doing what it&amp;#8217;s doing.
 Write comments that you would want to read five years from now when
-you've forgotten everything about this code. And the fate of the
+you&amp;#8217;ve forgotten everything about this code. And the fate of the
 world is depending on you. &lt;em&gt;No pressure&lt;/em&gt;.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;1 Includes&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;strong&gt;1&amp;nbsp;Includes&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;The first things I add to a &lt;code&gt;main.c&lt;/code&gt; file are includes to make a
 multitude of standard C library functions and variables available to
 my program. The standard C library does lots of things, explore header
-files in &lt;code&gt;/usr/include&lt;/code&gt; to find out what it can do for you.&lt;/p&gt;
+files in &lt;code&gt;/usr/include&lt;/code&gt; to find out what it can do for&amp;nbsp;you.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;#include&lt;/code&gt; string is a &lt;a href="https://en.wikipedia.org/wiki/C_preprocessor"&gt;C preprocessor&lt;/a&gt; directive that causes
-the inclusion of the referenced file in it's entirety into the current
+the inclusion of the referenced file in it&amp;#8217;s entirety into the current
 file. Header files in C are usually named with a &lt;code&gt;.h&lt;/code&gt; extension and
 should not contain any executable code; only macros, defines, typedefs
 and external variable and function prototypes. The string &lt;code&gt;&amp;lt;header.h&amp;gt;&lt;/code&gt;
 tells &lt;em&gt;cpp&lt;/em&gt; to look for a file called &lt;code&gt;header.h&lt;/code&gt; in the system defined
 header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
-
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
@@ -114,10 +115,10 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This is the minimum set of global includes that I'll include by default for the following stuff.&lt;/p&gt;
+&lt;p&gt;This is the minimum set of global includes that I&amp;#8217;ll include by default for the following&amp;nbsp;stuff.&lt;/p&gt;
 &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;#include File&lt;/th&gt;&lt;th&gt;Stuff It Provides&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;stdio  &lt;/td&gt;&lt;td&gt; Supplies FILE, stdin, stdout, stderr and the fprint() family of functions&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;stdio  &lt;/td&gt;&lt;td&gt; Supplies &lt;span class="caps"&gt;FILE&lt;/span&gt;, stdin, stdout, stderr and the fprint() family of functions&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;stdlib &lt;/td&gt;&lt;td&gt; Supplies malloc(), calloc() and realloc() &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;unistd &lt;/td&gt;&lt;td&gt; Supplies EXIT_FAILURE, EXIT_SUCCESS &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;libgen &lt;/td&gt;&lt;td&gt; Supplies the basename() function. &lt;/td&gt;&lt;/tr&gt;
@@ -128,7 +129,7 @@ header path, usually &lt;code&gt;/usr/include&lt;/code&gt;.&lt;/p&gt;
 Typedef shortcuts like uint32_t and uint64_t &lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h3&gt;&lt;strong&gt;2 Defines&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;strong&gt;2&amp;nbsp;Defines&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -141,19 +142,19 @@ Typedef shortcuts like uint32_t and uint64_t &lt;/td&gt;&lt;/tr&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This doesn't make a lot of sense right now, but the &lt;code&gt;OPTSTR&lt;/code&gt; define is
+&lt;p&gt;This doesn&amp;#8217;t make a lot of sense right now, but the &lt;code&gt;OPTSTR&lt;/code&gt; define is
 where we will define what command-line switches the program will
-recommend. Consult the &lt;a href="https://linux.die.net/man/3/getopt"&gt;&lt;code&gt;getopt(3)&lt;/code&gt;&lt;/a&gt; manual page to learn how OPTSTR
-will affect &lt;code&gt;getopt()&lt;/code&gt;'s behavior.&lt;/p&gt;
+recommend. Consult the &lt;a href="https://linux.die.net/man/3/getopt"&gt;&lt;code&gt;getopt(3)&lt;/code&gt;&lt;/a&gt; manual page to learn how &lt;span class="caps"&gt;OPTSTR&lt;/span&gt;
+will affect &lt;code&gt;getopt()&lt;/code&gt;&lt;span class="quo"&gt;&amp;#8216;&lt;/span&gt;s&amp;nbsp;behavior.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;USAGE_FMT&lt;/code&gt; define is a &lt;code&gt;printf()&lt;/code&gt;-style format string that is
 referenced in the &lt;code&gt;usage()&lt;/code&gt; function.&lt;/p&gt;
-&lt;p&gt;I also like to gather string constants as &lt;code&gt;#define&lt;/code&gt;'s in this part of
+&lt;p&gt;I also like to gather string constants as &lt;code&gt;#define&lt;/code&gt;&lt;span class="quo"&gt;&amp;#8216;&lt;/span&gt;s in this part of
 the file. Collecting them makes it easier to fix spelling, reuse
-messages and internationalize messages if required.&lt;/p&gt;
+messages and internationalize messages if&amp;nbsp;required.&lt;/p&gt;
 &lt;p&gt;Finally, give &lt;code&gt;#define&lt;/code&gt;s names with all capital letters to distinguish them
 from variable and function names. You can run the words together if you want or
-separate words with an underscore, just make sure it's all upper case.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;3 External Declarations&lt;/strong&gt;&lt;/h3&gt;
+separate words with an underscore, just make sure it&amp;#8217;s all upper&amp;nbsp;case.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;3 External&amp;nbsp;Declarations&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -164,13 +165,13 @@ separate words with an underscore, just make sure it's all upper case.&lt;/p&gt;
 
 
 &lt;p&gt;An &lt;code&gt;extern&lt;/code&gt; declaration brings that name into the namespace of the
-current compilation unit ( a.k.a "file" ) and allows the program to
-access that variable.  Here we've brought in the definitions for three
+current compilation unit ( a.k.a &amp;#8220;file&amp;#8221; ) and allows the program to
+access that variable.  Here we&amp;#8217;ve brought in the definitions for three
 integer variables and a character pointer.  The &lt;code&gt;opt&lt;/code&gt; prefaced
 variables are used by the &lt;code&gt;getopt()&lt;/code&gt; function and &lt;code&gt;errno&lt;/code&gt; is used as
 an out-of-band communication channel by the standard C library to
-communicate why a function might have failed.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;4 Typedefs&lt;/strong&gt;&lt;/h3&gt;
+communicate why a function might have&amp;nbsp;failed.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;4&amp;nbsp;Typedefs&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -185,29 +186,28 @@ communicate why a function might have failed.&lt;/p&gt;
 
 &lt;p&gt;After external declarations, I like to declare &lt;code&gt;typedefs&lt;/code&gt; for
 structures, unions and enumerations. Naming &lt;code&gt;typedefs&lt;/code&gt; is a religion
-all to itself; I strongly prefer a '_t' suffix to indicate that the
-name is a type. In this example, I've declared &lt;code&gt;options_t&lt;/code&gt; as a
+all to itself; I strongly prefer a &amp;#8216;_t&amp;#8217; suffix to indicate that the
+name is a type. In this example, I&amp;#8217;ve declared &lt;code&gt;options_t&lt;/code&gt; as a
 &lt;code&gt;struct&lt;/code&gt; with four members. &lt;code&gt;C&lt;/code&gt; is a white-space neutral programming
 language, so I use white space to line up field names in the same
 column.  I just like the way it looks. For the pointer declarations, I
-prepend the asterisk to the name to make it clear that it's a pointer.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;5 Global Variable Declarations&lt;/strong&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;dumb_global_variable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Global variables are a bad idea and you should never use them. But if
+prepend the asterisk to the name to make it clear that it&amp;#8217;s a&amp;nbsp;pointer.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;5 Global Variable&amp;nbsp;Declarations&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;`c
+/&lt;em&gt; main.c &lt;/em&gt;/&amp;nbsp;&amp;lt;&amp;#8230;&amp;gt;&lt;/p&gt;
+&lt;p&gt;int dumb_global_variable =&amp;nbsp;-11;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Global variables are a bad idea and you should never use them. But if
 you have to use a global variable, declare them here and be sure to
-give them a default value. Seriously, &lt;em&gt;don't use global variables&lt;/em&gt;.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;6 Function Prototypes&lt;/strong&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+give them a default value. Seriously, _don&amp;#39;t use global variables_.
 
-&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;progname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="kt"&gt;int&lt;/span&gt;  &lt;span class="nf"&gt;do_the_needful&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;options_t&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+### **6 Function Prototypes**
+
+```c
+/* main.c */
+&amp;lt;...&amp;gt;
+
+void usage(char *progname, int opt);
+int  do_the_needful(options_t *options);
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -218,12 +218,12 @@ function name) you used in your program had to be declared before you
 used it. Modern compilers are nearly all multi-pass compilers that
 build a complete symbol table before generating code, so the use of
 function prototypes is not strictly required. However you sometimes
-don't get to choose what compiler is used on your code, so write the
-function prototypes and drive on.&lt;/p&gt;
+don&amp;#8217;t get to choose what compiler is used on your code, so write the
+function prototypes and drive&amp;nbsp;on.&lt;/p&gt;
 &lt;p&gt;As a matter of course, I always include a &lt;code&gt;usage()&lt;/code&gt; function that
-&lt;code&gt;main()&lt;/code&gt; calls when it doesn't understand something you passed in from
-the command-line.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;7 Command-Line Parsing&lt;/strong&gt;&lt;/h3&gt;
+&lt;code&gt;main()&lt;/code&gt; calls when it doesn&amp;#8217;t understand something you passed in from
+the&amp;nbsp;command-line.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;7 Command-Line&amp;nbsp;Parsing&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -277,48 +277,47 @@ the command-line.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Ok, that's a lot. The purpose of the &lt;code&gt;main()&lt;/code&gt; function is to collect the
+&lt;p&gt;Ok, that&amp;#8217;s a lot. The purpose of the &lt;code&gt;main()&lt;/code&gt; function is to collect the
 arguments that the user provides, perform minimal input validation and
 then pass the collected arguments to functions that will use them.  In
 this example, we declare an &lt;code&gt;options&lt;/code&gt; variable initialized with
-default values and parse the command-line, updating &lt;code&gt;options&lt;/code&gt; as
-necessary.&lt;/p&gt;
+default values and parse the command-line, updating &lt;code&gt;options&lt;/code&gt; as&amp;nbsp;necessary.&lt;/p&gt;
 &lt;p&gt;The guts of this &lt;code&gt;main()&lt;/code&gt; function is a while loop that uses &lt;code&gt;getopt()&lt;/code&gt; to
 step thru &lt;code&gt;argv&lt;/code&gt; looking for command-line options and their arguments
-(if any). The OPTSTR &lt;code&gt;#define&lt;/code&gt; earlier in the file is the template
+(if any). The &lt;span class="caps"&gt;OPTSTR&lt;/span&gt; &lt;code&gt;#define&lt;/code&gt; earlier in the file is the template
 that drives &lt;code&gt;getopt()&lt;/code&gt;s behavior.  The &lt;code&gt;opt&lt;/code&gt; variable takes on the
 character value of any command-line options found by &lt;code&gt;getopt()&lt;/code&gt; and the
-program's response to the detection of the command-line option happens
+program&amp;#8217;s response to the detection of the command-line option happens
 in the &lt;code&gt;switch&lt;/code&gt; statement.&lt;/p&gt;
 &lt;p&gt;Those of you paying attention will now be questioning why &lt;code&gt;opt&lt;/code&gt; is
 declared as an 32-bit &lt;code&gt;int&lt;/code&gt; but is expected to take on an 8-bit
 &lt;code&gt;char&lt;/code&gt;?  It turns out &lt;code&gt;getopt()&lt;/code&gt; returns an &lt;code&gt;int&lt;/code&gt; value that takes on a
 negative one when it gets the end of &lt;code&gt;argv&lt;/code&gt;, which I check against
-&lt;code&gt;EOF&lt;/code&gt; or "End of File" marker. A &lt;code&gt;char&lt;/code&gt; is a signed quantity, but I
-like matching variables to their function return values.&lt;/p&gt;
+&lt;code&gt;EOF&lt;/code&gt; or &amp;#8220;End of File&amp;#8221; marker. A &lt;code&gt;char&lt;/code&gt; is a signed quantity, but I
+like matching variables to their function return&amp;nbsp;values.&lt;/p&gt;
 &lt;p&gt;When a known command-line option is detected, option specific behavior
-happens.  Some options have an argument, specified in OPTSTR with a
+happens.  Some options have an argument, specified in &lt;span class="caps"&gt;OPTSTR&lt;/span&gt; with a
 trailing colon. When an option has a argument, the next string in argv
 is available to the program via the externally defined variable
 &lt;code&gt;optarg&lt;/code&gt;. We use &lt;code&gt;optarg&lt;/code&gt; to open files for reading and writing or
-converting a command-line argument from a string to an integer value.&lt;/p&gt;
-&lt;p&gt;There are a couple of points for style here:&lt;/p&gt;
+converting a command-line argument from a string to an integer&amp;nbsp;value.&lt;/p&gt;
+&lt;p&gt;There are a couple of points for style&amp;nbsp;here:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Initialize &lt;code&gt;opterr&lt;/code&gt; to zero which disables &lt;code&gt;getopt&lt;/code&gt; from emiting a '?'.&lt;/li&gt;
+&lt;li&gt;Initialize &lt;code&gt;opterr&lt;/code&gt; to zero which disables &lt;code&gt;getopt&lt;/code&gt; from emiting a&amp;nbsp;&amp;#8216;?&amp;#8217;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;exit(EXIT_FAILURE);&lt;/code&gt; or &lt;code&gt;exit(EXIT_SUCCESS);&lt;/code&gt; in the middle of &lt;code&gt;main()&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/* NOTREACHED */&lt;/code&gt; is a lint directive that I like.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/* NOTREACHED */&lt;/code&gt; is a lint directive that I&amp;nbsp;like.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;return EXIT_SUCCESS;&lt;/code&gt; at the end of functions that return &lt;code&gt;int&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Explicitly cast implicit type conversions.&lt;/li&gt;
+&lt;li&gt;Explicitly cast implicit type&amp;nbsp;conversions.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The command-line signature for this program if it were compiled would
-look something like:&lt;/p&gt;
+look something&amp;nbsp;like:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./a.out -h
 a.out &lt;span class="o"&gt;[&lt;/span&gt;-v&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-f hexflag&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-i inputfile&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-o outputfile&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-h&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;In fact, that's what &lt;code&gt;usage()&lt;/code&gt; will emit to &lt;code&gt;stderr&lt;/code&gt; once compiled.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;8 Function Declarations&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;In fact, that&amp;#8217;s what &lt;code&gt;usage()&lt;/code&gt; will emit to &lt;code&gt;stderr&lt;/code&gt; once&amp;nbsp;compiled.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;8 Function&amp;nbsp;Declarations&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* main.c */&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -347,10 +346,10 @@ a.out &lt;span class="o"&gt;[&lt;/span&gt;-v&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;And now, finally, we write functions that aren't boilerplate. In this
+&lt;p&gt;And now, finally, we write functions that aren&amp;#8217;t boilerplate. In this
 example, function &lt;code&gt;do_the_needful()&lt;/code&gt; accepts a pointer to an
 &lt;code&gt;options_t&lt;/code&gt; structure. We validate that the &lt;code&gt;options&lt;/code&gt; pointer is not
-NULL and then go on to validate the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; structure
+&lt;span class="caps"&gt;NULL&lt;/span&gt; and then go on to validate the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; structure
 members.  We return EXIT_FAILURE if either test fails, and signal to
 the caller a general reason by setting the external global variable
 &lt;code&gt;errno&lt;/code&gt; to a conventional error code. The convenience function
@@ -361,43 +360,43 @@ full validation is expensive, try to do it once and treat the
 validated data as immutable. In the &lt;code&gt;usage()&lt;/code&gt; function, we validate
 the &lt;code&gt;progname&lt;/code&gt; argument using a conditional assignment in the
 &lt;code&gt;fprintf()&lt;/code&gt; call. The &lt;code&gt;usage()&lt;/code&gt; function is going to exit anyway, so I
-don't bother setting &lt;code&gt;errno&lt;/code&gt; or making a big stink about using a
-correct program name.&lt;/p&gt;
+don&amp;#8217;t bother setting &lt;code&gt;errno&lt;/code&gt; or making a big stink about using a
+correct program&amp;nbsp;name.&lt;/p&gt;
 &lt;p&gt;The big class of errors we are trying to avoid here is dereferencing a
-NULL pointer. This will cause the operating system to send a special
+&lt;span class="caps"&gt;NULL&lt;/span&gt; pointer. This will cause the operating system to send a special
 signal to our process called &lt;code&gt;SYSSEGV&lt;/code&gt; which results in unavoidable
 death. The last thing your users want to see is a crash due to
-SYSSEGV. It's much better to catch a NULL pointer so you can emit
-better error messages and shutdown the program gracefully.&lt;/p&gt;
+&lt;span class="caps"&gt;SYSSEGV&lt;/span&gt;. It&amp;#8217;s much better to catch a &lt;span class="caps"&gt;NULL&lt;/span&gt; pointer so you can emit
+better error messages and shutdown the program&amp;nbsp;gracefully.&lt;/p&gt;
 &lt;p&gt;Some people complain about having multiple &lt;code&gt;return&lt;/code&gt; statements in a
 function body. They make arguments about continuity of control-flow
 and other stuff. Honestly, if the something goes wrong in the middle
-of a function, it's a good time to return an error condition. Writing
-a ton of nested &lt;code&gt;if&lt;/code&gt; statements just have one return is never a "good
-idea"™.&lt;/p&gt;
+of a function, it&amp;#8217;s a good time to return an error condition. Writing
+a ton of nested &lt;code&gt;if&lt;/code&gt; statements just have one return is never a &amp;#8220;good&amp;nbsp;idea&amp;#8221;™.&lt;/p&gt;
 &lt;p&gt;Finally, if you write a function that takes four or more arguments
 consider bundling those arguments in a structure and passing a pointer
 to the structure. This makes the function signatures simpler, making
 them easier to remember and not screw up when you call them later. It
 also makes calling the function slightly faster since fewer things
-need to be copied into the function's stack frame. In practice, this
+need to be copied into the function&amp;#8217;s stack frame. In practice, this
 will only become a consideration if the function is called millions or
-billions of times. Don't worry about it if that doesn't make sense.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Wait, You Said No Comments!?!!&lt;/strong&gt;&lt;/h3&gt;
+billions of times. Don&amp;#8217;t worry about it if that doesn&amp;#8217;t make&amp;nbsp;sense.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Wait, You Said No&amp;nbsp;Comments!?!!&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;In the &lt;code&gt;do_the_needful()&lt;/code&gt; function I wrote a specific type of comment
-that is designed to be a placeholder rather than document the code.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   /* XXX do needful stuff */
+that is designed to be a placeholder rather than document the&amp;nbsp;code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* XXX do needful stuff */&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;I use a 'XXX' prefix and then a short remark describing functionality
-to be added at a later date, an error condition that isn't checked, or
-any other code deficency to revisit. I'll often put in a &lt;code&gt;/* XXX
-... */&lt;/code&gt; comment when I'm writing code in a top-down fashion that will
-slow me down writing when I want to capture the intended flow of the
-new program. I'll come back and implement the missing functionality
-when I have more time and then delete the comment.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Putting It All Together&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;When you are in the zone, sometimes you don&amp;#8217;t want to stop and write
+some particularly gnarly bit of code. You&amp;#8217;ll come back and do it
+later, just not now. That&amp;#8217;s where I&amp;#8217;ll leave myself a little
+breadcrumb.  I insert a commment with a &amp;#8216;&lt;span class="caps"&gt;XXX&lt;/span&gt;&amp;#8217; prefix and a short
+remark describing what needs doing. Later on when I have more time,
+I&amp;#8217;ll grep thru source looking for &lt;span class="caps"&gt;XXX&lt;/span&gt;. It doesn&amp;#8217;t matter what you
+use, just make sure it&amp;#8217;s not likely to show up in your code base
+in another context; function name or variable for&amp;nbsp;instance.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Putting It All&amp;nbsp;Together&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Ok, this progam &lt;em&gt;still&lt;/em&gt; does almost nothing when you compile and run
 it. But now you have a solid skeleton to build your own command-line
 parsing &lt;code&gt;C&lt;/code&gt; programs.&lt;/p&gt;
@@ -504,68 +503,68 @@ parsing &lt;code&gt;C&lt;/code&gt; programs.&lt;/p&gt;
 
    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;EXIT_SUCCESS&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="C"></category><category term="programming"></category><category term="style"></category></entry><entry><title>Using Pelican to Publish Your Blog on GitHub</title><link href="https://blog.xenolab.com/2018-10-05-GitHub-pelican-blog.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/2018-10-05-GitHub-pelican-blog.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on GitHub.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;If You've Got a GitHub Account, You Can Have a Blog!&lt;/strong&gt;&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="C"></category><category term="programming"></category><category term="style"></category></entry><entry><title>Using Pelican to Publish Your Blog on GitHub</title><link href="https://blog.xenolab.com/using-pelican-to-publish-your-blog-on-github.html" rel="alternate"></link><published>2018-10-05T00:00:00-05:00</published><updated>2018-10-05T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-05:/using-pelican-to-publish-your-blog-on-github.html</id><summary type="html">&lt;p&gt;How to use pelican to publish a blog on&amp;nbsp;GitHub.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;If You&amp;#8217;ve Got a GitHub Account, You Can Have a&amp;nbsp;Blog!&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://github.com/"&gt;GitHub.com&lt;/a&gt; is a hugely popular source code control web service
 that uses &lt;a href="https://git-scm.com"&gt;git&lt;/a&gt; to synchronize local files with copies kept on
-GitHub's servers. This lets you easily share and back up your work.
-For the purposes of this article I'll assume that you have a GitHub
+GitHub&amp;#8217;s servers. This lets you easily share and back up your work.
+For the purposes of this article I&amp;#8217;ll assume that you have a GitHub
 account, are comfortable with basic git commands and want a blog to
-call your own using Pelican.&lt;/p&gt;
-&lt;p&gt;In addition to it's repository user interface, GitHub also enables
+call your own using&amp;nbsp;Pelican.&lt;/p&gt;
+&lt;p&gt;In addition to it&amp;#8217;s repository user interface, GitHub also enables
 users to &lt;a href="https://help.github.com/categories/GitHub-pages-basics/"&gt;publish web pages&lt;/a&gt; of their own directly from a
 repository. The web site generation package that GitHub recommends is
-&lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;, written in Ruby. Since I'm a bigger fan of &lt;a href="https://python.org"&gt;Python&lt;/a&gt;, I
-went with &lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt; instead.&lt;/p&gt;
-&lt;p&gt;I'll describe how to install Pelican, set up your GitHub repository
-and publish your first article. &lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;The Basics&lt;/strong&gt;&lt;/h3&gt;
+&lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;, written in Ruby. Since I&amp;#8217;m a bigger fan of &lt;a href="https://python.org"&gt;Python&lt;/a&gt;, I
+went with &lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;&amp;nbsp;instead.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ll describe how to install Pelican, set up your GitHub repository
+and publish your first&amp;nbsp;article. &lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;The&amp;nbsp;Basics&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Pelican and Jekyll both transform content written in &lt;a href="https://guides.github.com/features/mastering-markdown"&gt;Markdown&lt;/a&gt; or
-&lt;a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;ReStructured Text&lt;/a&gt; into HTML and generate a static web site. Both
+&lt;a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;ReStructured Text&lt;/a&gt; into &lt;span class="caps"&gt;HTML&lt;/span&gt; and generate a static web site. Both
 generators support themes which allow for infinite amounts of
-customization. We'll install pelican, run a quick start helper, write
-some Markdown files and then publish our website to GitHub.&lt;/p&gt;
-&lt;p&gt;Easy peasy.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Installing Pelican &amp;amp; Creating the Repo&lt;/strong&gt;&lt;/h3&gt;
+customization. We&amp;#8217;ll install pelican, run a quick start helper, write
+some Markdown files and then publish our website to&amp;nbsp;GitHub.&lt;/p&gt;
+&lt;p&gt;Easy&amp;nbsp;peasy.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Installing Pelican &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Creating the&amp;nbsp;Repo&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;First things first, you need pelican (and ghp-import) installed on
 your local machine.  This is super easy with the pip, the python package
-installation tool (you have pip right?):&lt;/p&gt;
+installation tool (you have pip&amp;nbsp;right?):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next, open up a browser and create a new repository on GitHub for your
-new sweet blog. Name it as follows (use your GitHub user name):&lt;/p&gt;
+new sweet blog. Name it as follows (use your GitHub user&amp;nbsp;name):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://GitHub.com/username/username.github.io
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;and leave it empty, we will fill it up with compelling blog content in
-a second.&lt;/p&gt;
+a&amp;nbsp;second.&lt;/p&gt;
 &lt;p&gt;Using a command-line (you command-line right?), clone your empty git
-repository to your local machine:&lt;/p&gt;
+repository to your local&amp;nbsp;machine:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://GitHub.com/username/username.github.io blog
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;&lt;strong&gt;That One Weird Trick...&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Now here's the trick with publishing web content on GitHub which isn't
+&lt;h3&gt;&lt;strong&gt;That One Weird&amp;nbsp;Trick&amp;#8230;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Now here&amp;#8217;s the trick with publishing web content on GitHub which isn&amp;#8217;t
 super obvious. For user pages, pages hosted in repos named
 &lt;em&gt;username.github.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt;
-branch. But we don't want to publish all the pelican configuration
+branch. But we don&amp;#8217;t want to publish all the pelican configuration
 files and whatnot to &lt;code&gt;master&lt;/code&gt;, just the web content. So we keep the
 pelican configuration and the raw content in a seperate branch that I
-like to call 'content'. You can call it whatever you want, but I'll
-just assume you called it content too.&lt;/p&gt;
+like to call &amp;#8216;content&amp;#8217;. You can call it whatever you want, but I&amp;#8217;ll
+just assume you called it content&amp;nbsp;too.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git checkout -b content
 Switched to a new branch &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;&lt;strong&gt;Configuring Pelican&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;strong&gt;Configuring&amp;nbsp;Pelican&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Now, here comes the content configuration. Pelican provides a great
-initialization tool called 'pelican-quickstart' that will ask you a
-series of questions about your blog.&lt;/p&gt;
+initialization tool called &amp;#8216;pelican-quickstart&amp;#8217; that will ask you a
+series of questions about your&amp;nbsp;blog.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-quickstart
 Welcome to pelican-quickstart v3.7.1.
 
@@ -595,15 +594,15 @@ Done. Your new project is available at /Users/username/blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The only questions I didn't take the defaults on were:&lt;/p&gt;
+&lt;p&gt;The only questions I didn&amp;#8217;t take the defaults on&amp;nbsp;were:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;web site title&lt;/li&gt;
-&lt;li&gt;web site author&lt;/li&gt;
-&lt;li&gt;time zone&lt;/li&gt;
-&lt;li&gt;upload to GitHub&lt;/li&gt;
+&lt;li&gt;web site&amp;nbsp;title&lt;/li&gt;
+&lt;li&gt;web site&amp;nbsp;author&lt;/li&gt;
+&lt;li&gt;time&amp;nbsp;zone&lt;/li&gt;
+&lt;li&gt;upload to&amp;nbsp;GitHub&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After answering all the questions, pelican leaves the following
-offerings in the current directory:&lt;/p&gt;
+offerings in the current&amp;nbsp;directory:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls
 Makefile        content/    develop_server.sh*
 fabfile.py      output/     pelicanconf.py
@@ -612,24 +611,24 @@ publishconf.py
 
 
 &lt;p&gt;You can go checkout the &lt;a href="https://docs.getpelican.com"&gt;Pelican docs&lt;/a&gt; to find out how to use
-all of those files, but we're all about getting things down &lt;em&gt;right now&lt;/em&gt;.
-No, I haven't read the docs yet either.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Forging On&lt;/strong&gt;&lt;/h3&gt;
+all of those files, but we&amp;#8217;re all about getting things down &lt;em&gt;right now&lt;/em&gt;.
+No, I haven&amp;#8217;t read the docs yet&amp;nbsp;either.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Forging&amp;nbsp;On&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add .
 $ git commit -m &lt;span class="s1"&gt;&amp;#39;initial pelican commit to content&amp;#39;&lt;/span&gt;
 $ git push origin content
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;So here we've added all the pelican generated files to the &lt;code&gt;content&lt;/code&gt;
+&lt;p&gt;So here we&amp;#8217;ve added all the pelican generated files to the &lt;code&gt;content&lt;/code&gt;
 branch of the local git repo, commited the changes and then pushed the
 local changes to the remote repo hosted on GitHub. Not super exciting,
-but it will be handy if we need to revert edits to one of these files.&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Finally Getting Somewhere&lt;/strong&gt;&lt;/h3&gt;
+but it will be handy if we need to revert edits to one of these&amp;nbsp;files.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Finally Getting&amp;nbsp;Somewhere&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Ok, now we get bloggy! All of your blog posts, photos, images, pdfs,
 etc will live in the &lt;code&gt;content&lt;/code&gt; directory which is initially
-empty. I'll talk you thru creating a first post and an 'About' page
-with a photo.&lt;/p&gt;
+empty. I&amp;#8217;ll talk you thru creating a first post and an &amp;#8216;About&amp;#8217; page
+with a&amp;nbsp;photo.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; content
 $ mkdir pages images
 $ cp /Users/username/SecretStash/HotPhotoOfMe.jpg images
@@ -639,7 +638,7 @@ $ touch pages/about.md
 
 
 &lt;p&gt;Next open the empty file &lt;code&gt;first-post.md&lt;/code&gt; in your favorite editor
-and add the following text:&lt;/p&gt;
+and add the following&amp;nbsp;text:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Sweet&lt;/span&gt; &lt;span class="n"&gt;New&lt;/span&gt; &lt;span class="n"&gt;Blog&lt;/span&gt;
 &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="n"&gt;Here&lt;/span&gt;
@@ -654,8 +653,8 @@ and add the following text:&lt;/p&gt;
 
 &lt;p&gt;The first three lines are metadata that pelican uses to organize things. There
 are lots of different metadata you can put there, again the docs are your best
-bet for learning more about them.&lt;/p&gt;
-&lt;p&gt;Now we'll open up the empty file &lt;code&gt;pages/about.md&lt;/code&gt; and add this text:&lt;/p&gt;
+bet for learning more about&amp;nbsp;them.&lt;/p&gt;
+&lt;p&gt;Now we&amp;#8217;ll open up the empty file &lt;code&gt;pages/about.md&lt;/code&gt; and add this&amp;nbsp;text:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;About&lt;/span&gt;
 &lt;span class="nl"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
@@ -672,12 +671,12 @@ bet for learning more about them.&lt;/p&gt;
 
 
 &lt;p&gt;So now we have three new pieces of web content in our content
-directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
+directory.  Of the content branch. That&amp;#8217;s a lot of&amp;nbsp;content.&lt;/p&gt;
 &lt;h3&gt;&lt;strong&gt;Publishing&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Don't worry, the pay off is coming!&lt;/p&gt;
-&lt;p&gt;All that's left to do is:&lt;/p&gt;
+&lt;p&gt;Don&amp;#8217;t worry, the pay off is&amp;nbsp;coming!&lt;/p&gt;
+&lt;p&gt;All that&amp;#8217;s left to do&amp;nbsp;is:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Run pelican to generate the static HTML files in &lt;code&gt;output&lt;/code&gt;:&lt;/li&gt;
+&lt;li&gt;Run pelican to generate the static &lt;span class="caps"&gt;HTML&lt;/span&gt; files in &lt;code&gt;output&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ pelican content -o output -s publishconf.py
 &lt;/pre&gt;&lt;/div&gt;
@@ -691,14 +690,14 @@ directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
 
 
 &lt;ul&gt;
-&lt;li&gt;Push the local master branch to the remote repo:&lt;/li&gt;
+&lt;li&gt;Push the local master branch to the remote&amp;nbsp;repo:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ git push origin master
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
-&lt;li&gt;Commit and push the new content to the 'content' branch:&lt;/li&gt;
+&lt;li&gt;Commit and push the new content to the &amp;#8216;content&amp;#8217;&amp;nbsp;branch:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   $ git add content
    $ git commit -m &lt;span class="s1"&gt;&amp;#39;added a first post, a photo and an about page&amp;#39;&lt;/span&gt;
@@ -706,61 +705,60 @@ directory.  Of the content branch. That's a lot of content.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;&lt;strong&gt;OMG I Did It!&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Now the exciting part is here, when you get to see what you've
-published for everyone to see! Type into your browser the URL:&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;span class="caps"&gt;OMG&lt;/span&gt; I Did&amp;nbsp;It!&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Now the exciting part is here, when you get to see what you&amp;#8217;ve
+published for everyone to see! Type into your browser the &lt;span class="caps"&gt;URL&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://username.github.io
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Congratulations on your new blog, self-published on GitHub!&lt;/p&gt;</content><category term="python"></category><category term="blog"></category><category term="pelican"></category><category term="GitHub"></category></entry><entry><title>A Short Primer on Assembers, Compilers and Interpreters</title><link href="https://blog.xenolab.com/2018-10-03-primer.html" rel="alternate"></link><published>2018-10-02T00:00:00-05:00</published><updated>2018-10-02T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-02:/2018-10-03-primer.html</id><summary type="html">&lt;p&gt;A gentle introduction to the historical evolution of programming practices.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;strong&gt;Beginnings&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Congratulations on your new blog, self-published on&amp;nbsp;GitHub!&lt;/p&gt;</content><category term="python"></category><category term="blog"></category><category term="pelican"></category><category term="GitHub"></category></entry><entry><title>A Short Primer on Assembers, Compilers and Interpreters</title><link href="https://blog.xenolab.com/a-short-primer-on-assembers-compilers-and-interpreters.html" rel="alternate"></link><published>2018-10-03T00:00:00-05:00</published><updated>2018-10-03T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-03:/a-short-primer-on-assembers-compilers-and-interpreters.html</id><summary type="html">&lt;p&gt;A gentle introduction to the historical evolution of programming&amp;nbsp;practices.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;strong&gt;Beginnings&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;In the early days of computing, hardware was expensive and programmers
-were cheap. In fact, programmers were so cheap they weren't even
-called "programmers" and were in fact usually mathematicans or
+were cheap. In fact, programmers were so cheap they weren&amp;#8217;t even
+called &amp;#8220;programmers&amp;#8221; and were in fact usually mathematicans or
 electrical engineers. Early computers were used to solve complex
 mathematical problems quickly, so mathematicans were a natural fit for
-the job of "programming".&lt;/p&gt;
-&lt;p&gt;First a little background on what a program is.&lt;/p&gt;
-&lt;p&gt;Computers can't do anything by themselves, they require programs to
+the job of&amp;nbsp;&amp;#8220;programming&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;First a little background on what a program&amp;nbsp;is.&lt;/p&gt;
+&lt;p&gt;Computers can&amp;#8217;t do anything by themselves, they require programs to
 drive their behavior. Programs can be thought of as very detailed
 recipes that take an input and produce an output. The steps in the
 recipe are composed of instructions that operate on data. While that
-sounds complicated, you probably know how this statement works:&lt;/p&gt;
-&lt;p&gt;1 + 2 = 3&lt;/p&gt;
-&lt;p&gt;The plus sign is the "instruction" while the numbers 1 and 2 are the
+sounds complicated, you probably know how this statement&amp;nbsp;works:&lt;/p&gt;
+&lt;p&gt;1 + 2 =&amp;nbsp;3&lt;/p&gt;
+&lt;p&gt;The plus sign is the &amp;#8220;instruction&amp;#8221; while the numbers 1 and 2 are the
 data. Mathematically, the equal sign indicates that both sides of an
-equation are "equivalent", however most computer languages use some
-variant of equals to mean "assignment". If a computer were executing
-that statment, it would store the results of the addition, the "3",
-somewhere in memory.&lt;/p&gt;
+equation are &amp;#8220;equivalent&amp;#8221;, however most computer languages use some
+variant of equals to mean &amp;#8220;assignment&amp;#8221;. If a computer were executing
+that statment, it would store the results of the addition, the &amp;#8220;3&amp;#8221;,
+somewhere in&amp;nbsp;memory.&lt;/p&gt;
 &lt;p&gt;Computers know how to do math with numbers and move data around the
-machine's memory heirarchy. I won't say too much about memory except
+machine&amp;#8217;s memory heirarchy. I won&amp;#8217;t say too much about memory except
 to say it generally comes in two different flavors: fast/small, and
-slow/big. CPU registers are very fast, very small and act as
+slow/big. &lt;span class="caps"&gt;CPU&lt;/span&gt; registers are very fast, very small and act as
 scratch pads. Main memory is typically very big and not nearly as
 fast as register memory. CPUs shuffle the data they are working with
-from main memory to registers and back again while a program executes.&lt;/p&gt;
+from main memory to registers and back again while a program&amp;nbsp;executes.&lt;/p&gt;
 &lt;h2&gt;&lt;strong&gt;Assembler&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Computers were very expensive and people were cheap. Programmers spent
 endless hours translating hand written math into computer instructions
 that the computer could execute. The very first computers had terrible
 user interfaces, some only consisting of toggle switches on the front
-panel. The switches represented 1s and 0s in a single "word" of
+panel. The switches represented 1s and 0s in a single &amp;#8220;word&amp;#8221; of
 memory. The programmer would configure a word, indicate where to store
-it and then commit the word to memory. It was time consuming and error
-prone.&lt;/p&gt;
-&lt;p&gt;Eventually, an &lt;a href="https://en.wikipedia.org/wiki/Nathaniel_Rochester_%28computer_scientist%29"&gt;electrical engineer&lt;/a&gt; decided his time wasn't cheap
+it and then commit the word to memory. It was time consuming and error&amp;nbsp;prone.&lt;/p&gt;
+&lt;p&gt;Eventually, an &lt;a href="https://en.wikipedia.org/wiki/Nathaniel_Rochester_%28computer_scientist%29"&gt;electrical engineer&lt;/a&gt; decided his time wasn&amp;#8217;t cheap
 and wrote a program whose input was a recipe expressed in terms people
 could read and output a computer readable version. This was the first
-"assembler" and it was very controversial. The people that owned the
-expensive machines didn't want to "waste" compute time on a task that
+&amp;#8220;assembler&amp;#8221; and it was very controversial. The people that owned the
+expensive machines didn&amp;#8217;t want to &amp;#8220;waste&amp;#8221; compute time on a task that
 people were already doing; albeit slowly and with errors. Over time,
 people came to appreciate the speed and accuracy of the assembler
-versus a hand-assembled program and the amount of "real work" done with
-the computer increased.&lt;/p&gt;
+versus a hand-assembled program and the amount of &amp;#8220;real work&amp;#8221; done with
+the computer&amp;nbsp;increased.&lt;/p&gt;
 &lt;p&gt;While assembler programs were a big step up from toggling bit patterns
 into the front panel of a machine, they were still pretty specialized.
-The addition example from above might have looked something like this:&lt;/p&gt;
+The addition example from above might have looked something like&amp;nbsp;this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="err"&gt;01&lt;/span&gt;  &lt;span class="nf"&gt;MOV&lt;/span&gt; &lt;span class="no"&gt;R0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
    &lt;span class="err"&gt;02&lt;/span&gt;  &lt;span class="nf"&gt;MOV&lt;/span&gt; &lt;span class="no"&gt;R1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
    &lt;span class="err"&gt;03&lt;/span&gt;  &lt;span class="nf"&gt;ADD&lt;/span&gt; &lt;span class="no"&gt;R0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;R1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;R2&lt;/span&gt;
@@ -771,13 +769,12 @@ The addition example from above might have looked something like this:&lt;/p&gt;
 
 &lt;p&gt;Each line is a computer instruction, beginning with a shorthand name
 of the instruction followed by the data the instruction works on. This
-little program will first "move" the value 1 into a register called
+little program will first &amp;#8220;move&amp;#8221; the value 1 into a register called
 R0, then 2 into register R1. Line 03 adds the contents of registers R0
 and R1 and stores the resulting value into register R2. Finally, lines
 04 and 05 identify where the result should be stored in main memory
 (address 64).  Mananaging where data is stored in memory is one of the
-most time consuming and error-prone parts of writing computer
-programs.&lt;/p&gt;
+most time consuming and error-prone parts of writing computer&amp;nbsp;programs.&lt;/p&gt;
 &lt;h2&gt;&lt;strong&gt;Compiler&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Assembly was much better than writing computer instructions by hand,
 however early programmers yearned to write programs like they were
@@ -785,10 +782,10 @@ accustomed to writing mathematical formulae. This drove the
 development of higher level compiled languages, some of which are
 historical footnotes and others are still in use today. &lt;a href="https://en.wikipedia.org/wiki/ALGO"&gt;Algo&lt;/a&gt; is
 one such footnote, while real problems continue to be solved today
-with languages like &lt;a href="https://en.wikipedia.org/wiki/Fortran"&gt;FORTRAN&lt;/a&gt; and &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)"&gt;C&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;These new "high level" langagues allowed programmers to write their
+with languages like &lt;a href="https://en.wikipedia.org/wiki/Fortran"&gt;&lt;span class="caps"&gt;FORTRAN&lt;/span&gt;&lt;/a&gt; and &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)"&gt;C&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These new &amp;#8220;high level&amp;#8221; langagues allowed programmers to write their
 programs in simpler terms. In the C language, our addition assembly
-program would be written as:&lt;/p&gt;
+program would be written&amp;nbsp;as:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -796,59 +793,58 @@ program would be written as:&lt;/p&gt;
 
 &lt;p&gt;The first statement describes a piece of memory that the program
 will use. In this case, the memory should be the size of an integer
-and it's name is 'x'. The second statement is the addition, although
-written "backwards". A C programmer would read that as "X is assigned
-the result of one plus two". Notice the programmer doesn't need to
-say where to put 'x' in memory, the compiler takes care of that.&lt;/p&gt;
-&lt;p&gt;A new type of program, called a "compiler", would turn the program
+and it&amp;#8217;s name is &amp;#8216;x&amp;#8217;. The second statement is the addition, although
+written &amp;#8220;backwards&amp;#8221;. A C programmer would read that as &amp;#8220;X is assigned
+the result of one plus two&amp;#8221;. Notice the programmer doesn&amp;#8217;t need to
+say where to put &amp;#8216;x&amp;#8217; in memory, the compiler takes care of&amp;nbsp;that.&lt;/p&gt;
+&lt;p&gt;A new type of program, called a &amp;#8220;compiler&amp;#8221;, would turn the program
 written in a high level language into an assembly language version and
 then finally run it thru the assembler to produce a machine-readable
 version of the program. This composition of programs is often called a
-"tool chain", in that one program's output is sent directly to another
-program's input.&lt;/p&gt;
+&amp;#8220;tool chain&amp;#8221;, in that one program&amp;#8217;s output is sent directly to another
+program&amp;#8217;s&amp;nbsp;input.&lt;/p&gt;
 &lt;p&gt;The huge advantage of compiled languages over assembly language
 programs was porting from one computer model or brand to another. In
 the early days of computing there was an explosion of different types
-of computing hardware from companies like IBM, Digital Equipment
-Corporation, Texas Instruments, UNIVAC, Hewlet Packard and others.
+of computing hardware from companies like &lt;span class="caps"&gt;IBM&lt;/span&gt;, Digital Equipment
+Corporation, Texas Instruments, &lt;span class="caps"&gt;UNIVAC&lt;/span&gt;, Hewlet Packard and others.
 None of these computers shared much in common besides needing to be
-plugged in to an electrical power supply. Memory and CPU architectures
+plugged in to an electrical power supply. Memory and &lt;span class="caps"&gt;CPU&lt;/span&gt; architectures
 differed wildly and it often took man-years to translate programs from
-one computer to another.&lt;/p&gt;
+one computer to&amp;nbsp;another.&lt;/p&gt;
 &lt;p&gt;With high level languages, it was only necessary to port the compiler
 tool chain to the new platfrom. Once the compiler was available, high
 level language programs could be re-compiled for the new computer with
 little or no modification. Compliation of high level languages was
-truly revolutionary.&lt;/p&gt;
+truly&amp;nbsp;revolutionary.&lt;/p&gt;
 &lt;p&gt;Life was very good now for programmers. It was much easier to express
 the problems they wanted to solve using high level languages. The cost
 of computer hardware was falling dramatically due to advances in
 semiconductors and the invention of integrated chips. Computers were
 getting faster and more capable in addition to become much less
 expensive. At some point, in the late 80s possibly, there was an
-inversion and programmers became more expensive than the hardware they
-used.&lt;/p&gt;
+inversion and programmers became more expensive than the hardware they&amp;nbsp;used.&lt;/p&gt;
 &lt;h2&gt;&lt;strong&gt;Interpreter&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Over time a new programming model arose where a special program
-called an "interpreter" would read a program and turn it into computer
+called an &amp;#8220;interpreter&amp;#8221; would read a program and turn it into computer
 instructions to be executed immediately. The interpreter takes the
 program as input and interprets it into an intermediate form, much
 like a compiler. Unlike a compiler, the interpreter then executes the
 intermediate form of the program. This happens every time an interpreted
 program runs, whereas a compiled program is only compiled one time and
-the computer only has to execute the machine instructions "as written".&lt;/p&gt;
-&lt;p&gt;As a sidenote, when people say that "interpreted programs are slow",
+the computer only has to execute the machine instructions &amp;#8220;as&amp;nbsp;written&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;As a sidenote, when people say that &amp;#8220;interpreted programs are slow&amp;#8221;,
 that is the main source of the perceived lack of performance. Modern
-computers are so amazingly capable that most people aren't usually
-able to tell the difference between compiled and interpreted programs.&lt;/p&gt;
-&lt;p&gt;Interpreted programs, sometimes called "scripts", are even easier to
-port to different hardware platforms. Because the script doesn't
+computers are so amazingly capable that most people aren&amp;#8217;t usually
+able to tell the difference between compiled and interpreted&amp;nbsp;programs.&lt;/p&gt;
+&lt;p&gt;Interpreted programs, sometimes called &amp;#8220;scripts&amp;#8221;, are even easier to
+port to different hardware platforms. Because the script doesn&amp;#8217;t
 contain any machine specific instructions, a single version of a
 program can run on many different computers without change. The
 catch of course is the interpreter must be ported to the new machine
-to make that possible.&lt;/p&gt;
+to make that&amp;nbsp;possible.&lt;/p&gt;
 &lt;p&gt;One example of a very popular interpreted language is &lt;a href="https://python.org"&gt;Python&lt;/a&gt;. A
-complete python expression of our addition problem would be:&lt;/p&gt;
+complete python expression of our addition problem would&amp;nbsp;be:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -857,4 +853,4 @@ complete python expression of our addition problem would be:&lt;/p&gt;
 initialization statement. There are other differences which are beyond
 the scope of this article, but you can see that we are able to write a
 computer program that is very close to how a mathematician would write
-it by hand with pencil and paper.&lt;/p&gt;</content><category term="computer"></category><category term="programming"></category><category term="history"></category></entry></feed>
+it by hand with pencil and&amp;nbsp;paper.&lt;/p&gt;</content><category term="computer"></category><category term="programming"></category><category term="history"></category></entry></feed>

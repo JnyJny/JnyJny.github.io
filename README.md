@@ -1,8 +1,8 @@
 ## Xeno:Lab Blog
 
-0. Install `pelican` and `ghp-import`:
+0. Install `pelican` and `ghp-import` and dependencies:
 ```
-   $ pip install pelican ghp-import
+   $ pip install -r requirements.txt
 ```
 
 1. Add new content to the `content` branch, **never** `master`.
@@ -11,10 +11,10 @@
    $ git checkout content
 ```
    
-2. Add new files to content/YYYY-MM-DD-slug.md
+2. Add new files to content/YYYY/MM/DD/slug.md
 
 ```
-   $ vi content/2018-10-03-awesome.md
+   $ vi content/2018/10/03/awesome.md
 ```
 
 3. Publish to `master` branch using the Makefile

@@ -64,12 +64,15 @@ $ cd blog
 
 Now here's the trick with publishing web content on GitHub which isn't
 super obvious. For user pages, pages hosted in repos named
-_username.github.io_, the content is served from the `master`
-branch. But we don't want to publish all the pelican configuration
-files and whatnot to `master`, just the web content. So we keep the
-pelican configuration and the raw content in a seperate branch that I
-like to call 'content'. You can call it whatever you want, but I'll
-just assume you called it content too.
+_username.github.io_, the content is served from the `master` branch.
+
+I strongly prefer to not keep all the pelican configuration files
+and raw Markdown files in `master`, just the web content. So I keep
+the pelican configuration and the raw content in a seperate branch
+that I like to call 'content'. You can call it whatever you want, but
+I'll just assume you called it content too. I like this organization
+since I can completely throw away all the files in `master` and
+re-populate it with the `content` branch.
 
 ```bash
 $ git checkout -b content
@@ -197,7 +200,7 @@ and I would probably have been burned at the stake.
 ```
 
 So now we have three new pieces of web content in our content
-directory.  Of the content branch. That's a lot of content.
+directory. Of the content branch. That's a lot of content.
 
 ### **Publishing**
 

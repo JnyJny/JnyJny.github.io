@@ -550,12 +550,14 @@ $ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
 &lt;h3&gt;&lt;strong&gt;That One Weird&amp;nbsp;Trick&amp;#8230;&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Now here&amp;#8217;s the trick with publishing web content on GitHub which isn&amp;#8217;t
 super obvious. For user pages, pages hosted in repos named
-&lt;em&gt;username.github.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt;
-branch. But we don&amp;#8217;t want to publish all the pelican configuration
-files and whatnot to &lt;code&gt;master&lt;/code&gt;, just the web content. So we keep the
-pelican configuration and the raw content in a seperate branch that I
-like to call &amp;#8216;content&amp;#8217;. You can call it whatever you want, but I&amp;#8217;ll
-just assume you called it content&amp;nbsp;too.&lt;/p&gt;
+&lt;em&gt;username.github.io&lt;/em&gt;, the content is served from the &lt;code&gt;master&lt;/code&gt; branch.&lt;/p&gt;
+&lt;p&gt;I strongly prefer to not keep all the pelican configuration files
+and raw Markdown files in &lt;code&gt;master&lt;/code&gt;, just the web content. So I keep
+the pelican configuration and the raw content in a seperate branch
+that I like to call &amp;#8216;content&amp;#8217;. You can call it whatever you want, but
+I&amp;#8217;ll just assume you called it content too. I like this organization
+since I can completely throw away all the files in &lt;code&gt;master&lt;/code&gt; and
+re-populate it with the &lt;code&gt;content&lt;/code&gt; branch.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git checkout -b content
 Switched to a new branch &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -671,7 +673,7 @@ bet for learning more about&amp;nbsp;them.&lt;/p&gt;
 
 
 &lt;p&gt;So now we have three new pieces of web content in our content
-directory.  Of the content branch. That&amp;#8217;s a lot of&amp;nbsp;content.&lt;/p&gt;
+directory. Of the content branch. That&amp;#8217;s a lot of&amp;nbsp;content.&lt;/p&gt;
 &lt;h3&gt;&lt;strong&gt;Publishing&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Don&amp;#8217;t worry, the pay off is&amp;nbsp;coming!&lt;/p&gt;
 &lt;p&gt;All that&amp;#8217;s left to do&amp;nbsp;is:&lt;/p&gt;

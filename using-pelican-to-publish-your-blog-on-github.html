@@ -109,12 +109,14 @@ $ <span class="nb">cd</span> blog
 <h3><strong>That One Weird&nbsp;Trick&#8230;</strong></h3>
 <p>Now here&#8217;s the trick with publishing web content on GitHub which isn&#8217;t
 super obvious. For user pages, pages hosted in repos named
-<em>username.github.io</em>, the content is served from the <code>master</code>
-branch. But we don&#8217;t want to publish all the pelican configuration
-files and whatnot to <code>master</code>, just the web content. So we keep the
-pelican configuration and the raw content in a seperate branch that I
-like to call &#8216;content&#8217;. You can call it whatever you want, but I&#8217;ll
-just assume you called it content&nbsp;too.</p>
+<em>username.github.io</em>, the content is served from the <code>master</code> branch.</p>
+<p>I strongly prefer to not keep all the pelican configuration files
+and raw Markdown files in <code>master</code>, just the web content. So I keep
+the pelican configuration and the raw content in a seperate branch
+that I like to call &#8216;content&#8217;. You can call it whatever you want, but
+I&#8217;ll just assume you called it content too. I like this organization
+since I can completely throw away all the files in <code>master</code> and
+re-populate it with the <code>content</code> branch.</p>
 <div class="highlight"><pre><span></span>$ git checkout -b content
 Switched to a new branch <span class="s1">&#39;content&#39;</span>
 </pre></div>
@@ -230,7 +232,7 @@ bet for learning more about&nbsp;them.</p>
 
 
 <p>So now we have three new pieces of web content in our content
-directory.  Of the content branch. That&#8217;s a lot of&nbsp;content.</p>
+directory. Of the content branch. That&#8217;s a lot of&nbsp;content.</p>
 <h3><strong>Publishing</strong></h3>
 <p>Don&#8217;t worry, the pay off is&nbsp;coming!</p>
 <p>All that&#8217;s left to do&nbsp;is:</p>
@@ -290,6 +292,7 @@ published for everyone to see! Type into your browser the <span class="caps">URL
 	          <ul>
 	              <li class="active"><a href="https://blog.xenolab.com/category/howto.html">HowTo</a></li>
 	              <li ><a href="https://blog.xenolab.com/category/primers.html">Primers</a></li>
+	              <li ><a href="https://blog.xenolab.com/category/test.html">test</a></li>
 	          </ul>
 	        </nav>
 

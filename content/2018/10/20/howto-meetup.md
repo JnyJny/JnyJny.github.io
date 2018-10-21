@@ -1,7 +1,7 @@
 title: How I Started a Python Meetup
 category: HowTo
 author: ejo
-summary: 
+summary: Sometimes you just have to do things yourself.
 tags: howto meetup
 date: Sun Oct 21 10:57:00 2018
 

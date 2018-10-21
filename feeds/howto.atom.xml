@@ -1,5 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab - HowTo</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/howto.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-06T00:00:00-05:00</updated><entry><title>How To Write a C Program Like Me</title><link href="https://blog.xenolab.com/how-to-write-a-c-program-like-me.html" rel="alternate"></link><published>2018-10-06T00:00:00-05:00</published><updated>2018-10-06T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-06:/how-to-write-a-c-program-like-me.html</id><summary type="html">&lt;p&gt;Learn how to write a good C main&amp;nbsp;function.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;C is&amp;nbsp;Dumb&lt;/strong&gt;&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Xeno:Lab - HowTo</title><link href="https://blog.xenolab.com/" rel="alternate"></link><link href="https://blog.xenolab.com/feeds/howto.atom.xml" rel="self"></link><id>https://blog.xenolab.com/</id><updated>2018-10-21T10:57:00-05:00</updated><entry><title>How I Started a Python Meetup</title><link href="https://blog.xenolab.com/how-i-started-a-python-meetup.html" rel="alternate"></link><published>2018-10-21T10:57:00-05:00</published><updated>2018-10-21T10:57:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-21:/how-i-started-a-python-meetup.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;&lt;strong&gt;Setting The&amp;nbsp;Scene&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;I live just outside of Austin, Texas which is sometimes referred to as
+&amp;#8220;Silicon Hills&amp;#8221;. There are many large computer and technology
+companies here; &lt;span class="caps"&gt;IBM&lt;/span&gt;, &lt;span class="caps"&gt;AMD&lt;/span&gt;, Apple, Oracle, &lt;span class="caps"&gt;NVIDA&lt;/span&gt; to name just a
+handful. Just as importantly, there is a teeming ecology of smaller
+tech companies which provide goods and services across the entire
+gamut of the technology space. Austin is awash in nerds and geeks of
+every&amp;nbsp;stripe.&lt;/p&gt;
+&lt;p&gt;Given all these talented people doing cool stuff, there are naturally
+&lt;a href="https://meetup.com"&gt;meetups&lt;/a&gt; all over the greater Austin area where people get
+together, network and share their knowledge. I really wanted to attend
+the &lt;a href="https://meetup.com/austinpython"&gt;Austin Python&lt;/a&gt; meetup but their schedule and location wasn&amp;#8217;t a
+good fit for&amp;nbsp;me.&lt;/p&gt;
+&lt;p&gt;I was feeling sorry for myself, discussing the situation with a friend
+on the excellent &lt;a href="https://pybites.slack.com"&gt;PyBites Slack&lt;/a&gt; and he told me he&amp;#8217;d just started a
+Python meetup. And he&amp;#8217;d already had a meeting. I was &lt;a href="https://en.oxforddictionaries.com/definition/us/gobsmacked"&gt;gobsmacked&lt;/a&gt;
+and more than a little jealous of his initiative! I was motivated right
+there to stop waiting for the right meetup for me and make it&amp;nbsp;happen.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;What Have I&amp;nbsp;Done?&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;It doesn&amp;#8217;t take much to create a new organization on meetup.com. You
+are prompted for the&amp;nbsp;following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A regional&amp;nbsp;location&lt;/li&gt;
+&lt;li&gt;An organization&amp;nbsp;name&lt;/li&gt;
+&lt;li&gt;Who the group is&amp;nbsp;for.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then they will ask you for money. To be honest, I did this late at
+night and the details on the cost are fuzzy. I signed up for a six
+month &amp;#8220;subscription&amp;#8221; and pushed the &amp;#8216;Pay&amp;#8217; button. And then I thought
+to myself &amp;#8220;Well great, now&amp;nbsp;what?&amp;#8221;.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;If You Build It, Will They&amp;nbsp;Come? &lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The next morning, I sat down and started digging into the tools
+provided by Meetup for groups. I hacked together a logo with the help
+of my exeedingly talented and patient wife and started branding the
+group meetup pages. I wrote some verbiage describing the kind of group
+I wanted to build and wrote some introductory text about&amp;nbsp;myself.&lt;/p&gt;
+&lt;p&gt;When all was said and done, I spent maybe two hours on the graphic
+design and copy writing. The group page looked a little less generic
+and the text was ernest and&amp;nbsp;forthcoming. &lt;/p&gt;
+&lt;p&gt;I spent some time discussing my efforts on Slack and received lots of
+positive reinforcement. Then I got my first notification from Meetup
+that someone had joined the Meetup! Wow talk about a rush! I wasn&amp;#8217;t
+entirely&amp;nbsp;alone!&lt;/p&gt;
+&lt;p&gt;That weekend, the membership for the group increased steadily and I
+soon found myself with over 50 people interested in the group I
+proposed. Quick side note, once you get over 50 people in your group
+Meetup will want to increase the fee they charge. I blindly paid the
+fee, caught up in the excitement of creating a new&amp;nbsp;community.&lt;/p&gt;
+&lt;p&gt;Ok, now it was time to get them to show up to a&amp;nbsp;meeting.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;The First&amp;nbsp;Meeting&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Meetups are notorius for creating a buzz around a topic, having a lot
+of people join up and then generating minimal attendence. I&amp;#8217;m guilty
+of this myself. It&amp;#8217;s pretty easy to click a button and say &amp;#8220;Yeah, I&amp;#8217;m
+kinda interested in that&amp;#8221;. Re-iterating my introverted tendencies,
+it&amp;#8217;s hard for me to work against personal inertia and show up to a
+meeting. And the little voice that whispers &lt;em&gt;&amp;#8220;they won&amp;#8217;t like your&amp;#8221;&lt;/em&gt; or
+&lt;em&gt;&amp;#8220;you&amp;#8217;re not a real programmer&amp;#8221;&lt;/em&gt; or &lt;em&gt;&amp;#8220;your socks aren&amp;#8217;t alphabetized
+yet&amp;#8221;&lt;/em&gt;. Two of those three thoughts really ocurred to&amp;nbsp;me.&lt;/p&gt;
+&lt;p&gt;Having experienced this phenomenon myself, I wanted our first meeting
+to be more of a social setting than a technical one. So I picked my
+favorite upscale bar for the following&amp;nbsp;reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Convenient to me&amp;nbsp;geographically.&lt;/li&gt;
+&lt;li&gt;I was comfortable&amp;nbsp;there.&lt;/li&gt;
+&lt;li&gt;Lots of room and table space for people to&amp;nbsp;talk.&lt;/li&gt;
+&lt;li&gt;Not crowded in the early afternoon on a&amp;nbsp;weekend.&lt;/li&gt;
+&lt;li&gt;Beer is a social&amp;nbsp;lubricant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I recognize that not everybody would be interested in adult beverages,
+but I am far more social after a pint of beer. Being in a comfortable
+setting let me be welcoming and open. It&amp;#8217;s super tough to show up out
+of the blue and meet strangers, so my goal was to greet everyone with
+a smile and a name&amp;nbsp;tag.&lt;/p&gt;
+&lt;p&gt;I crafted a meeting notice on Meetup and sent it out to the&amp;nbsp;membership.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Preparation &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;&amp;nbsp;Anticipation&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;m not going to lie. I was more than a little apprehensive about
+hosting a meeting. My very good reasons to be apprehensive&amp;nbsp;included:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No experience in running a&amp;nbsp;group&lt;/li&gt;
+&lt;li&gt;No experience hosting a&amp;nbsp;meeting&lt;/li&gt;
+&lt;li&gt;No experience running a&amp;nbsp;meeting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While I spun my wheels grappling with my &lt;a href="https://en.wikipedia.org/wiki/Impostor_syndrome"&gt;imposter syndrome&lt;/a&gt;, RSVPs
+started to come in. Actual people&amp;#8217;s actual names now associated with
+the nebulous idea of a &amp;#8220;python user group&amp;#8221;. I needed to seriously
+put my act together and make something&amp;nbsp;happen.&lt;/p&gt;
+&lt;p&gt;While I might not have experience at running a group, I definitely
+have been involved with different groups and I had ideas about the
+things that worked and didn&amp;#8217;t work for all of them. I haven&amp;#8217;t hosted a
+meeting, but I&amp;#8217;ve attended plenty. I haven&amp;#8217;t run a meeting, but I&amp;#8217;ve
+been to good, bad and horrible ones. Working from past experience, I
+started preparing for the two hour&amp;nbsp;meeting.&lt;/p&gt;
+&lt;p&gt;First, I knew I wanted those cheesy &amp;#8220;Hello My Name Is:&amp;#8221; stickers. I am
+terrible with names and I wanted to address any stressors in a new social
+situation. Knowing someone&amp;#8217;s name is a great way to build rapport and
+the nametags smooth over those awkward seconds when you forget the name
+of the person you just met. It feels like the kernel of community to&amp;nbsp;me.&lt;/p&gt;
+&lt;p&gt;Second, I wanted a clipboard because every &amp;#8220;serious&amp;#8221; organization has
+one (totally kidding, I just like clipbards).  I found a cheap
+clipboard with integrated storage at the office supply store while
+looking for the nametags and sharpies and lamination materials. At
+home I printed out a 8.5x11&amp;#8221; group logo, laminated it and taped it to
+the front of the clipboard. Now I had a sign to set out on a table and
+a &amp;#8220;base of operations&amp;#8221;. I also tucked in a couple dozen sheets of blank
+paper and&amp;nbsp;pens.&lt;/p&gt;
+&lt;p&gt;Last, every fun computer group has a sticker for their laptop. At
+least as far as I know. I made a 2x3 inch design from my initial logo
+work and ordered a roll of 100 stickers from &lt;a href="https://stickermule.com"&gt;stickermule.com&lt;/a&gt;. 
+Huge shout out to StickerMule for getting the stickers to me in
+time for the&amp;nbsp;event!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sticker" src="https://blog.xenolab.com/images/nap_sticker.png"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;The First&amp;nbsp;Meeting&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;So you should probably contact your venue before scheduling your
+meetup. And you&amp;#8217;ve probably already guessed that advice like that is
+hard won. I showed up thirty minutes early for the meetup, ordered a
+beer and talked to the staff. Bringing in sixteen customers on a slow
+afternoon will make any bar happy, but I had no plan B if they
+would&amp;#8217;ve declined to host us. Lesson learned, call&amp;nbsp;ahead.&lt;/p&gt;
+&lt;p&gt;I sat down and filled out my name tag. I wanted to give people some
+ice breakers, so I wrote my name, my favorite operating system, my
+favorite editor and an interesting python&amp;nbsp;module.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Your Host" src="https://blog.xenolab.com/images/hello_my_name_is.png"&gt;&lt;/p&gt;
+&lt;p&gt;As folks began to filter in, I invited them to fill out a name tag and
+introduced them around. Pretty soon, I had over a dozen people talking
+to each other about python, the computing industry and just hanging
+out. It was totally&amp;nbsp;working!&lt;/p&gt;
+&lt;p&gt;My only goal for the meeting, beyond quaffing a beer or two, was to
+get some feedback on two things. First I wanted more ideas for places
+the group could meet. The bar is fine for a casual conversation,
+however everyone agreed it was too loud for a techincal
+discussion. And second, I wanted to find out what python topics people
+were interested in learning&amp;nbsp;about.&lt;/p&gt;
+&lt;p&gt;Rather than interrupt the social flow with me pontificating, I bashed
+together two sheets; one labeled &amp;#8220;Venue Ideas&amp;#8221; and the other &amp;#8220;10
+Minute Python Talk Topics&amp;#8221;. Those circulated through the group and at
+the end I didn&amp;#8217;t have much in the way of venues (that&amp;#8217;s a hard
+problem). But I did get a list of over a dozen python related topics
+that people were interested in learning about. That was huge. It gave
+me a guage of where people were at skill/experience wise and a roadmap
+for future&amp;nbsp;meetings.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;And Then It Was&amp;nbsp;Over&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The meeting lasted roughly two and half hours; thirty minutes longer
+than scheduled. I paid my tab and walked out with the last couple of
+people to leave. Everyone left with a sticker or two for their laptop
+and assurances that the next meeting would be somewhere quieter and
+have some actual python content. I was ridiculously happy with the
+meeting; people showed up, people talked and I got some feedback
+about the group and what other people were looking&amp;nbsp;for.&lt;/p&gt;
+&lt;p&gt;Honestly, I am humbled and thrilled at the turn out for the first
+meeting. More than 90% of people who &lt;span class="caps"&gt;RSVP&lt;/span&gt;&amp;#8217;ed attended and the
+anonymous event feedback was gratifyingly&amp;nbsp;positive.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Feedback Brag" src="https://blog.xenolab.com/images/anonymous_feedback.png"&gt;&lt;/p&gt;
+&lt;p&gt;I talked to a
+bunch of genuine people who shared a common interest and I am
+really looking forward to seeing what comes&amp;nbsp;next.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Next&amp;nbsp;Steps&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Our next meeting is tenatively scheduled for mid-November and I&amp;#8217;ve
+announced a simple agenda; I&amp;#8217;ll deliver a short 20-30 minute talk
+called &amp;#8220;Python Crash Course&amp;#8221; followed by 90 minutes of discussion and
+hacking. I&amp;#8217;m already working on the materials for the talk. With
+any luck, I&amp;#8217;ll have a quiet room that can accomodate 60&amp;nbsp;people.&lt;/p&gt;
+&lt;p&gt;If you can&amp;#8217;t find a community that suits your schedule or needs,
+consider building one from scratch. In my sample size of
+two (&lt;a href="https://meetup.com/pyandbeer"&gt;1&lt;/a&gt;,&lt;a href="https://meetup.com/north-austin-pythonistas"&gt;2&lt;/a&gt;), there are people in the same position that are just
+waiting for you to step up and do&amp;nbsp;it.&lt;/p&gt;</content><category term="howto meetup"></category></entry><entry><title>How To Write a C Program Like Me</title><link href="https://blog.xenolab.com/how-to-write-a-c-program-like-me.html" rel="alternate"></link><published>2018-10-06T00:00:00-05:00</published><updated>2018-10-06T00:00:00-05:00</updated><author><name>ejo</name></author><id>tag:blog.xenolab.com,2018-10-06:/how-to-write-a-c-program-like-me.html</id><summary type="html">&lt;p&gt;Learn how to write a good C main&amp;nbsp;function.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;&lt;strong&gt;C is&amp;nbsp;Dumb&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;I know, Python and Javascript are what the kids are writing all their
 crazy &amp;#8216;apps&amp;#8217; with these days. But don&amp;#8217;t be so quick to dismiss C, it&amp;#8217;s
 a capable and concise language that has a lot to offer. If you need

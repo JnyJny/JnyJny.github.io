@@ -55,14 +55,14 @@ and the text was ernest and forthcoming.
 
 I spent some time discussing my efforts on Slack and received lots of
 positive reinforcement. Then I got my first notification from Meetup
-that someone had joined the Meetup! Wow talk about a rush! I wasn't
+that someone had joined the group! Wow talk about a rush! I wasn't
 entirely alone!
 
-That weekend, the membership for the group increased steadily and I
-soon found myself with over 50 people interested in the group I
-proposed. Quick side note, once you get over 50 people in your group
-Meetup will want to increase the fee they charge. I blindly paid the
-fee, caught up in the excitement of creating a new community.
+That weekend the membership increased steadily and I soon found myself
+with over 50 people interested in the group I proposed. Quick side
+note, once you get over 50 people in your group Meetup will want to
+increase the fee they charge. I blindly paid it, caught up in the
+excitement of creating a new community.
 
 Ok, now it was time to get them to show up to a meeting.
 
@@ -73,7 +73,7 @@ of people join up and then generating minimal attendence. I'm guilty
 of this myself. It's pretty easy to click a button and say "Yeah, I'm
 kinda interested in that". Re-iterating my introverted tendencies,
 it's hard for me to work against personal inertia and show up to a
-meeting. And the little voice that whispers *"they won't like your"* or
+meeting. And the little voice that whispers *"they won't like you"* or
 *"you're not a real programmer"* or *"your socks aren't alphabetized
 yet"*. Two of those three thoughts really ocurred to me.
 

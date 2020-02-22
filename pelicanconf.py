@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'ejo'
-SITENAME = 'Xeno:Lab'
+SITENAME = 'JnyJny:Dev'
 SITEURL = ''
 SITETAG = '"Writing that doesn\'t compile"'
 

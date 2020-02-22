@@ -9,7 +9,7 @@ CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 GITHUB_PAGES_BRANCH= master
-GITHUB_CNAME= blog.xenolab.com
+GITHUB_CNAME= jnyjny.github.io
 
 PELICANOPTS += --theme theme
 
